@@ -1,4 +1,4 @@
-package exceptions;
+package ToyInterpreter.exceptions;
 
 public class NoProgramsAvailableException extends MyException{
     public NoProgramsAvailableException(){

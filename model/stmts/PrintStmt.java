@@ -1,11 +1,11 @@
-package model.stmts;
+package ToyInterpreter.model.stmts;
 
-import exceptions.MyException;
-import model.PrgState;
-import model.adts.IOut;
-import model.adts.ISymTable;
-import model.exps.Exp;
-import model.values.Value;
+import ToyInterpreter.exceptions.MyException;
+import ToyInterpreter.model.PrgState;
+import ToyInterpreter.model.adts.IOut;
+import ToyInterpreter.model.adts.ISymTable;
+import ToyInterpreter.model.exps.Exp;
+import ToyInterpreter.model.values.Value;
 
 public class PrintStmt implements Stmt{
 

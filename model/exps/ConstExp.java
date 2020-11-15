@@ -1,7 +1,7 @@
-package model.exps;
+package ToyInterpreter.model.exps;
 
-import model.adts.ISymTable;
-import model.values.Value;
+import ToyInterpreter.model.adts.ISymTable;
+import ToyInterpreter.model.values.Value;
 
 public class ConstExp implements Exp{
 

@@ -1,21 +1,21 @@
-package tests.testController;
+package ToyInterpreter.tests.testController;
 
-import controller.Controller;
-import exceptions.MyException;
-import exceptions.NoProgramsAvailableException;
-import model.PrgState;
-import model.adts.*;
-import model.exps.ConstExp;
-import model.exps.Exp;
-import model.exps.VarExp;
-import model.stmts.AssignStmt;
-import model.stmts.PrintStmt;
-import model.stmts.Stmt;
-import model.stmts.VarDecl;
-import model.types.*;
-import model.values.IntValue;
+import ToyInterpreter.controller.Controller;
+import ToyInterpreter.exceptions.MyException;
+import ToyInterpreter.exceptions.NoProgramsAvailableException;
+import ToyInterpreter.model.PrgState;
+import ToyInterpreter.model.adts.*;
+import ToyInterpreter.model.exps.ConstExp;
+import ToyInterpreter.model.exps.Exp;
+import ToyInterpreter.model.exps.VarExp;
+import ToyInterpreter.model.stmts.AssignStmt;
+import ToyInterpreter.model.stmts.PrintStmt;
+import ToyInterpreter.model.stmts.Stmt;
+import ToyInterpreter.model.stmts.VarDecl;
+import ToyInterpreter.model.types.*;
+import ToyInterpreter.model.values.IntValue;
 import org.junit.*;
-import repository.*;
+import ToyInterpreter.repository.*;
 import java.util.ArrayList;
 import java.util.List;
 

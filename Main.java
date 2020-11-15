@@ -1,19 +1,21 @@
-import controller.Controller;
-import exceptions.MyException;
-import model.PrgState;
-import model.adts.ExeStack;
-import model.adts.Out;
-import model.adts.SymTable;
-import model.exps.*;
-import model.stmts.*;
-import model.types.Bool;
-import model.types.Int;
-import model.values.False;
-import model.values.IntValue;
-import model.values.True;
-import repository.IRepo;
-import repository.Repo;
-import view.*;
+package ToyInterpreter;
+
+import ToyInterpreter.controller.Controller;
+import ToyInterpreter.exceptions.MyException;
+import ToyInterpreter.model.PrgState;
+import ToyInterpreter.model.adts.ExeStack;
+import ToyInterpreter.model.adts.Out;
+import ToyInterpreter.model.adts.SymTable;
+import ToyInterpreter.model.exps.*;
+import ToyInterpreter.model.stmts.*;
+import ToyInterpreter.model.types.Bool;
+import ToyInterpreter.model.types.Int;
+import ToyInterpreter.model.values.False;
+import ToyInterpreter.model.values.IntValue;
+import ToyInterpreter.model.values.True;
+import ToyInterpreter.repository.IRepo;
+import ToyInterpreter.repository.Repo;
+import ToyInterpreter.view.*;
 import java.util.ArrayList;
 import java.util.List;
 

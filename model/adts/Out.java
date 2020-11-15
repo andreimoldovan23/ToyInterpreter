@@ -1,11 +1,11 @@
-package model.adts;
+package ToyInterpreter.model.adts;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Out<T> implements IOut<T> {
 
-    private List<T> text;
+    private final List<T> text;
 
     public Out(){
         text = new ArrayList<>();

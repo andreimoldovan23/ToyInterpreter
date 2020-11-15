@@ -1,6 +1,6 @@
-package repository;
+package ToyInterpreter.repository;
 
-import exceptions.MyException;
+import ToyInterpreter.exceptions.MyException;
 import java.util.List;
 
 public interface IRepo<T> {

@@ -1,12 +1,12 @@
-package tests.testModel;
+package ToyInterpreter.tests.testModel;
 
-import exceptions.*;
-import model.PrgState;
-import model.adts.*;
-import model.exps.*;
-import model.stmts.*;
-import model.types.*;
-import model.values.*;
+import ToyInterpreter.exceptions.*;
+import ToyInterpreter.model.PrgState;
+import ToyInterpreter.model.adts.*;
+import ToyInterpreter.model.exps.*;
+import ToyInterpreter.model.stmts.*;
+import ToyInterpreter.model.types.*;
+import ToyInterpreter.model.values.*;
 import org.junit.*;
 
 public class testStmts {

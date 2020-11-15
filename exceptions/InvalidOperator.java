@@ -1,4 +1,4 @@
-package exceptions;
+package ToyInterpreter.exceptions;
 
 public class InvalidOperator extends MyException{
     public String toString(){

@@ -1,6 +1,6 @@
-package model.adts;
+package ToyInterpreter.model.adts;
 
-import exceptions.StackEmptyException;
+import ToyInterpreter.exceptions.StackEmptyException;
 
 public interface IExeStack<T> {
     void push(T element);

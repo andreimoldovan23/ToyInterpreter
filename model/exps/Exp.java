@@ -1,8 +1,8 @@
-package model.exps;
+package ToyInterpreter.model.exps;
 
-import exceptions.MyException;
-import model.adts.ISymTable;
-import model.values.Value;
+import ToyInterpreter.exceptions.MyException;
+import ToyInterpreter.model.adts.ISymTable;
+import ToyInterpreter.model.values.Value;
 
 public interface Exp {
     Value eval(ISymTable<String, Value> table) throws MyException;

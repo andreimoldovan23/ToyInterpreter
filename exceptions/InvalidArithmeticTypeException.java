@@ -1,4 +1,4 @@
-package exceptions;
+package ToyInterpreter.exceptions;
 
 public class InvalidArithmeticTypeException extends MyException {
     public InvalidArithmeticTypeException(){

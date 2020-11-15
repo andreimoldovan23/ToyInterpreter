@@ -1,4 +1,4 @@
-package exceptions;
+package ToyInterpreter.exceptions;
 
 public class InvalidIfCondition extends MyException {
     public InvalidIfCondition(){

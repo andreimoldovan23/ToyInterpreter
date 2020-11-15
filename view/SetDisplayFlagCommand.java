@@ -1,6 +1,6 @@
-package view;
+package ToyInterpreter.view;
 
-import controller.Controller;
+import ToyInterpreter.controller.Controller;
 
 import java.util.InputMismatchException;
 

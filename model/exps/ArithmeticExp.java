@@ -1,10 +1,10 @@
-package model.exps;
+package ToyInterpreter.model.exps;
 
-import exceptions.*;
-import model.adts.ISymTable;
-import model.types.Int;
-import model.values.IntValue;
-import model.values.Value;
+import ToyInterpreter.exceptions.*;
+import ToyInterpreter.model.adts.ISymTable;
+import ToyInterpreter.model.types.Int;
+import ToyInterpreter.model.values.IntValue;
+import ToyInterpreter.model.values.Value;
 
 public class ArithmeticExp implements Exp{
 

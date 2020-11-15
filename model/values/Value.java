@@ -1,6 +1,6 @@
-package model.values;
+package ToyInterpreter.model.values;
 
-import model.types.Type;
+import ToyInterpreter.model.types.Type;
 
 public interface Value{
     String toString();

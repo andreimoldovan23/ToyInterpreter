@@ -1,21 +1,21 @@
-package model;
+package ToyInterpreter.model;
 
-import exceptions.MidExecutionException;
-import model.adts.IExeStack;
-import model.adts.IOut;
-import model.adts.ISymTable;
-import model.stmts.CompStmt;
-import model.stmts.NOP;
-import model.stmts.Stmt;
-import model.values.Value;
+import ToyInterpreter.exceptions.MidExecutionException;
+import ToyInterpreter.model.adts.IExeStack;
+import ToyInterpreter.model.adts.IOut;
+import ToyInterpreter.model.adts.ISymTable;
+import ToyInterpreter.model.stmts.CompStmt;
+import ToyInterpreter.model.stmts.NOP;
+import ToyInterpreter.model.stmts.Stmt;
+import ToyInterpreter.model.values.Value;
 
 import java.util.Collections;
 import java.util.List;
 
 public class PrgState {
-    private IExeStack<Stmt> stack;
-    private ISymTable<String, Value> table;
-    private IOut<String> out;
+    private final IExeStack<Stmt> stack;
+    private final ISymTable<String, Value> table;
+    private final IOut<String> out;
     private final Stmt initialProgram;
 
     public PrgState(IExeStack<Stmt> es, ISymTable<String, Value> tbl, IOut<String> out, List<Stmt> s){

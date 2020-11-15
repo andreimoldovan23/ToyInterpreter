@@ -1,8 +1,8 @@
-package model.exps;
+package ToyInterpreter.model.exps;
 
-import exceptions.IsNotDefinedException;
-import model.adts.ISymTable;
-import model.values.Value;
+import ToyInterpreter.exceptions.IsNotDefinedException;
+import ToyInterpreter.model.adts.ISymTable;
+import ToyInterpreter.model.values.Value;
 
 public class VarExp implements Exp{
 

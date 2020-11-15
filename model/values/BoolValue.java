@@ -1,7 +1,7 @@
-package model.values;
+package ToyInterpreter.model.values;
 
-import model.types.Type;
-import model.types.Bool;
+import ToyInterpreter.model.types.Type;
+import ToyInterpreter.model.types.Bool;
 
 public class BoolValue implements Value {
 

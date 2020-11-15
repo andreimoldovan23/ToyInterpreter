@@ -1,7 +1,7 @@
-package tests.testModel;
+package ToyInterpreter.tests.testModel;
 
-import exceptions.StackEmptyException;
-import model.adts.*;
+import ToyInterpreter.exceptions.StackEmptyException;
+import ToyInterpreter.model.adts.*;
 import org.junit.*;
 
 public class testAdts {

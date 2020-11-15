@@ -1,4 +1,4 @@
-package view;
+package ToyInterpreter.view;
 
 import java.util.Scanner;
 

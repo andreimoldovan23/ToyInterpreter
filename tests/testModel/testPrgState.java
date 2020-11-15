@@ -1,18 +1,18 @@
-package tests.testModel;
+package ToyInterpreter.tests.testModel;
 
-import exceptions.MyException;
-import model.PrgState;
-import model.adts.*;
-import model.exps.ConstExp;
-import model.exps.Exp;
-import model.exps.VarExp;
-import model.stmts.AssignStmt;
-import model.stmts.PrintStmt;
-import model.stmts.Stmt;
-import model.stmts.VarDecl;
-import model.types.Int;
-import model.values.IntValue;
-import model.values.Value;
+import ToyInterpreter.exceptions.MyException;
+import ToyInterpreter.model.PrgState;
+import ToyInterpreter.model.adts.*;
+import ToyInterpreter.model.exps.ConstExp;
+import ToyInterpreter.model.exps.Exp;
+import ToyInterpreter.model.exps.VarExp;
+import ToyInterpreter.model.stmts.AssignStmt;
+import ToyInterpreter.model.stmts.PrintStmt;
+import ToyInterpreter.model.stmts.Stmt;
+import ToyInterpreter.model.stmts.VarDecl;
+import ToyInterpreter.model.types.Int;
+import ToyInterpreter.model.values.IntValue;
+import ToyInterpreter.model.values.Value;
 import org.junit.*;
 
 import java.util.ArrayList;

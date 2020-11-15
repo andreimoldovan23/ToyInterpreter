@@ -1,13 +1,13 @@
-package model.stmts;
+package ToyInterpreter.model.stmts;
 
-import exceptions.InvalidIfCondition;
-import exceptions.MyException;
-import model.PrgState;
-import model.adts.IExeStack;
-import model.adts.ISymTable;
-import model.exps.Exp;
-import model.types.Bool;
-import model.values.Value;
+import ToyInterpreter.exceptions.InvalidIfCondition;
+import ToyInterpreter.exceptions.MyException;
+import ToyInterpreter.model.PrgState;
+import ToyInterpreter.model.adts.IExeStack;
+import ToyInterpreter.model.adts.ISymTable;
+import ToyInterpreter.model.exps.Exp;
+import ToyInterpreter.model.types.Bool;
+import ToyInterpreter.model.values.Value;
 
 public class IfStmt implements Stmt{
 

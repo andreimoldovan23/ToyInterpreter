@@ -1,7 +1,7 @@
-package view;
+package ToyInterpreter.view;
 
-import controller.Controller;
-import exceptions.MyException;
+import ToyInterpreter.controller.Controller;
+import ToyInterpreter.exceptions.MyException;
 
 public class AllStepsCommand extends Command {
 

@@ -1,12 +1,12 @@
-package model.exps;
+package ToyInterpreter.model.exps;
 
-import exceptions.InvalidLogicTypeException;
-import exceptions.InvalidOperator;
-import exceptions.MyException;
-import model.adts.ISymTable;
-import model.types.Bool;
-import model.values.BoolValue;
-import model.values.Value;
+import ToyInterpreter.exceptions.InvalidLogicTypeException;
+import ToyInterpreter.exceptions.InvalidOperator;
+import ToyInterpreter.exceptions.MyException;
+import ToyInterpreter.model.adts.ISymTable;
+import ToyInterpreter.model.types.Bool;
+import ToyInterpreter.model.values.BoolValue;
+import ToyInterpreter.model.values.Value;
 
 public class LogicExp implements Exp {
 

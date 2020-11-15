@@ -1,10 +1,10 @@
-package tests.testModel;
+package ToyInterpreter.tests.testModel;
 
-import exceptions.*;
-import model.adts.ISymTable;
-import model.adts.SymTable;
-import model.exps.*;
-import model.values.*;
+import ToyInterpreter.exceptions.*;
+import ToyInterpreter.model.adts.ISymTable;
+import ToyInterpreter.model.adts.SymTable;
+import ToyInterpreter.model.exps.*;
+import ToyInterpreter.model.values.*;
 import org.junit.*;
 
 public class testExps {

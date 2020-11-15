@@ -1,11 +1,11 @@
-package model.adts;
+package ToyInterpreter.model.adts;
 
-import exceptions.StackEmptyException;
+import ToyInterpreter.exceptions.StackEmptyException;
 import java.util.Stack;
 
 public class ExeStack<T> implements IExeStack<T> {
 
-    private Stack<T> stk;
+    private final Stack<T> stk;
 
     public ExeStack() {
         stk = new Stack<>();

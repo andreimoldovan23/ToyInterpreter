@@ -1,6 +1,6 @@
-package model.types;
+package ToyInterpreter.model.types;
 
-import model.values.Value;
+import ToyInterpreter.model.values.Value;
 
 public interface Type {
 

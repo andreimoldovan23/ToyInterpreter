@@ -1,7 +1,7 @@
-package model.stmts;
+package ToyInterpreter.model.stmts;
 
-import exceptions.MyException;
-import model.PrgState;
+import ToyInterpreter.exceptions.MyException;
+import ToyInterpreter.model.PrgState;
 
 public interface Stmt {
     String toString();

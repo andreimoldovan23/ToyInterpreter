@@ -1,11 +1,11 @@
-package model.adts;
+package ToyInterpreter.model.adts;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class SymTable<T, U> implements ISymTable<T, U> {
 
-    private Map<T, U> map;
+    private final Map<T, U> map;
 
     public SymTable() {
         map = new HashMap<>();

@@ -1,8 +1,8 @@
-package view;
+package ToyInterpreter.view;
 
-import controller.Controller;
-import exceptions.MyException;
-import model.stmts.Stmt;
+import ToyInterpreter.controller.Controller;
+import ToyInterpreter.exceptions.MyException;
+import ToyInterpreter.model.stmts.Stmt;
 
 public class DisplayCurrentCommand extends Command{
 

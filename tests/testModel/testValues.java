@@ -1,7 +1,7 @@
-package tests.testModel;
+package ToyInterpreter.tests.testModel;
 
-import model.types.*;
-import model.values.*;
+import ToyInterpreter.model.types.*;
+import ToyInterpreter.model.values.*;
 import org.junit.*;
 
 public class testValues {

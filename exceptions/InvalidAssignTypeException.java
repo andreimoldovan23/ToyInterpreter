@@ -1,4 +1,4 @@
-package exceptions;
+package ToyInterpreter.exceptions;
 
 public class InvalidAssignTypeException extends MyException{
     public InvalidAssignTypeException(){

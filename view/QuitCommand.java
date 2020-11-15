@@ -1,4 +1,4 @@
-package view;
+package ToyInterpreter.view;
 
 public class QuitCommand extends Command{
 

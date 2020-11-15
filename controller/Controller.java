@@ -1,18 +1,18 @@
-package controller;
+package ToyInterpreter.controller;
 
-import exceptions.MyException;
-import exceptions.NoProgramsAvailableException;
-import exceptions.StackEmptyException;
-import model.PrgState;
-import model.adts.IExeStack;
-import model.stmts.*;
-import repository.IRepo;
+import ToyInterpreter.exceptions.MyException;
+import ToyInterpreter.exceptions.NoProgramsAvailableException;
+import ToyInterpreter.exceptions.StackEmptyException;
+import ToyInterpreter.model.PrgState;
+import ToyInterpreter.model.adts.IExeStack;
+import ToyInterpreter.model.stmts.*;
+import ToyInterpreter.repository.IRepo;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
 
-    private IRepo<PrgState> programs;
+    private final IRepo<PrgState> programs;
     private PrgState currentProgram;
     private boolean displayFlag;
 

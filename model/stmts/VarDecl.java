@@ -1,15 +1,15 @@
-package model.stmts;
+package ToyInterpreter.model.stmts;
 
-import exceptions.InvalidVariable;
-import exceptions.IsAlreadyDefined;
-import exceptions.IsNotDefinedException;
-import exceptions.MyException;
-import model.PrgState;
-import model.adts.ISymTable;
-import model.exps.Exp;
-import model.exps.VarExp;
-import model.types.*;
-import model.values.Value;
+import ToyInterpreter.exceptions.InvalidVariable;
+import ToyInterpreter.exceptions.IsAlreadyDefined;
+import ToyInterpreter.exceptions.IsNotDefinedException;
+import ToyInterpreter.exceptions.MyException;
+import ToyInterpreter.model.PrgState;
+import ToyInterpreter.model.adts.ISymTable;
+import ToyInterpreter.model.exps.Exp;
+import ToyInterpreter.model.exps.VarExp;
+import ToyInterpreter.model.types.*;
+import ToyInterpreter.model.values.Value;
 
 public class VarDecl implements Stmt {
 

@@ -1,13 +1,13 @@
-package repository;
+package ToyInterpreter.repository;
 
-import exceptions.NoProgramsAvailableException;
-import exceptions.NotInIntervalException;
+import ToyInterpreter.exceptions.NoProgramsAvailableException;
+import ToyInterpreter.exceptions.NotInIntervalException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Repo<T> implements IRepo<T>{
 
-    private List<T> elements = new ArrayList<>();
+    private final List<T> elements = new ArrayList<>();
     private int current = 0;
 
     public void add(T el){

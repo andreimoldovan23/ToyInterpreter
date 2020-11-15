@@ -1,4 +1,4 @@
-package model.adts;
+package ToyInterpreter.model.adts;
 
 public interface IOut<T> {
     void add(T exp);

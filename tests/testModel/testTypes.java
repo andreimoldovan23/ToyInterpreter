@@ -1,6 +1,6 @@
-package tests.testModel;
+package ToyInterpreter.tests.testModel;
 
-import model.types.*;
+import ToyInterpreter.model.types.*;
 import org.junit.*;
 
 public class testTypes {

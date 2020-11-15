@@ -1,4 +1,4 @@
-package model.adts;
+package ToyInterpreter.model.adts;
 
 public interface ISymTable<T, U> {
     void add(T key, U value);

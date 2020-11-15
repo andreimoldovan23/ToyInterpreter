@@ -1,6 +1,6 @@
-package model.stmts;
+package ToyInterpreter.model.stmts;
 
-import model.PrgState;
+import ToyInterpreter.model.PrgState;
 
 public class NOP implements Stmt{
 

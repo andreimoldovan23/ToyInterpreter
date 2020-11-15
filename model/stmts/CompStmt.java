@@ -1,7 +1,7 @@
-package model.stmts;
+package ToyInterpreter.model.stmts;
 
-import model.PrgState;
-import model.adts.IExeStack;
+import ToyInterpreter.model.PrgState;
+import ToyInterpreter.model.adts.IExeStack;
 
 public class CompStmt implements Stmt{
 

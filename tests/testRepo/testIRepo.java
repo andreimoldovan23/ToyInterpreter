@@ -1,11 +1,11 @@
-package tests.testRepo;
+package ToyInterpreter.tests.testRepo;
 
-import exceptions.MyException;
-import exceptions.NoProgramsAvailableException;
-import exceptions.NotInIntervalException;
+import ToyInterpreter.exceptions.MyException;
+import ToyInterpreter.exceptions.NoProgramsAvailableException;
+import ToyInterpreter.exceptions.NotInIntervalException;
 import org.junit.*;
-import repository.IRepo;
-import repository.Repo;
+import ToyInterpreter.repository.IRepo;
+import ToyInterpreter.repository.Repo;
 
 import java.util.List;
 
