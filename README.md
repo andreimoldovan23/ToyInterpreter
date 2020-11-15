@@ -49,7 +49,7 @@
 
 # Program state: PrgState
 -represents a program with an execution stack, a symbol table, an output stream and a file descriptor table\
--supported operations: getters for the ADTs, printing the program, reseting the program to the initial state
+-supported operations: getters for the ADTs, printing the program, reseting the program to the initial state, transforming a list of Statements into a single CompStmt
 
 # Repository: IRepo(T)
 -generic interface\
