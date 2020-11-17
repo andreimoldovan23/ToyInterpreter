@@ -1,4 +1,4 @@
-# Toy interpreter for a toy java like language, implemented in Java with an MVC architecture
+# Toy interpreter for a toy java-like language, implemented in Java with an MVC architecture
 
 # Interpreter classes:
 &nbsp;&nbsp;&nbsp; -types\
@@ -13,25 +13,27 @@
 &nbsp;&nbsp;&nbsp; -commands\
 &nbsp;&nbsp;&nbsp; -main class
   
-# Types: Int, Bool, String
--represent the primitives the interpreter will use; all of them implement a Type interface\
+# Types: Int, Bool, StringType
+-represent the primitives the interpreter will use; all of them implement the Type interface\
 -supported operations: checking if two Types are the same, printing a Type, returning the default Value for a Type
 
 # Values: IntValue, BoolValue, StringValue, plus True and False as constants
--represent the possible values the interpreter will work with; all of them implement a Value interface\
--supported operations: checking if two Values are of the same Type, printing a Value, returning the Type of a Value, returning the actual value stored in a Value object
+-represent the possible values the interpreter will work with; all of them implement the Value interface\
+-supported operations: checking if two Values are of the same Type, printing a Value, returning the Type of a Value, returning the actual value stored in a Value object\
+-extra operation for StringValue: hashCode, returns the ascii sum of the contained string, used to check uniqueness of filenames in IFileTable
 
 # ADTs: IExeStack(T), ISymTable(T, U), IOut(T), IFileTable(T, U)
--represent the execution stack, symbol table, outstream and file descriptor table of a program\
+-represent the execution stack, symbol table, output stream and file descriptor table of a program\
 -they are generic interfaces\
 -support for basic operations like adding/removing/updating elements, checking if the container is empty, clearing the container or printing the stored elements
 
-# Expressions: ConstExp, VarExp, ArithmeticExp, LogicExp
+# Expressions: ConstExp, VarExp, ArithmeticExp, LogicExp, RelationalExp
 -all of them implement the Exp interface\
 -ConstExp(Value) - a constant(be it int, boolean or string)\
 -VarExp(String) - the name of a variable\
 -ArithmeticExp(Exp left, Exp right, String operator) - an arithmetic expression; can be chained, can use constants or variables; support for +, -, /, *\
 -LogicExp(Exp left, Exp right, String operator) - a logic expression; can be chained, can use constants or variables; support for &, |\
+-RelationalExp(Exp left, Exp right, String operator) - a relational expression; can be chained, can use constants or variables; support for <, >, ==, <=, >=\
 -supported operations: checking if two expressions are of the same type, printing an expression, evaluating an expression based on the symbol table of the program
 
 # Statements: VarDecl, PrintStmt, AssignStmt, IfStmt, NOP, CompStmt, OpenFileStmt, CloseFileStmt, ReadFileStmt
@@ -53,17 +55,17 @@
 
 # Repository: IRepo(T)
 -generic interface\
--represent a list of programs\
--supported operations: getters for the current program/all programs/number of programs, adding/removing programs, writing the current program state to a file
+-represent a list of the multiple threads of a program\
+-supported operations: getters for the initial state of the main thread of the program/all threads, writing the program state to a log file, changing the log file
 
 # Controller: Controller
 -connects the view with the data\
 -provides methods for running a program: oneStep - executes the top of the execution stack, allStep - executes the whole program\
--if the display flag is set prints the current program state at each step, otherwise it print the output at the end of the execution\
+-if the display flag is set prints the current program state at each step, otherwise it prints the output at the end of the execution\
 -logs the current program state into a file at each step
 
 # Commands: represent the commands the user can input, extend the abstract class Command
 
 # Text Menu: a menu of commands from which the user can choose which one to execute
 
-# Main: initializes the reposiory, controller, text menu and command
+# Main: initializes the repository, controller, text menu and command

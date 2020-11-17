@@ -6,4 +6,5 @@ public interface Value{
     String toString();
     Type getType();
     Object getValue();
+    boolean equals(Object other);
 }

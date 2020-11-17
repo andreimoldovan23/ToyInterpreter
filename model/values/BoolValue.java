@@ -23,4 +23,8 @@ public class BoolValue implements Value {
         return Boolean.toString(val);
     }
 
+    public boolean equals(Object other){
+        return other instanceof BoolValue;
+    }
+
 }

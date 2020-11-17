@@ -1,12 +1,12 @@
 package ToyInterpreter.controller;
 
 import ToyInterpreter.exceptions.MyException;
-import ToyInterpreter.exceptions.NoProgramsAvailableException;
 import ToyInterpreter.exceptions.StackEmptyException;
 import ToyInterpreter.model.PrgState;
 import ToyInterpreter.model.adts.IExeStack;
 import ToyInterpreter.model.stmts.*;
 import ToyInterpreter.repository.IRepo;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,16 +16,13 @@ public class Controller {
     private PrgState currentProgram;
     private boolean displayFlag;
 
-    public Controller(IRepo<PrgState> r) throws MyException {
+    public Controller(IRepo<PrgState> r) {
         programs = r;
         currentProgram = programs.getCurrent();
         displayFlag = true;
     }
 
-    public List<Stmt> getStatements() throws NoProgramsAvailableException{
-        if (getNumberStatements() == 0)
-            throw new NoProgramsAvailableException();
-
+    public List<Stmt> getStatements() {
         List<PrgState> prgStates = programs.getAll();
         List<Stmt> stmts = new ArrayList<>();
         for(PrgState ps : prgStates)
@@ -33,13 +30,7 @@ public class Controller {
         return stmts;
     }
 
-    public int getNumberStatements(){
-        return programs.size();
-    }
-
-    public Stmt getCurrentStatement() throws NoProgramsAvailableException{
-        if(currentProgram == null)
-            throw new NoProgramsAvailableException();
+    public Stmt getCurrentStatement() {
         return currentProgram.getInitialProgram();
     }
 
@@ -47,25 +38,21 @@ public class Controller {
         displayFlag = f;
     }
 
-    public void removeProgram(int index) throws MyException {
-        programs.remove(index);
-        try{
-            changeCurrentProgram(0);
-        }
-        catch (NoProgramsAvailableException e){
-            currentProgram = null;
-        }
-    }
-
-    public void changeCurrentProgram(int index) throws MyException{
-        programs.changeCurrent(index);
+    public void setList(List<PrgState> l) {
+        programs.setPrgList(l);
         currentProgram = programs.getCurrent();
     }
 
-    public void oneStep() throws MyException{
-        if(currentProgram == null)
-            throw new NoProgramsAvailableException();
+    public void setLogFile(String path) throws IOException{
+        programs.setLogFile(path);
+    }
 
+    public void closeAll() throws IOException {
+        programs.closeWriter();
+        currentProgram.reset();
+    }
+
+    public void oneStep() throws MyException, IOException {
         IExeStack<Stmt> stack = currentProgram.getStack();
         Stmt top;
         try {
@@ -82,10 +69,12 @@ public class Controller {
             System.out.println("Current state:\n" + currentProgram);
     }
 
-    public void allStep() throws MyException{
+    public void allStep() throws MyException, IOException{
+        programs.logCurrentPrg();
         while(true){
             try {
                 oneStep();
+                programs.logCurrentPrg();
             }
             catch (StackEmptyException e){
                 break;

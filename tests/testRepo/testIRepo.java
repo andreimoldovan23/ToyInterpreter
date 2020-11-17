@@ -1,17 +1,25 @@
 package ToyInterpreter.tests.testRepo;
 
-import ToyInterpreter.exceptions.MyException;
-import ToyInterpreter.exceptions.NoProgramsAvailableException;
-import ToyInterpreter.exceptions.NotInIntervalException;
 import org.junit.*;
 import ToyInterpreter.repository.IRepo;
 import ToyInterpreter.repository.Repo;
-
+import org.junit.rules.TemporaryFolder;
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class testIRepo {
 
+    @Rule
+    public TemporaryFolder tempFolder = new TemporaryFolder();
+
     private IRepo<String> repo;
+    private String path;
 
     @BeforeClass
     public static void printName(){
@@ -24,81 +32,48 @@ public class testIRepo {
     }
 
     @Before
-    public void setUp(){
-        repo = new Repo<>();
+    public void setUp() throws IOException {
+        File myTestFile = tempFolder.newFile("testFile.in");
+        path = myTestFile.getAbsolutePath();
+        repo = new Repo<>("Hello world", path);
+    }
+
+    @After
+    public void tearDown(){
+        repo = null;
     }
 
     @Test
-    public void sizeTest(){
-        Assert.assertEquals("Testing size method of IRepo", 0, repo.size());
-    }
-
-    @Test
-    public void addTest(){
-        repo.add("Hello world");
-        Assert.assertEquals("Testing add method of IRepo", 1, repo.size());
-    }
-
-    @Test
-    public void removeTest() throws MyException {
-        repo.add("Hello World");
-        repo.remove(0);
-        Assert.assertEquals("Testing remove method of IRepo", 0, repo.size());
-    }
-
-    @Test(expected = NoProgramsAvailableException.class)
-    public void NoProgramAvailableRemoveTest() throws MyException{
-        repo.remove(0);
-        System.out.println("Testing NoProgramsAvailable exception within remove method of IRepo");
-    }
-
-    @Test(expected = NotInIntervalException.class)
-    public void NotInIntervalRemoveTest() throws MyException{
-        repo.add("Hello world");
-        repo.remove(10);
-        System.out.println("Testing NotInInterval exception within remove method of IRepo");
-    }
-
-    @Test
-    public void getCurrentTest() throws MyException{
-        repo.add("Hello world");
-        repo.add("Hi guys");
+    public void getCurrentTest(){
         Assert.assertEquals("Testing getCurrent method of IRepo", "Hello world", repo.getCurrent());
     }
 
-    @Test(expected = NoProgramsAvailableException.class)
-    public void NoProgramsAvailableGetCurrentTest() throws MyException{
-        Assert.assertNotNull("Testing NoProgramsAvailable exception within getCurrent method of IRepo",
-                repo.getCurrent());
+    @Test
+    public void setPrgListTest() {
+        repo.setPrgList(new ArrayList<>(List.of("Hi", "guys")));
+        Assert.assertEquals("Testing setPrgList method of IRepo", "Hi guys ",
+                repo.getAll().stream().
+                        reduce("", (a, b) -> a = a + b + " "));
     }
 
     @Test
-    public void changeCurrentTest() throws MyException {
-        repo.add("Hello");
-        repo.add("World");
-        repo.changeCurrent(1);
-        Assert.assertEquals("Testing changeCurrent method of IRepo", "World", repo.getCurrent());
-    }
+    public void logCurrentPrgTest() throws IOException {
+        repo.logCurrentPrg();
 
-    @Test(expected = NoProgramsAvailableException.class)
-    public void NoProgramsAvailableChangeCurrentTest() throws MyException{
-        repo.changeCurrent(4);
-        System.out.println("Testing NoProgramsAvailable exception within changeCurrent method of IRepo");
-    }
-
-    @Test(expected = NotInIntervalException.class)
-    public void NotInIntervalChangeCurrentTest() throws MyException{
-        repo.add("Hello");
-        repo.changeCurrent(4);
-        System.out.println("Testing NotInInterval exception within changeCurrent method of IRepo");
+        Stream<String> stream = Files.lines(Path.of(path), StandardCharsets.UTF_8);
+        long count = stream.count();
+        Assert.assertEquals("Testing logCurrentPrg method of IRepo", 2, count);
     }
 
     @Test
-    public void getAllTest(){
-        repo.add("Hello");
-        repo.add("World");
-        List<String> strings = repo.getAll();
-        Assert.assertEquals("Testing getAll method of IRepo", 2, strings.size());
+    public void setLogFileTest() throws IOException {
+        File myNewLogFile = tempFolder.newFile("newTest.in");
+        repo.setLogFile(myNewLogFile.getAbsolutePath());
+        repo.logCurrentPrg();
+
+        Stream<String> stream = Files.lines(Path.of(myNewLogFile.getAbsolutePath()), StandardCharsets.UTF_8);
+        long count = stream.count();
+        Assert.assertEquals("Testing setLogFile method of IRepo", 2, count);
     }
 
 }

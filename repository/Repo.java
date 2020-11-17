@@ -1,52 +1,61 @@
 package ToyInterpreter.repository;
 
-import ToyInterpreter.exceptions.NoProgramsAvailableException;
-import ToyInterpreter.exceptions.NotInIntervalException;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Repo<T> implements IRepo<T>{
 
-    private final List<T> elements = new ArrayList<>();
-    private int current = 0;
+    private List<T> elements;
+    private PrintWriter printWriter;
+    private String logPath;
 
-    public void add(T el){
-        elements.add(el);
-    }
-
-    public void remove(int index) throws NoProgramsAvailableException, NotInIntervalException {
-        try{
-            elements.remove(index);
-        }
-        catch (IndexOutOfBoundsException e){
-            if(elements.isEmpty())
-                throw new NoProgramsAvailableException();
-            throw new NotInIntervalException();
-        }
-    }
-
-    public T getCurrent() throws NoProgramsAvailableException {
+    public Repo(T initial, String path) {
+        elements = new ArrayList<>();
+        elements.add(initial);
+        logPath = path;
         try {
-            return elements.get(current);
+            printWriter = new PrintWriter(new BufferedWriter(new FileWriter(logPath, true)), true);
         }
-        catch (IndexOutOfBoundsException e){
-            throw new NoProgramsAvailableException();
+        catch (IOException e){
+            printWriter = null;
         }
     }
 
-    public void changeCurrent(int index) throws NoProgramsAvailableException, NotInIntervalException {
-        if(elements.isEmpty())
-            throw new NoProgramsAvailableException();
-        if(index >= elements.size() || index < 0)
-            throw new NotInIntervalException();
-        current = index;
+    public T getCurrent() {
+        return elements.get(0);
+    }
+
+    public void logCurrentPrg() {
+        T currentElement = elements.get(0);
+        long millis = System.currentTimeMillis();
+        Date date = new Date(millis);
+        printWriter.println(date);
+        printWriter.println(currentElement);
+    }
+
+    public void setLogFile(String path) throws IOException {
+        logPath = path;
+        closeWriter();
+        printWriter = new PrintWriter(new BufferedWriter(new FileWriter(logPath, true)), true);
     }
 
     public List<T> getAll(){
         return elements;
     }
 
-    public int size(){
-        return elements.size();
+    public void setPrgList(List<T> l){
+        elements.clear();
+        elements = l;
     }
+
+    public void closeWriter(){
+        if(printWriter != null)
+            printWriter.close();
+    }
+
 }

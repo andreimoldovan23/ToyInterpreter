@@ -1,13 +1,13 @@
 package ToyInterpreter.repository;
 
-import ToyInterpreter.exceptions.MyException;
+import java.io.IOException;
 import java.util.List;
 
 public interface IRepo<T> {
-    void add(T el);
-    void remove(int index) throws MyException;
-    T getCurrent() throws MyException;
-    void changeCurrent(int index) throws MyException;
+    T getCurrent();
+    void setPrgList(List<T> l);
+    void logCurrentPrg();
+    void setLogFile(String filePath) throws IOException;
     List<T> getAll();
-    int size();
+    void closeWriter();
 }

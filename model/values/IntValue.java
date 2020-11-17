@@ -23,4 +23,8 @@ public class IntValue implements Value{
         return Integer.toString(val);
     }
 
+    public boolean equals(Object other){
+        return other instanceof IntValue;
+    }
+
 }

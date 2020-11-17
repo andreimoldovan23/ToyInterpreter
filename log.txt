@@ -1,0 +1,514 @@
+Tue Nov 17 18:30:13 EET 2020
+ExeStack:
+[string varf
+varf=test.in
+openFile (varf)
+int varc
+readFile (varf, varc)
+print varc
+readFile (varf, varc)
+print varc
+closeFile (varf)
+if (35 <= varc) then 
+	print varc greater than 35
+else 
+	print Hello world
+No operation]
+
+SymTable:
+
+Out:
+
+FileTable:
+
+-----------------------------------------------------
+
+Tue Nov 17 18:30:13 EET 2020
+ExeStack:
+[string varf]
+[varf=test.in
+openFile (varf)
+int varc
+readFile (varf, varc)
+print varc
+readFile (varf, varc)
+print varc
+closeFile (varf)
+if (35 <= varc) then 
+	print varc greater than 35
+else 
+	print Hello world
+No operation]
+
+SymTable:
+
+Out:
+
+FileTable:
+
+-----------------------------------------------------
+
+Tue Nov 17 18:30:13 EET 2020
+ExeStack:
+[varf=test.in
+openFile (varf)
+int varc
+readFile (varf, varc)
+print varc
+readFile (varf, varc)
+print varc
+closeFile (varf)
+if (35 <= varc) then 
+	print varc greater than 35
+else 
+	print Hello world
+No operation]
+
+SymTable:
+varf=
+
+Out:
+
+FileTable:
+
+-----------------------------------------------------
+
+Tue Nov 17 18:30:13 EET 2020
+ExeStack:
+[varf=test.in]
+[openFile (varf)
+int varc
+readFile (varf, varc)
+print varc
+readFile (varf, varc)
+print varc
+closeFile (varf)
+if (35 <= varc) then 
+	print varc greater than 35
+else 
+	print Hello world
+No operation]
+
+SymTable:
+varf=
+
+Out:
+
+FileTable:
+
+-----------------------------------------------------
+
+Tue Nov 17 18:30:13 EET 2020
+ExeStack:
+[openFile (varf)
+int varc
+readFile (varf, varc)
+print varc
+readFile (varf, varc)
+print varc
+closeFile (varf)
+if (35 <= varc) then 
+	print varc greater than 35
+else 
+	print Hello world
+No operation]
+
+SymTable:
+varf=test.in
+
+Out:
+
+FileTable:
+
+-----------------------------------------------------
+
+Tue Nov 17 18:30:13 EET 2020
+ExeStack:
+[openFile (varf)]
+[int varc
+readFile (varf, varc)
+print varc
+readFile (varf, varc)
+print varc
+closeFile (varf)
+if (35 <= varc) then 
+	print varc greater than 35
+else 
+	print Hello world
+No operation]
+
+SymTable:
+varf=test.in
+
+Out:
+
+FileTable:
+
+-----------------------------------------------------
+
+Tue Nov 17 18:30:13 EET 2020
+ExeStack:
+[int varc
+readFile (varf, varc)
+print varc
+readFile (varf, varc)
+print varc
+closeFile (varf)
+if (35 <= varc) then 
+	print varc greater than 35
+else 
+	print Hello world
+No operation]
+
+SymTable:
+varf=test.in
+
+Out:
+
+FileTable:
+test.in=BufferedReader, id: 1
+
+-----------------------------------------------------
+
+Tue Nov 17 18:30:13 EET 2020
+ExeStack:
+[int varc]
+[readFile (varf, varc)
+print varc
+readFile (varf, varc)
+print varc
+closeFile (varf)
+if (35 <= varc) then 
+	print varc greater than 35
+else 
+	print Hello world
+No operation]
+
+SymTable:
+varf=test.in
+
+Out:
+
+FileTable:
+test.in=BufferedReader, id: 1
+
+-----------------------------------------------------
+
+Tue Nov 17 18:30:13 EET 2020
+ExeStack:
+[readFile (varf, varc)
+print varc
+readFile (varf, varc)
+print varc
+closeFile (varf)
+if (35 <= varc) then 
+	print varc greater than 35
+else 
+	print Hello world
+No operation]
+
+SymTable:
+varf=test.in
+varc=0
+
+Out:
+
+FileTable:
+test.in=BufferedReader, id: 1
+
+-----------------------------------------------------
+
+Tue Nov 17 18:30:13 EET 2020
+ExeStack:
+[readFile (varf, varc)]
+[print varc
+readFile (varf, varc)
+print varc
+closeFile (varf)
+if (35 <= varc) then 
+	print varc greater than 35
+else 
+	print Hello world
+No operation]
+
+SymTable:
+varf=test.in
+varc=0
+
+Out:
+
+FileTable:
+test.in=BufferedReader, id: 1
+
+-----------------------------------------------------
+
+Tue Nov 17 18:30:13 EET 2020
+ExeStack:
+[print varc
+readFile (varf, varc)
+print varc
+closeFile (varf)
+if (35 <= varc) then 
+	print varc greater than 35
+else 
+	print Hello world
+No operation]
+
+SymTable:
+varf=test.in
+varc=15
+
+Out:
+
+FileTable:
+test.in=BufferedReader, id: 1
+
+-----------------------------------------------------
+
+Tue Nov 17 18:30:13 EET 2020
+ExeStack:
+[print varc]
+[readFile (varf, varc)
+print varc
+closeFile (varf)
+if (35 <= varc) then 
+	print varc greater than 35
+else 
+	print Hello world
+No operation]
+
+SymTable:
+varf=test.in
+varc=15
+
+Out:
+
+FileTable:
+test.in=BufferedReader, id: 1
+
+-----------------------------------------------------
+
+Tue Nov 17 18:30:13 EET 2020
+ExeStack:
+[readFile (varf, varc)
+print varc
+closeFile (varf)
+if (35 <= varc) then 
+	print varc greater than 35
+else 
+	print Hello world
+No operation]
+
+SymTable:
+varf=test.in
+varc=15
+
+Out:
+15
+
+FileTable:
+test.in=BufferedReader, id: 1
+
+-----------------------------------------------------
+
+Tue Nov 17 18:30:13 EET 2020
+ExeStack:
+[readFile (varf, varc)]
+[print varc
+closeFile (varf)
+if (35 <= varc) then 
+	print varc greater than 35
+else 
+	print Hello world
+No operation]
+
+SymTable:
+varf=test.in
+varc=15
+
+Out:
+15
+
+FileTable:
+test.in=BufferedReader, id: 1
+
+-----------------------------------------------------
+
+Tue Nov 17 18:30:13 EET 2020
+ExeStack:
+[print varc
+closeFile (varf)
+if (35 <= varc) then 
+	print varc greater than 35
+else 
+	print Hello world
+No operation]
+
+SymTable:
+varf=test.in
+varc=50
+
+Out:
+15
+
+FileTable:
+test.in=BufferedReader, id: 1
+
+-----------------------------------------------------
+
+Tue Nov 17 18:30:13 EET 2020
+ExeStack:
+[print varc]
+[closeFile (varf)
+if (35 <= varc) then 
+	print varc greater than 35
+else 
+	print Hello world
+No operation]
+
+SymTable:
+varf=test.in
+varc=50
+
+Out:
+15
+
+FileTable:
+test.in=BufferedReader, id: 1
+
+-----------------------------------------------------
+
+Tue Nov 17 18:30:13 EET 2020
+ExeStack:
+[closeFile (varf)
+if (35 <= varc) then 
+	print varc greater than 35
+else 
+	print Hello world
+No operation]
+
+SymTable:
+varf=test.in
+varc=50
+
+Out:
+15
+50
+
+FileTable:
+test.in=BufferedReader, id: 1
+
+-----------------------------------------------------
+
+Tue Nov 17 18:30:13 EET 2020
+ExeStack:
+[closeFile (varf)]
+[if (35 <= varc) then 
+	print varc greater than 35
+else 
+	print Hello world
+No operation]
+
+SymTable:
+varf=test.in
+varc=50
+
+Out:
+15
+50
+
+FileTable:
+test.in=BufferedReader, id: 1
+
+-----------------------------------------------------
+
+Tue Nov 17 18:30:13 EET 2020
+ExeStack:
+[if (35 <= varc) then 
+	print varc greater than 35
+else 
+	print Hello world
+No operation]
+
+SymTable:
+varf=test.in
+varc=50
+
+Out:
+15
+50
+
+FileTable:
+
+-----------------------------------------------------
+
+Tue Nov 17 18:30:13 EET 2020
+ExeStack:
+[if (35 <= varc) then 
+	print varc greater than 35
+else 
+	print Hello world]
+[No operation]
+
+SymTable:
+varf=test.in
+varc=50
+
+Out:
+15
+50
+
+FileTable:
+
+-----------------------------------------------------
+
+Tue Nov 17 18:30:13 EET 2020
+ExeStack:
+[print varc greater than 35]
+[No operation]
+
+SymTable:
+varf=test.in
+varc=50
+
+Out:
+15
+50
+
+FileTable:
+
+-----------------------------------------------------
+
+Tue Nov 17 18:30:13 EET 2020
+ExeStack:
+[No operation]
+
+SymTable:
+varf=test.in
+varc=50
+
+Out:
+15
+50
+varc greater than 35
+
+FileTable:
+
+-----------------------------------------------------
+
+Tue Nov 17 18:30:13 EET 2020
+ExeStack:
+
+SymTable:
+varf=test.in
+varc=50
+
+Out:
+15
+50
+varc greater than 35
+
+FileTable:
+
+-----------------------------------------------------
+

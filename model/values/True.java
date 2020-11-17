@@ -17,4 +17,8 @@ public class True implements Value {
         return true;
     }
 
+    public boolean equals(Object other){
+        return other instanceof True;
+    }
+
 }

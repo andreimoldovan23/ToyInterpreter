@@ -33,6 +33,7 @@ public class VarDecl implements Stmt {
             switch (type) {
                 case "int" -> table.add(exp.toString(), Int.defaultValue());
                 case "boolean" -> table.add(exp.toString(), Bool.defaultValue());
+                case "string" -> table.add(exp.toString(), StringType.defaultValue());
             }
             return state;
         }

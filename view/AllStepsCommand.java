@@ -2,6 +2,7 @@ package ToyInterpreter.view;
 
 import ToyInterpreter.controller.Controller;
 import ToyInterpreter.exceptions.MyException;
+import java.io.IOException;
 
 public class AllStepsCommand extends Command {
 
@@ -18,6 +19,9 @@ public class AllStepsCommand extends Command {
         }
         catch (MyException e){
             System.out.println(e);
+        }
+        catch (IOException ioe){
+            ioe.printStackTrace();
         }
     }
 

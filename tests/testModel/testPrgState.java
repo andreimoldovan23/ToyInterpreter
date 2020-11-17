@@ -12,9 +12,10 @@ import ToyInterpreter.model.stmts.Stmt;
 import ToyInterpreter.model.stmts.VarDecl;
 import ToyInterpreter.model.types.Int;
 import ToyInterpreter.model.values.IntValue;
+import ToyInterpreter.model.values.StringValue;
 import ToyInterpreter.model.values.Value;
 import org.junit.*;
-
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class testPrgState {
         Stmt s2 = new AssignStmt(var, new ConstExp(new IntValue(10)));
         Stmt s3 = new PrintStmt(var);
 
-        state = new PrgState(new ExeStack<>(), new SymTable<>(), new Out<>(),
+        state = new PrgState(new ExeStack<>(), new SymTable<>(), new Out<>(), new FileTable<>(),
                 new ArrayList<>(List.of(s1, s2, s3)));
         IExeStack<Stmt> stack = state.getStack();
         while(!stack.empty()) {
@@ -47,6 +48,12 @@ public class testPrgState {
             state = s.exec(state);
             stack = state.getStack();
         }
+    }
+
+    @After
+    public void tearDown(){
+        var = null;
+        state = null;
     }
 
     @Test
@@ -59,12 +66,14 @@ public class testPrgState {
     }
 
     @Test
-    public void resetTest() throws MyException{
+    public void resetTest() throws MyException, IOException {
         state.reset();
         ISymTable<String, Value> table = state.getTable();
         IOut<String> out = state.getOut();
+        IFileTable<StringValue, MyBufferedReader> fileTable = state.getFileTable();
         Assert.assertEquals("Testing reset method of PrgState", "", table.toString());
         Assert.assertEquals("", out.toString());
+        Assert.assertEquals("", fileTable.toString());
     }
 
 }
