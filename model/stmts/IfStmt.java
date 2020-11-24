@@ -4,6 +4,7 @@ import ToyInterpreter.exceptions.InvalidIfCondition;
 import ToyInterpreter.exceptions.MyException;
 import ToyInterpreter.model.PrgState;
 import ToyInterpreter.model.adts.IExeStack;
+import ToyInterpreter.model.adts.IHeap;
 import ToyInterpreter.model.adts.ISymTable;
 import ToyInterpreter.model.exps.Exp;
 import ToyInterpreter.model.types.Bool;
@@ -24,7 +25,8 @@ public class IfStmt implements Stmt{
     public PrgState exec(PrgState state) throws MyException{
         IExeStack<Stmt> stack = state.getStack();
         ISymTable<String, Value> table = state.getTable();
-        Value v = e.eval(table);
+        IHeap<Integer, Value> heap = state.getHeap();
+        Value v = e.eval(table, heap);
 
         if (v.getType().equals(new Bool())) {
             if ((Boolean) v.getValue()) {
@@ -34,7 +36,7 @@ public class IfStmt implements Stmt{
         }
         else
             throw new InvalidIfCondition();
-        return state;
+        return null;
     }
 
     public String toString(){
@@ -43,9 +45,8 @@ public class IfStmt implements Stmt{
     }
 
     public String toStringPrefix(String prefix){
-        String actual = prefix + "\t";
         return prefix + "if " + e.toString() + " then \n" +
-                s1.toStringPrefix(actual) + prefix + "else \n" + s2.toStringPrefix(actual);
+                s1.toStringPrefix(prefix + "\t") + prefix + "else \n" + s2.toStringPrefix(prefix + "\t");
     }
 
 }

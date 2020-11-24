@@ -13,7 +13,7 @@ public class Int implements Type{
         return "int";
     }
 
-    static public Value defaultValue() {
+    public static Value defaultValue() {
         return new IntValue(0);
     }
 

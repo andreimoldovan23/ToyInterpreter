@@ -4,6 +4,7 @@ import ToyInterpreter.exceptions.InvalidAssignTypeException;
 import ToyInterpreter.exceptions.InvalidVariable;
 import ToyInterpreter.exceptions.MyException;
 import ToyInterpreter.model.PrgState;
+import ToyInterpreter.model.adts.IHeap;
 import ToyInterpreter.model.adts.ISymTable;
 import ToyInterpreter.model.exps.Exp;
 import ToyInterpreter.model.exps.VarExp;
@@ -23,14 +24,15 @@ public class AssignStmt implements Stmt{
 
     public PrgState exec(PrgState state) throws MyException{
         ISymTable<String, Value> table = state.getTable();
-        Value v1 = left.eval(table);
-        Value v2 = right.eval(table);
+        IHeap<Integer, Value> heap = state.getHeap();
+        Value v1 = left.eval(table, heap);
+        Value v2 = right.eval(table, heap);
 
         if(v1.getType().equals(v2.getType()))
             table.update(left.toString(), v2);
         else
             throw new InvalidAssignTypeException();
-        return state;
+        return null;
     }
 
     public String toString(){

@@ -10,6 +10,8 @@ import ToyInterpreter.model.values.*;
 import org.junit.*;
 import org.junit.rules.TemporaryFolder;
 
+import java.io.IOException;
+
 public class testCompStmt {
 
     @Rule
@@ -41,12 +43,14 @@ public class testCompStmt {
         arithmeticExp = new ArithmeticExp(constExpInt, constExpInt, "*");
         logicExp = new LogicExp(new ConstExp(new False()), new ConstExp(new False()), "|");
         varExpString = new ConstExp(new StringValue("myTestFile.txt"));
-        state = new PrgState(new ExeStack<>(), new SymTable<>(), new Out<>(), new FileTable<>(), new NOP());
+        state = new PrgState(new ExeStack<>(), new SymTable<>(), new Out<>(), new FileTable<>(), new Heap<>(),
+                new NOP());
     }
 
     @SuppressWarnings("DuplicatedCode")
     @After
-    public void tearDown(){
+    public void tearDown() throws IOException {
+        state.cleanAll();
         intType = null;
         boolType = null;
         constExpInt = null;
@@ -63,13 +67,13 @@ public class testCompStmt {
         Stmt varDeclBool = new VarDecl(boolType, varExpBool);
         Stmt varDeclInt = new VarDecl(intType, varExpInt);
         Stmt compStmt = new CompStmt(varDeclBool, varDeclInt);
-        state = compStmt.exec(state);
+        compStmt.exec(state);
 
         IExeStack<Stmt> stack = state.getStack();
         Stmt s1 = stack.pop();
-        state = s1.exec(state);
+        s1.exec(state);
         Stmt s2 = stack.pop();
-        state = s2.exec(state);
+        s2.exec(state);
         ISymTable<String, Value> table = state.getTable();
 
         Assert.assertTrue("Testing exec method of CompStmt", table.isDefined(varExpBool.toString()));

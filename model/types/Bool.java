@@ -13,7 +13,7 @@ public class Bool implements Type{
         return "boolean";
     }
 
-    static public Value defaultValue() {
+    public static Value defaultValue() {
         return new False();
     }
 

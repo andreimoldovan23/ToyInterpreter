@@ -6,7 +6,7 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         testIExeStack.class, testISymTable.class, testIOut.class,
-        testIFileTable.class, testMyBufferedReader.class
+        testIFileTable.class, testMyBufferedReader.class, testIHeap.class
 })
 
 

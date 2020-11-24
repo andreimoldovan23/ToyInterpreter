@@ -1,6 +1,8 @@
 package ToyInterpreter.tests.testModel;
 
 import ToyInterpreter.exceptions.*;
+import ToyInterpreter.model.adts.Heap;
+import ToyInterpreter.model.adts.IHeap;
 import ToyInterpreter.model.adts.ISymTable;
 import ToyInterpreter.model.adts.SymTable;
 import ToyInterpreter.model.exps.*;
@@ -10,6 +12,7 @@ import org.junit.*;
 public class testRelationalExp {
 
     private ISymTable<String, Value> table;
+    private IHeap<Integer, Value> heap;
     private Exp varInt;
     private Exp constInt, constTrue;
     private Exp relationalSmaller, relationalGreater, relationalEqual,
@@ -31,6 +34,7 @@ public class testRelationalExp {
     @Before
     public void setUp(){
         table = new SymTable<>();
+        heap = new Heap<>();
         table.add("number", new IntValue(5));
         varInt = new VarExp("number");
 
@@ -65,6 +69,8 @@ public class testRelationalExp {
         relationalThrowsInvalidRelationalType2 = null;
         table.clear();
         table = null;
+        heap.clear();
+        heap = null;
     }
 
     @Test
@@ -86,35 +92,35 @@ public class testRelationalExp {
     @Test
     public void evalTest() throws MyException {
         Assert.assertEquals("Testing eval method of RelationalExp with <",
-                true, relationalSmaller.eval(table).getValue());
+                true, relationalSmaller.eval(table, heap).getValue());
         Assert.assertEquals("Testing eval method of RelationalExp with >",
-                true, relationalGreater.eval(table).getValue());
+                true, relationalGreater.eval(table, heap).getValue());
         Assert.assertEquals("Testing eval method of RelationalExp with ==",
-                true, relationalEqual.eval(table).getValue());
+                true, relationalEqual.eval(table, heap).getValue());
         Assert.assertEquals("Testing eval method of RelationalExp with <=",
-                true, relationalSmallerEqual.eval(table).getValue());
+                true, relationalSmallerEqual.eval(table, heap).getValue());
         Assert.assertEquals("Testing eval method of RelationalExp with >=",
-                true, relationalGreaterEqual.eval(table).getValue());
+                true, relationalGreaterEqual.eval(table, heap).getValue());
         Assert.assertEquals("Testing eval method of RelationalExp composed of multiple Exp objects",
-                false, relationalComposite.eval(table).getValue());
+                false, relationalComposite.eval(table, heap).getValue());
     }
 
     @Test(expected = InvalidOperator.class)
     public void InvalidOperatorTest() throws MyException{
         Assert.assertNotNull("Testing InvalidOperator exception for RelationalExp",
-                relationalThrowsInvalidOperator.eval(table));
+                relationalThrowsInvalidOperator.eval(table, heap));
     }
 
     @Test(expected = InvalidRelationalType.class)
     public void InvalidRelationalTypeFirstTest() throws MyException{
         Assert.assertNotNull("Testing InvalidRelationalType exception for left expression",
-                relationalThrowsInvalidRelationalType1.eval(table));
+                relationalThrowsInvalidRelationalType1.eval(table, heap));
     }
 
     @Test(expected = InvalidRelationalType.class)
     public void InvalidRelationalTypeSecondTest() throws MyException{
         Assert.assertNotNull("Testing InvalidRelationalType exception for right expression",
-                relationalThrowsInvalidRelationalType2.eval(table));
+                relationalThrowsInvalidRelationalType2.eval(table, heap));
     }
 
 }

@@ -1,6 +1,7 @@
 package ToyInterpreter.model.exps;
 
 import ToyInterpreter.exceptions.IsNotDefinedException;
+import ToyInterpreter.model.adts.IHeap;
 import ToyInterpreter.model.adts.ISymTable;
 import ToyInterpreter.model.values.Value;
 
@@ -12,7 +13,7 @@ public class VarExp implements Exp{
         varName = s;
     }
 
-    public Value eval(ISymTable<String, Value> table) throws IsNotDefinedException {
+    public Value eval(ISymTable<String, Value> table, IHeap<Integer, Value> heap) throws IsNotDefinedException {
         if(table.isDefined(varName))
             return table.lookup(varName);
         throw new IsNotDefinedException();

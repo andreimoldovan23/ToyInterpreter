@@ -1,5 +1,6 @@
 package ToyInterpreter.model.exps;
 
+import ToyInterpreter.model.adts.IHeap;
 import ToyInterpreter.model.adts.ISymTable;
 import ToyInterpreter.model.values.Value;
 
@@ -11,7 +12,7 @@ public class ConstExp implements Exp{
         val = v;
     }
 
-    public Value eval(ISymTable<String, Value> table){
+    public Value eval(ISymTable<String, Value> table, IHeap<Integer, Value> heap){
         return val;
     }
 

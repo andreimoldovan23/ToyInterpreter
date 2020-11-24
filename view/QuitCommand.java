@@ -20,6 +20,7 @@ public class QuitCommand extends Command{
         catch (IOException ioe){
             ioe.printStackTrace();
         }
+        System.out.println("Exiting...");
         System.exit(0);
     }
 

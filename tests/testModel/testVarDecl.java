@@ -9,6 +9,8 @@ import ToyInterpreter.model.types.*;
 import ToyInterpreter.model.values.*;
 import org.junit.*;
 
+import java.io.IOException;
+
 public class testVarDecl {
 
     private Exp varExpInt;
@@ -31,12 +33,14 @@ public class testVarDecl {
         intType = new Int();
         constExpInt = new ConstExp(new IntValue(10));
         varExpInt = new VarExp("number");
-        state = new PrgState(new ExeStack<>(), new SymTable<>(), new Out<>(), new FileTable<>(), new NOP());
+        state = new PrgState(new ExeStack<>(), new SymTable<>(), new Out<>(), new FileTable<>(), new Heap<>(),
+                new NOP());
     }
 
     @SuppressWarnings("DuplicatedCode")
     @After
-    public void tearDown(){
+    public void tearDown() throws IOException {
+        state.cleanAll();
         intType = null;
         constExpInt = null;
         varExpInt = null;
@@ -46,7 +50,7 @@ public class testVarDecl {
     @Test
     public void execTest() throws MyException {
         Stmt varDeclInt = new VarDecl(intType, varExpInt);
-        state = varDeclInt.exec(state);
+        varDeclInt.exec(state);
         ISymTable<String, Value> table = state.getTable();
         Assert.assertTrue("Testing exec method of VarDecl", table.isDefined(varExpInt.toString()));
     }
@@ -60,7 +64,7 @@ public class testVarDecl {
     @Test(expected = IsAlreadyDefined.class)
     public void IsAlreadyDefinedTest() throws MyException {
         Stmt varDeclInt = new VarDecl(intType, varExpInt);
-        state = varDeclInt.exec(state);
+        varDeclInt.exec(state);
         Assert.assertNotNull("Testing IsAlreadyDefined exception within VarDecl",
                 varDeclInt.exec(state));
     }

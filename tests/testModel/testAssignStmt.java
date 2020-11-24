@@ -9,6 +9,8 @@ import ToyInterpreter.model.types.*;
 import ToyInterpreter.model.values.*;
 import org.junit.*;
 
+import java.io.IOException;
+
 public class testAssignStmt {
 
     private Exp varExpInt;
@@ -32,12 +34,14 @@ public class testAssignStmt {
         constExpBool = new ConstExp(new True());
         constExpInt = new ConstExp(new IntValue(10));
         varExpInt = new VarExp("number");
-        state = new PrgState(new ExeStack<>(), new SymTable<>(), new Out<>(), new FileTable<>(), new NOP());
+        state = new PrgState(new ExeStack<>(), new SymTable<>(), new Out<>(), new FileTable<>(), new Heap<>(),
+                new NOP());
     }
 
     @SuppressWarnings("DuplicatedCode")
     @After
-    public void tearDown(){
+    public void tearDown() throws IOException {
+        state.cleanAll();
         intType = null;
         constExpInt = null;
         varExpInt = null;
@@ -50,7 +54,7 @@ public class testAssignStmt {
         Stmt varDeclInt = new VarDecl(intType, varExpInt);
         varDeclInt.exec(state);
         Stmt assignStmt = new AssignStmt(varExpInt, constExpInt);
-        state = assignStmt.exec(state);
+        assignStmt.exec(state);
         ISymTable<String, Value> table = state.getTable();
         Assert.assertEquals("Testing exec method of AssignStmt", 10,
                 table.lookup(varExpInt.toString()).getValue());
@@ -67,7 +71,7 @@ public class testAssignStmt {
         Stmt varDeclInt = new VarDecl(intType, varExpInt);
         Stmt assignStmt = new AssignStmt(varExpInt, constExpBool);
 
-        state = varDeclInt.exec(state);
+        varDeclInt.exec(state);
         Assert.assertNotNull("Testing InvalidAssignType exception within AssignStmt", assignStmt.exec(state));
     }
 

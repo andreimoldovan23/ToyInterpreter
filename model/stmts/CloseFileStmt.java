@@ -30,7 +30,7 @@ public class CloseFileStmt implements Stmt {
     }
 
     public PrgState exec(PrgState state) throws MyException {
-        Value val = file.eval(state.getTable());
+        Value val = file.eval(state.getTable(), state.getHeap());
         if (!val.getType().equals(new StringType()))
             throw new InvalidFilenameException();
         IFileTable<StringValue, MyBufferedReader> fileTable = state.getFileTable();
@@ -43,7 +43,7 @@ public class CloseFileStmt implements Stmt {
             throw new InexistingFile();
         }
         fileTable.remove((StringValue) val);
-        return state;
+        return null;
     }
 
 }

@@ -1,6 +1,8 @@
 package ToyInterpreter.tests.testModel;
 
 import ToyInterpreter.exceptions.*;
+import ToyInterpreter.model.adts.Heap;
+import ToyInterpreter.model.adts.IHeap;
 import ToyInterpreter.model.adts.ISymTable;
 import ToyInterpreter.model.adts.SymTable;
 import ToyInterpreter.model.exps.*;
@@ -10,6 +12,7 @@ import org.junit.*;
 public class testArithmeticExp {
 
     private ISymTable<String, Value> table;
+    private IHeap<Integer, Value> heap;
     private Exp varInt;
     private Exp constInt, constTrue;
     private Exp arithmeticAdd, arithmeticSub, arithmeticDiv, arithmeticMultiply, arithmeticComposite;
@@ -30,6 +33,7 @@ public class testArithmeticExp {
     @Before
     public void setUp(){
         table = new SymTable<>();
+        heap = new Heap<>();
         table.add("number", new IntValue(5));
         varInt = new VarExp("number");
 
@@ -66,6 +70,8 @@ public class testArithmeticExp {
         arithmeticThrowsInvalidArithmeticType1 = null;
         table.clear();
         table = null;
+        heap.clear();
+        heap = null;
     }
 
     @Test
@@ -87,39 +93,39 @@ public class testArithmeticExp {
     @Test
     public void evalTest() throws MyException {
         Assert.assertEquals("Testing eval method of ArithmeticExp with +",
-                15, arithmeticAdd.eval(table).getValue());
+                15, arithmeticAdd.eval(table, heap).getValue());
         Assert.assertEquals("Testing eval method of ArithmeticExp with -",
-                5, arithmeticSub.eval(table).getValue());
+                5, arithmeticSub.eval(table, heap).getValue());
         Assert.assertEquals("Testing eval method of ArithmeticExp with *",
-                50, arithmeticMultiply.eval(table).getValue());
+                50, arithmeticMultiply.eval(table, heap).getValue());
         Assert.assertEquals("Testing eval method of ArithmeticExp with /",
-                2, arithmeticDiv.eval(table).getValue());
+                2, arithmeticDiv.eval(table, heap).getValue());
         Assert.assertEquals("Testing eval method of ArithmeticExp composed of multiple ArithmeticExp objects",
-                75, arithmeticComposite.eval(table).getValue());
+                75, arithmeticComposite.eval(table, heap).getValue());
     }
 
     @Test(expected = DivisionByZeroException.class)
     public void DivisionByZeroTest() throws MyException {
         Assert.assertNotNull("Testing DivisionByZero exception",
-                arithmeticThrowsDivisionByZero.eval(table));
+                arithmeticThrowsDivisionByZero.eval(table, heap));
     }
 
     @Test(expected = InvalidOperator.class)
     public void InvalidOperatorTest() throws MyException{
         Assert.assertNotNull("Testing InvalidOperator exception for ArithmeticExp",
-                arithmeticThrowsInvalidOperator.eval(table));
+                arithmeticThrowsInvalidOperator.eval(table, heap));
     }
 
     @Test(expected = InvalidArithmeticTypeException.class)
     public void InvalidArithmeticTypeFirstTest() throws MyException{
         Assert.assertNotNull("Testing InvalidArithmeticType exception for left expression",
-                arithmeticThrowsInvalidArithmeticType1.eval(table));
+                arithmeticThrowsInvalidArithmeticType1.eval(table, heap));
     }
 
     @Test(expected = InvalidArithmeticTypeException.class)
     public void InvalidArithmeticTypeSecondTest() throws MyException{
         Assert.assertNotNull("Testing InvalidArithmeticType exception for right expression",
-                arithmeticThrowsInvalidArithmeticType2.eval(table));
+                arithmeticThrowsInvalidArithmeticType2.eval(table, heap));
     }
 
 }

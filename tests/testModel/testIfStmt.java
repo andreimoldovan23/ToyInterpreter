@@ -10,6 +10,8 @@ import ToyInterpreter.model.values.*;
 import org.junit.*;
 import org.junit.rules.TemporaryFolder;
 
+import java.io.IOException;
+
 public class testIfStmt {
 
     @Rule
@@ -40,12 +42,14 @@ public class testIfStmt {
         varExpBool = new VarExp("boolean");
         arithmeticExp = new ArithmeticExp(constExpInt, constExpInt, "*");
         logicExp = new LogicExp(new ConstExp(new False()), new ConstExp(new False()), "|");
-        state = new PrgState(new ExeStack<>(), new SymTable<>(), new Out<>(), new FileTable<>(), new NOP());
+        state = new PrgState(new ExeStack<>(), new SymTable<>(), new Out<>(), new FileTable<>(), new Heap<>(),
+                new NOP());
     }
 
     @SuppressWarnings("DuplicatedCode")
     @After
-    public void tearDown(){
+    public void tearDown() throws IOException {
+        state.cleanAll();
         intType = null;
         boolType = null;
         constExpInt = null;
@@ -61,10 +65,10 @@ public class testIfStmt {
         Stmt varDeclBool = new VarDecl(boolType, varExpBool);
         Stmt varDeclInt = new VarDecl(intType, varExpInt);
         Stmt ifStmt = new IfStmt(logicExp, varDeclBool, varDeclInt);
-        state = ifStmt.exec(state);
+        ifStmt.exec(state);
         IExeStack<Stmt> stack = state.getStack();
         Stmt s = stack.pop();
-        state = s.exec(state);
+        s.exec(state);
         Assert.assertTrue("Testing exec method of IfStmt", state.getTable().isDefined(varExpInt.toString()));
     }
 

@@ -13,30 +13,33 @@
 &nbsp;&nbsp;&nbsp; -commands\
 &nbsp;&nbsp;&nbsp; -main class
   
-# Types: Int, Bool, StringType
+# Types: Int, Bool, StringType, Ref
 -represent the primitives the interpreter will use; all of them implement the Type interface\
--supported operations: checking if two Types are the same, printing a Type, returning the default Value for a Type
+-supported operations: checking if two Types are the same, printing a Type, returning the default Value for a Type\
+-extra operations for Ref: getting the inner type which the Ref references, the equality between two Refs consists of checking the equality also for the inner types
 
-# Values: IntValue, BoolValue, StringValue, plus True and False as constants
+# Values: IntValue, BoolValue, StringValue, RefValue plus True and False as constants
 -represent the possible values the interpreter will work with; all of them implement the Value interface\
 -supported operations: checking if two Values are of the same Type, printing a Value, returning the Type of a Value, returning the actual value stored in a Value object\
--extra operation for StringValue: hashCode, returns the ascii sum of the contained string, used to check uniqueness of filenames in IFileTable
+-extra operation for StringValue: hashCode, returns the ascii sum of the contained string, used to check uniqueness of filenames in IFileTable\
+-extra operation for RefValue: getValue returns the address of the reference
 
-# ADTs: IExeStack(T), ISymTable(T, U), IOut(T), IFileTable(T, U)
+# ADTs: IExeStack(T), ISymTable(T, U), IOut(T), IFileTable(T, U), IHeap(T, U)
 -represent the execution stack, symbol table, output stream and file descriptor table of a program\
 -they are generic interfaces\
--support for basic operations like adding/removing/updating elements, checking if the container is empty, clearing the container or printing the stored elements
+-support for basic operations like adding/removing/updating elements, checking if the container is empty, clearing the container, printing the stored elements, getting the content or setting the content
 
-# Expressions: ConstExp, VarExp, ArithmeticExp, LogicExp, RelationalExp
+# Expressions: ConstExp, VarExp, ArithmeticExp, LogicExp, RelationalExp, ReadHeapExp
 -all of them implement the Exp interface\
 -ConstExp(Value) - a constant(be it int, boolean or string)\
 -VarExp(String) - the name of a variable\
 -ArithmeticExp(Exp left, Exp right, String operator) - an arithmetic expression; can be chained, can use constants or variables; support for +, -, /, *\
 -LogicExp(Exp left, Exp right, String operator) - a logic expression; can be chained, can use constants or variables; support for &, |\
 -RelationalExp(Exp left, Exp right, String operator) - a relational expression; can be chained, can use constants or variables; support for <, >, ==, <=, >=\
+-ReadHeapExp(Exp varName) - reads the value found at the memory address of varName\
 -supported operations: checking if two expressions are of the same type, printing an expression, evaluating an expression based on the symbol table of the program
 
-# Statements: VarDecl, PrintStmt, AssignStmt, IfStmt, NOP, CompStmt, OpenFileStmt, CloseFileStmt, ReadFileStmt
+# Statements: VarDecl, PrintStmt, AssignStmt, IfStmt, NOP, CompStmt, OpenFileStmt, CloseFileStmt, ReadFileStmt, NewStmt, WriteHeapStmt, WhileStmt
 -all of them implement the Stmt interface\
 -VarDecl(Type, VarExp) - declaration of variable; updates the symbol table\
 -PrintStmt(Exp) - writes to the output stream the Exp\
@@ -47,11 +50,14 @@
 -OpenFileStmt(Exp) - opens a file represented by Exp, updates the file descriptor table\
 -CloseFileStmt(Exp) - closes a file represented by Exp, updates the file descriptor table\
 -ReadFileStmt(Exp file, Exp var) - reads from the file represented by file and updates the value of var in the symbol table\
+-NewStmt(String varName, Exp exp) - allocates memory on the heap for the variable varName which is a reference to the value corresponding to exp, updates the heap\
+-WriteHeapStmt(String varName, Exp exp) - modifies the value found at the memory address of varName, updates the heap\
+-WhileStmt(Exp condition, Stmt statement) - a basic while statement, updates the execution stack\
 -supported operations: printing the statement, executing the statement and updating the ADTs associated with the program
 
 # Program state: PrgState
 -represents a program with an execution stack, a symbol table, an output stream and a file descriptor table\
--supported operations: getters for the ADTs, printing the program, reseting the program to the initial state, transforming a list of Statements into a single CompStmt
+-supported operations: getters for the ADTs, printing the program, closing possible existing input streams and cleaning the memory associated with the adts and their contents
 
 # Repository: IRepo(T)
 -generic interface\
@@ -62,7 +68,8 @@
 -connects the view with the data\
 -provides methods for running a program: oneStep - executes the top of the execution stack, allStep - executes the whole program\
 -if the display flag is set prints the current program state at each step, otherwise it prints the output at the end of the execution\
--logs the current program state into a file at each step
+-logs the current program state into a file at each step\
+-performs garbage collecting after each step
 
 # Commands: represent the commands the user can input, extend the abstract class Command
 

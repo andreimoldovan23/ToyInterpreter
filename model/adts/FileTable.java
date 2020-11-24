@@ -1,9 +1,11 @@
 package ToyInterpreter.model.adts;
 
 import ToyInterpreter.exceptions.InvalidFilenameException;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public class FileTable<T, U> implements IFileTable<T, U> {
 
@@ -40,9 +42,8 @@ public class FileTable<T, U> implements IFileTable<T, U> {
         return strBuilder.toString();
     }
 
-    @SuppressWarnings("unchecked")
-    public Set<U> getKeys(){
-        return (Set<U>) map.keySet();
+    public List<U> getValues(){
+        return new ArrayList<>(map.values());
     }
 
 }

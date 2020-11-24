@@ -13,7 +13,7 @@ public class DisplayInitialCommand extends Command{
     }
 
     public void execute() {
-        Stmt stmt = controller.getCurrentStatement();
+        Stmt stmt = controller.getInitialProgram();
         System.out.println("Current program\n" + stmt + "\n");
     }
 

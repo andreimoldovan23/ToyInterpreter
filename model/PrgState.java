@@ -1,15 +1,11 @@
 package ToyInterpreter.model;
 
 import ToyInterpreter.model.adts.*;
-import ToyInterpreter.model.stmts.CompStmt;
-import ToyInterpreter.model.stmts.NOP;
 import ToyInterpreter.model.stmts.Stmt;
 import ToyInterpreter.model.values.StringValue;
 import ToyInterpreter.model.values.Value;
 import java.io.IOException;
-import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 public class PrgState {
 
@@ -17,24 +13,17 @@ public class PrgState {
     private final ISymTable<String, Value> table;
     private final IOut<String> out;
     private final IFileTable<StringValue, MyBufferedReader> fileTable;
+    private final IHeap<Integer, Value> heap;
     private final Stmt initialProgram;
 
-    public PrgState(IExeStack<Stmt> es, ISymTable<String, Value> tbl, IOut<String> out,
-                    IFileTable<StringValue, MyBufferedReader> ft, List<Stmt> s){
+    public PrgState(IExeStack<Stmt> es, ISymTable<String, Value> tbl, IOut<String> o,
+                    IFileTable<StringValue, MyBufferedReader> ft, IHeap<Integer, Value> h,
+                    Stmt s){
         stack = es;
         table = tbl;
-        this.out = out;
+        out = o;
         fileTable = ft;
-        initialProgram = assemble(s);
-        stack.push(initialProgram);
-    }
-
-    public PrgState(IExeStack<Stmt> es, ISymTable<String, Value> tbl, IOut<String> out,
-                    IFileTable<StringValue, MyBufferedReader> ft, Stmt s){
-        stack = es;
-        table = tbl;
-        this.out = out;
-        fileTable = ft;
+        heap = h;
         initialProgram = s;
         stack.push(initialProgram);
     }
@@ -55,29 +44,29 @@ public class PrgState {
         return fileTable;
     }
 
-    public Stmt getInitialProgram(){
-        return initialProgram;
+    public IHeap<Integer, Value> getHeap(){
+        return heap;
     }
 
-    public static Stmt assemble(List<Stmt> statements){
-        Collections.reverse(statements);
-        return statements.stream().reduce(new NOP(), (a, b) -> new CompStmt(b, a));
+    public Stmt getInitialProgram(){
+        return initialProgram;
     }
 
     public String toString(){
         return "ExeStack:\n" + stack.toString() + "\nSymTable:\n" + table.toString() +
                 "\nOut:\n" + out.toString() + "\nFileTable:\n" + fileTable.toString() +
+                "\nHeap:\n" + heap.toString() +
                 "\n-----------------------------------------------------\n";
     }
 
-    public void reset() throws IOException {
-        stack.push(initialProgram);
+    public void cleanAll() throws IOException {
         out.clear();
         table.clear();
-        Set<MyBufferedReader> readers = fileTable.getKeys();
+        List<MyBufferedReader> readers = fileTable.getValues();
         for(var r : readers)
             r.close();
         fileTable.clear();
-        }
+        heap.clear();
+    }
 
 }

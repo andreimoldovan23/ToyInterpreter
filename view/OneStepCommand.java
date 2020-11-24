@@ -2,15 +2,16 @@ package ToyInterpreter.view;
 
 import ToyInterpreter.controller.Controller;
 import ToyInterpreter.exceptions.MyException;
-import java.io.IOException;
 
 public class OneStepCommand extends Command{
 
     private final Controller controller;
+    private final Command quit;
 
     public OneStepCommand(String k, String d, Controller c) {
         super(k, d);
         controller = c;
+        quit = new QuitCommand("quit", "Exit program", controller);
     }
 
     public void execute() {
@@ -19,9 +20,7 @@ public class OneStepCommand extends Command{
         }
         catch (MyException e){
             System.out.println(e);
-        }
-        catch (IOException ioe){
-            ioe.printStackTrace();
+            quit.execute();
         }
     }
 

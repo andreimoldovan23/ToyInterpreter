@@ -5,7 +5,7 @@ import org.junit.*;
 
 public class testTypes {
 
-    private Type intType, boolType, stringType;
+    private Type intType, boolType, stringType, refType;
 
     @BeforeClass
     public static void printName(){
@@ -22,10 +22,12 @@ public class testTypes {
         intType = new Int();
         boolType = new Bool();
         stringType = new StringType();
+        refType = new Ref(intType);
     }
 
     @After
     public void tearDown(){
+        refType = null;
         intType = null;
         boolType = null;
         stringType = null;
@@ -36,6 +38,7 @@ public class testTypes {
         Assert.assertEquals("Testing toString method of Int", "int", intType.toString());
         Assert.assertEquals("Testing toString method of Bool", "boolean", boolType.toString());
         Assert.assertEquals("Testing toString method of StringType", "string", stringType.toString());
+        Assert.assertEquals("Testing toString method of Ref", "ref (int)", refType.toString());
     }
 
     @Test
@@ -43,6 +46,7 @@ public class testTypes {
         Assert.assertEquals("Testing equals method of Int", intType, new Int());
         Assert.assertEquals("Testing equals method of Bool", boolType, new Bool());
         Assert.assertEquals("Testing equals method of StringType", stringType, new StringType());
+        Assert.assertEquals("Testing equals method of Ref", refType, new Ref(new Int()));
     }
 
     @Test
@@ -51,6 +55,7 @@ public class testTypes {
         Assert.assertEquals("Testing defaultValue method of Bool", Bool.defaultValue().getValue(), false);
         Assert.assertEquals("Testing defaultValue method of StringType",
                 StringType.defaultValue().getValue(), "");
+        Assert.assertEquals("Testing defaultValue method of Ref", Ref.defaultValue(new Int()).getValue(), 0);
     }
 
 }

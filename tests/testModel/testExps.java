@@ -6,7 +6,7 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         testConstExp.class, testVarExp.class, testArithmeticExp.class,
-        testLogicExp.class, testRelationalExp.class
+        testLogicExp.class, testRelationalExp.class, testReadHeapExp.class
 })
 
 

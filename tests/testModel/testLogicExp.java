@@ -1,6 +1,8 @@
 package ToyInterpreter.tests.testModel;
 
 import ToyInterpreter.exceptions.*;
+import ToyInterpreter.model.adts.Heap;
+import ToyInterpreter.model.adts.IHeap;
 import ToyInterpreter.model.adts.ISymTable;
 import ToyInterpreter.model.adts.SymTable;
 import ToyInterpreter.model.exps.*;
@@ -10,6 +12,7 @@ import org.junit.*;
 public class testLogicExp {
 
     private ISymTable<String, Value> table;
+    private IHeap<Integer, Value> heap;
     private Exp varBool;
     private Exp constInt;
     private Exp logicAnd, logicOr, logicComposite;
@@ -28,6 +31,7 @@ public class testLogicExp {
     @Before
     public void setUp(){
         table = new SymTable<>();
+        heap = new Heap<>();
         table.add("number", new IntValue(5));
         table.add("boolean", new True());
 
@@ -57,6 +61,8 @@ public class testLogicExp {
         logicThrowsInvalidLogicType2 = null;
         table.clear();
         table = null;
+        heap.clear();
+        heap = null;
     }
 
     @Test
@@ -78,29 +84,29 @@ public class testLogicExp {
     @Test
     public void evalTest() throws MyException {
         Assert.assertEquals("Testing eval method of LogicExp with &",
-                false, logicAnd.eval(table).getValue());
+                false, logicAnd.eval(table, heap).getValue());
         Assert.assertEquals("Testing eval method of LogicExp with |",
-                true, logicOr.eval(table).getValue());
+                true, logicOr.eval(table, heap).getValue());
         Assert.assertEquals("Testing eval method of LogicExp composed of multiple LogicExp objects",
-                false, logicComposite.eval(table).getValue());
+                false, logicComposite.eval(table, heap).getValue());
     }
 
     @Test(expected = InvalidOperator.class)
     public void LogicInvalidOperatorTest() throws MyException{
         Assert.assertNotNull("Testing InvalidOperator exception for LogicExp",
-                logicThrowsInvalidOperator.eval(table));
+                logicThrowsInvalidOperator.eval(table, heap));
     }
 
     @Test(expected = InvalidLogicTypeException.class)
     public void InvalidLogicTypeFirstTest() throws MyException{
         Assert.assertNotNull("Testing InvalidLogicType exception for left expression",
-                logicThrowsInvalidLogicType1.eval(table));
+                logicThrowsInvalidLogicType1.eval(table, heap));
     }
 
     @Test(expected = InvalidLogicTypeException.class)
     public void InvalidLogicTypeSecondTest() throws MyException{
         Assert.assertNotNull("Testing InvalidLogicType exception for right expression",
-                logicThrowsInvalidLogicType2.eval(table));
+                logicThrowsInvalidLogicType2.eval(table, heap));
     }
 
 }

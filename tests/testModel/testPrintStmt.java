@@ -8,6 +8,8 @@ import ToyInterpreter.model.stmts.*;
 import ToyInterpreter.model.values.*;
 import org.junit.*;
 
+import java.io.IOException;
+
 public class testPrintStmt {
 
     private Exp constExpInt;
@@ -28,12 +30,14 @@ public class testPrintStmt {
     public void setUp(){
         constExpInt = new ConstExp(new IntValue(10));
         arithmeticExp = new ArithmeticExp(constExpInt, constExpInt, "*");
-        state = new PrgState(new ExeStack<>(), new SymTable<>(), new Out<>(), new FileTable<>(), new NOP());
+        state = new PrgState(new ExeStack<>(), new SymTable<>(), new Out<>(), new FileTable<>(), new Heap<>(),
+                new NOP());
     }
 
     @SuppressWarnings("DuplicatedCode")
     @After
-    public void tearDown(){
+    public void tearDown() throws IOException {
+        state.cleanAll();
         constExpInt = null;
         arithmeticExp = null;
         state = null;
@@ -43,7 +47,7 @@ public class testPrintStmt {
     public void execTest() throws MyException {
         Stmt printStmt = new PrintStmt(arithmeticExp);
         String expected = "100\n";
-        state = printStmt.exec(state);
+        printStmt.exec(state);
         IOut<String> out = state.getOut();
         Assert.assertEquals("Testing exec method of PrintStmt", expected, out.toString());
     }

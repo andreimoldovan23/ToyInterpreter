@@ -1,6 +1,7 @@
 package ToyInterpreter.model.exps;
 
 import ToyInterpreter.exceptions.*;
+import ToyInterpreter.model.adts.IHeap;
 import ToyInterpreter.model.adts.ISymTable;
 import ToyInterpreter.model.types.Int;
 import ToyInterpreter.model.values.IntValue;
@@ -18,10 +19,10 @@ public class ArithmeticExp implements Exp{
         op = operand;
     }
 
-    public Value eval(ISymTable<String, Value> table) throws MyException {
+    public Value eval(ISymTable<String, Value> table, IHeap<Integer, Value> heap) throws MyException {
         Value v1, v2, finalValue;
-        v1 = left.eval(table);
-        v2 = right.eval(table);
+        v1 = left.eval(table, heap);
+        v2 = right.eval(table, heap);
 
         if(v1.getType().equals(new Int())){
             if(v2.getType().equals(new Int())){

@@ -4,11 +4,17 @@ import ToyInterpreter.exceptions.MyException;
 import ToyInterpreter.exceptions.StackEmptyException;
 import ToyInterpreter.model.PrgState;
 import ToyInterpreter.model.adts.IExeStack;
+import ToyInterpreter.model.adts.IHeap;
 import ToyInterpreter.model.stmts.*;
+import ToyInterpreter.model.values.RefValue;
+import ToyInterpreter.model.values.Value;
 import ToyInterpreter.repository.IRepo;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Controller {
 
@@ -30,7 +36,7 @@ public class Controller {
         return stmts;
     }
 
-    public Stmt getCurrentStatement() {
+    public Stmt getInitialProgram() {
         return currentProgram.getInitialProgram();
     }
 
@@ -49,10 +55,31 @@ public class Controller {
 
     public void closeAll() throws IOException {
         programs.closeWriter();
-        currentProgram.reset();
+        currentProgram.cleanAll();
     }
 
-    public void oneStep() throws MyException, IOException {
+    private Stream<Integer> getReferencedAddresses(Value val, IHeap<Integer, Value> heap){
+        int addr = (int) val.getValue();
+        if(!(heap.lookup(addr) instanceof RefValue))
+            return Stream.of(addr);
+        else
+            return Stream.concat(Stream.of(addr), getReferencedAddresses(heap.lookup(addr), heap));
+    }
+
+    private List<Integer> getAddresses(List<Value> values, IHeap<Integer, Value> heap){
+        return values.stream()
+                .filter(e -> e instanceof RefValue)
+                .flatMap(e -> getReferencedAddresses(e, heap))
+                .collect(Collectors.toList());
+    }
+
+    private Map<Integer, Value> garbageCollector(List<Integer> addresses, IHeap<Integer, Value> heap){
+        return heap.getContent().stream()
+                .filter(e -> addresses.contains(e.getKey()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
+    public void oneStep() throws MyException {
         IExeStack<Stmt> stack = currentProgram.getStack();
         Stmt top;
         try {
@@ -60,25 +87,25 @@ public class Controller {
         }
         catch (StackEmptyException e){
             System.out.println("Out:\n" + currentProgram.getOut());
-            currentProgram.reset();
             throw e;
         }
-        currentProgram = top.exec(currentProgram);
+        top.exec(currentProgram);
 
         if(displayFlag)
             System.out.println("Current state:\n" + currentProgram);
     }
 
-    public void allStep() throws MyException, IOException{
+    @SuppressWarnings("InfiniteLoopStatement")
+    public void allStep() throws MyException {
         programs.logCurrentPrg();
+        IHeap<Integer, Value> heap = currentProgram.getHeap();
         while(true){
-            try {
-                oneStep();
-                programs.logCurrentPrg();
-            }
-            catch (StackEmptyException e){
-                break;
-            }
+            oneStep();
+            heap.setContent(
+                    garbageCollector(
+                            getAddresses(currentProgram.getTable().getValues(), heap),
+                            heap));
+            programs.logCurrentPrg();
         }
     }
 

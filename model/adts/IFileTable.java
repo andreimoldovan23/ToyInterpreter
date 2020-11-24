@@ -1,7 +1,7 @@
 package ToyInterpreter.model.adts;
 
 import ToyInterpreter.exceptions.InvalidFilenameException;
-import java.util.Set;
+import java.util.List;
 
 public interface IFileTable<T, U> {
     void add(T key, U value);
@@ -9,6 +9,6 @@ public interface IFileTable<T, U> {
     boolean isDefined(T key);
     U lookup(T key);
     void clear();
-    Set<U> getKeys();
+    List<U> getValues();
     String toString();
 }

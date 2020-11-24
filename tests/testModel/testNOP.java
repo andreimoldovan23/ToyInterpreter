@@ -7,6 +7,8 @@ import ToyInterpreter.model.stmts.*;
 import ToyInterpreter.model.values.*;
 import org.junit.*;
 
+import java.io.IOException;
+
 public class testNOP {
 
     private PrgState state;
@@ -23,19 +25,21 @@ public class testNOP {
 
     @Before
     public void setUp(){
-        state = new PrgState(new ExeStack<>(), new SymTable<>(), new Out<>(), new FileTable<>(), new NOP());
+        state = new PrgState(new ExeStack<>(), new SymTable<>(), new Out<>(), new FileTable<>(), new Heap<>(),
+                new NOP());
     }
 
     @SuppressWarnings("DuplicatedCode")
     @After
-    public void tearDown(){
+    public void tearDown() throws IOException {
+        state.cleanAll();
         state = null;
     }
 
     @Test
     public void execNOPTest() throws MyException {
         Stmt nop = new NOP();
-        state = nop.exec(state);
+        nop.exec(state);
         IExeStack<Stmt> stack = state.getStack();
         ISymTable<String, Value> table = state.getTable();
         IOut<String> out = state.getOut();

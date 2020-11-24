@@ -1,7 +1,6 @@
 package ToyInterpreter.model.adts;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class SymTable<T, U> implements ISymTable<T, U> {
 
@@ -38,6 +37,10 @@ public class SymTable<T, U> implements ISymTable<T, U> {
 
     public void clear() {
         map.clear();
+    }
+
+    public List<U> getValues(){
+        return new ArrayList<>(map.values());
     }
 
 }

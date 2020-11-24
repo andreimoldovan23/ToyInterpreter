@@ -1,4 +1,4 @@
-Tue Nov 17 18:30:13 EET 2020
+Tue Nov 24 00:41:47 EET 2020
 ExeStack:
 [string varf
 varf=test.in
@@ -9,10 +9,28 @@ print varc
 readFile (varf, varc)
 print varc
 closeFile (varf)
-if (35 <= varc) then 
-	print varc greater than 35
-else 
-	print Hello world
+if ((35 + 35) >= (35 - 35)) then
+	ref (int) myRef
+	ref (ref (int)) myCompRef
+	ref (string) myRefWillBeCollected
+	new (myRef, 10)
+	new (myCompRef, myRef)
+	new (myRefWillBeCollected, Hello world)
+	writeHeap (myRef, (35 + 35))
+	new (myRef, 100)
+	new (myRefWillBeCollected, Hi guys)
+	No operation
+else
+	No operation
+print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
 No operation]
 
 SymTable:
@@ -21,9 +39,11 @@ Out:
 
 FileTable:
 
+Heap:
+
 -----------------------------------------------------
 
-Tue Nov 17 18:30:13 EET 2020
+Tue Nov 24 00:41:47 EET 2020
 ExeStack:
 [string varf]
 [varf=test.in
@@ -34,10 +54,28 @@ print varc
 readFile (varf, varc)
 print varc
 closeFile (varf)
-if (35 <= varc) then 
-	print varc greater than 35
-else 
-	print Hello world
+if ((35 + 35) >= (35 - 35)) then
+	ref (int) myRef
+	ref (ref (int)) myCompRef
+	ref (string) myRefWillBeCollected
+	new (myRef, 10)
+	new (myCompRef, myRef)
+	new (myRefWillBeCollected, Hello world)
+	writeHeap (myRef, (35 + 35))
+	new (myRef, 100)
+	new (myRefWillBeCollected, Hi guys)
+	No operation
+else
+	No operation
+print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
 No operation]
 
 SymTable:
@@ -46,9 +84,11 @@ Out:
 
 FileTable:
 
+Heap:
+
 -----------------------------------------------------
 
-Tue Nov 17 18:30:13 EET 2020
+Tue Nov 24 00:41:47 EET 2020
 ExeStack:
 [varf=test.in
 openFile (varf)
@@ -58,10 +98,28 @@ print varc
 readFile (varf, varc)
 print varc
 closeFile (varf)
-if (35 <= varc) then 
-	print varc greater than 35
-else 
-	print Hello world
+if ((35 + 35) >= (35 - 35)) then
+	ref (int) myRef
+	ref (ref (int)) myCompRef
+	ref (string) myRefWillBeCollected
+	new (myRef, 10)
+	new (myCompRef, myRef)
+	new (myRefWillBeCollected, Hello world)
+	writeHeap (myRef, (35 + 35))
+	new (myRef, 100)
+	new (myRefWillBeCollected, Hi guys)
+	No operation
+else
+	No operation
+print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
 No operation]
 
 SymTable:
@@ -71,9 +129,11 @@ Out:
 
 FileTable:
 
+Heap:
+
 -----------------------------------------------------
 
-Tue Nov 17 18:30:13 EET 2020
+Tue Nov 24 00:41:47 EET 2020
 ExeStack:
 [varf=test.in]
 [openFile (varf)
@@ -83,10 +143,28 @@ print varc
 readFile (varf, varc)
 print varc
 closeFile (varf)
-if (35 <= varc) then 
-	print varc greater than 35
-else 
-	print Hello world
+if ((35 + 35) >= (35 - 35)) then
+	ref (int) myRef
+	ref (ref (int)) myCompRef
+	ref (string) myRefWillBeCollected
+	new (myRef, 10)
+	new (myCompRef, myRef)
+	new (myRefWillBeCollected, Hello world)
+	writeHeap (myRef, (35 + 35))
+	new (myRef, 100)
+	new (myRefWillBeCollected, Hi guys)
+	No operation
+else
+	No operation
+print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
 No operation]
 
 SymTable:
@@ -96,9 +174,11 @@ Out:
 
 FileTable:
 
+Heap:
+
 -----------------------------------------------------
 
-Tue Nov 17 18:30:13 EET 2020
+Tue Nov 24 00:41:47 EET 2020
 ExeStack:
 [openFile (varf)
 int varc
@@ -107,10 +187,28 @@ print varc
 readFile (varf, varc)
 print varc
 closeFile (varf)
-if (35 <= varc) then 
-	print varc greater than 35
-else 
-	print Hello world
+if ((35 + 35) >= (35 - 35)) then
+	ref (int) myRef
+	ref (ref (int)) myCompRef
+	ref (string) myRefWillBeCollected
+	new (myRef, 10)
+	new (myCompRef, myRef)
+	new (myRefWillBeCollected, Hello world)
+	writeHeap (myRef, (35 + 35))
+	new (myRef, 100)
+	new (myRefWillBeCollected, Hi guys)
+	No operation
+else
+	No operation
+print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
 No operation]
 
 SymTable:
@@ -120,9 +218,11 @@ Out:
 
 FileTable:
 
+Heap:
+
 -----------------------------------------------------
 
-Tue Nov 17 18:30:13 EET 2020
+Tue Nov 24 00:41:47 EET 2020
 ExeStack:
 [openFile (varf)]
 [int varc
@@ -131,10 +231,28 @@ print varc
 readFile (varf, varc)
 print varc
 closeFile (varf)
-if (35 <= varc) then 
-	print varc greater than 35
-else 
-	print Hello world
+if ((35 + 35) >= (35 - 35)) then
+	ref (int) myRef
+	ref (ref (int)) myCompRef
+	ref (string) myRefWillBeCollected
+	new (myRef, 10)
+	new (myCompRef, myRef)
+	new (myRefWillBeCollected, Hello world)
+	writeHeap (myRef, (35 + 35))
+	new (myRef, 100)
+	new (myRefWillBeCollected, Hi guys)
+	No operation
+else
+	No operation
+print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
 No operation]
 
 SymTable:
@@ -144,9 +262,11 @@ Out:
 
 FileTable:
 
+Heap:
+
 -----------------------------------------------------
 
-Tue Nov 17 18:30:13 EET 2020
+Tue Nov 24 00:41:47 EET 2020
 ExeStack:
 [int varc
 readFile (varf, varc)
@@ -154,10 +274,28 @@ print varc
 readFile (varf, varc)
 print varc
 closeFile (varf)
-if (35 <= varc) then 
-	print varc greater than 35
-else 
-	print Hello world
+if ((35 + 35) >= (35 - 35)) then
+	ref (int) myRef
+	ref (ref (int)) myCompRef
+	ref (string) myRefWillBeCollected
+	new (myRef, 10)
+	new (myCompRef, myRef)
+	new (myRefWillBeCollected, Hello world)
+	writeHeap (myRef, (35 + 35))
+	new (myRef, 100)
+	new (myRefWillBeCollected, Hi guys)
+	No operation
+else
+	No operation
+print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
 No operation]
 
 SymTable:
@@ -168,9 +306,11 @@ Out:
 FileTable:
 test.in=BufferedReader, id: 1
 
+Heap:
+
 -----------------------------------------------------
 
-Tue Nov 17 18:30:13 EET 2020
+Tue Nov 24 00:41:47 EET 2020
 ExeStack:
 [int varc]
 [readFile (varf, varc)
@@ -178,10 +318,28 @@ print varc
 readFile (varf, varc)
 print varc
 closeFile (varf)
-if (35 <= varc) then 
-	print varc greater than 35
-else 
-	print Hello world
+if ((35 + 35) >= (35 - 35)) then
+	ref (int) myRef
+	ref (ref (int)) myCompRef
+	ref (string) myRefWillBeCollected
+	new (myRef, 10)
+	new (myCompRef, myRef)
+	new (myRefWillBeCollected, Hello world)
+	writeHeap (myRef, (35 + 35))
+	new (myRef, 100)
+	new (myRefWillBeCollected, Hi guys)
+	No operation
+else
+	No operation
+print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
 No operation]
 
 SymTable:
@@ -192,19 +350,39 @@ Out:
 FileTable:
 test.in=BufferedReader, id: 1
 
+Heap:
+
 -----------------------------------------------------
 
-Tue Nov 17 18:30:13 EET 2020
+Tue Nov 24 00:41:47 EET 2020
 ExeStack:
 [readFile (varf, varc)
 print varc
 readFile (varf, varc)
 print varc
 closeFile (varf)
-if (35 <= varc) then 
-	print varc greater than 35
-else 
-	print Hello world
+if ((35 + 35) >= (35 - 35)) then
+	ref (int) myRef
+	ref (ref (int)) myCompRef
+	ref (string) myRefWillBeCollected
+	new (myRef, 10)
+	new (myCompRef, myRef)
+	new (myRefWillBeCollected, Hello world)
+	writeHeap (myRef, (35 + 35))
+	new (myRef, 100)
+	new (myRefWillBeCollected, Hi guys)
+	No operation
+else
+	No operation
+print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
 No operation]
 
 SymTable:
@@ -216,19 +394,39 @@ Out:
 FileTable:
 test.in=BufferedReader, id: 1
 
+Heap:
+
 -----------------------------------------------------
 
-Tue Nov 17 18:30:13 EET 2020
+Tue Nov 24 00:41:47 EET 2020
 ExeStack:
 [readFile (varf, varc)]
 [print varc
 readFile (varf, varc)
 print varc
 closeFile (varf)
-if (35 <= varc) then 
-	print varc greater than 35
-else 
-	print Hello world
+if ((35 + 35) >= (35 - 35)) then
+	ref (int) myRef
+	ref (ref (int)) myCompRef
+	ref (string) myRefWillBeCollected
+	new (myRef, 10)
+	new (myCompRef, myRef)
+	new (myRefWillBeCollected, Hello world)
+	writeHeap (myRef, (35 + 35))
+	new (myRef, 100)
+	new (myRefWillBeCollected, Hi guys)
+	No operation
+else
+	No operation
+print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
 No operation]
 
 SymTable:
@@ -240,18 +438,38 @@ Out:
 FileTable:
 test.in=BufferedReader, id: 1
 
+Heap:
+
 -----------------------------------------------------
 
-Tue Nov 17 18:30:13 EET 2020
+Tue Nov 24 00:41:47 EET 2020
 ExeStack:
 [print varc
 readFile (varf, varc)
 print varc
 closeFile (varf)
-if (35 <= varc) then 
-	print varc greater than 35
-else 
-	print Hello world
+if ((35 + 35) >= (35 - 35)) then
+	ref (int) myRef
+	ref (ref (int)) myCompRef
+	ref (string) myRefWillBeCollected
+	new (myRef, 10)
+	new (myCompRef, myRef)
+	new (myRefWillBeCollected, Hello world)
+	writeHeap (myRef, (35 + 35))
+	new (myRef, 100)
+	new (myRefWillBeCollected, Hi guys)
+	No operation
+else
+	No operation
+print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
 No operation]
 
 SymTable:
@@ -263,18 +481,38 @@ Out:
 FileTable:
 test.in=BufferedReader, id: 1
 
+Heap:
+
 -----------------------------------------------------
 
-Tue Nov 17 18:30:13 EET 2020
+Tue Nov 24 00:41:47 EET 2020
 ExeStack:
 [print varc]
 [readFile (varf, varc)
 print varc
 closeFile (varf)
-if (35 <= varc) then 
-	print varc greater than 35
-else 
-	print Hello world
+if ((35 + 35) >= (35 - 35)) then
+	ref (int) myRef
+	ref (ref (int)) myCompRef
+	ref (string) myRefWillBeCollected
+	new (myRef, 10)
+	new (myCompRef, myRef)
+	new (myRefWillBeCollected, Hello world)
+	writeHeap (myRef, (35 + 35))
+	new (myRef, 100)
+	new (myRefWillBeCollected, Hi guys)
+	No operation
+else
+	No operation
+print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
 No operation]
 
 SymTable:
@@ -286,17 +524,37 @@ Out:
 FileTable:
 test.in=BufferedReader, id: 1
 
+Heap:
+
 -----------------------------------------------------
 
-Tue Nov 17 18:30:13 EET 2020
+Tue Nov 24 00:41:47 EET 2020
 ExeStack:
 [readFile (varf, varc)
 print varc
 closeFile (varf)
-if (35 <= varc) then 
-	print varc greater than 35
-else 
-	print Hello world
+if ((35 + 35) >= (35 - 35)) then
+	ref (int) myRef
+	ref (ref (int)) myCompRef
+	ref (string) myRefWillBeCollected
+	new (myRef, 10)
+	new (myCompRef, myRef)
+	new (myRefWillBeCollected, Hello world)
+	writeHeap (myRef, (35 + 35))
+	new (myRef, 100)
+	new (myRefWillBeCollected, Hi guys)
+	No operation
+else
+	No operation
+print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
 No operation]
 
 SymTable:
@@ -309,17 +567,37 @@ Out:
 FileTable:
 test.in=BufferedReader, id: 1
 
+Heap:
+
 -----------------------------------------------------
 
-Tue Nov 17 18:30:13 EET 2020
+Tue Nov 24 00:41:47 EET 2020
 ExeStack:
 [readFile (varf, varc)]
 [print varc
 closeFile (varf)
-if (35 <= varc) then 
-	print varc greater than 35
-else 
-	print Hello world
+if ((35 + 35) >= (35 - 35)) then
+	ref (int) myRef
+	ref (ref (int)) myCompRef
+	ref (string) myRefWillBeCollected
+	new (myRef, 10)
+	new (myCompRef, myRef)
+	new (myRefWillBeCollected, Hello world)
+	writeHeap (myRef, (35 + 35))
+	new (myRef, 100)
+	new (myRefWillBeCollected, Hi guys)
+	No operation
+else
+	No operation
+print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
 No operation]
 
 SymTable:
@@ -332,16 +610,36 @@ Out:
 FileTable:
 test.in=BufferedReader, id: 1
 
+Heap:
+
 -----------------------------------------------------
 
-Tue Nov 17 18:30:13 EET 2020
+Tue Nov 24 00:41:47 EET 2020
 ExeStack:
 [print varc
 closeFile (varf)
-if (35 <= varc) then 
-	print varc greater than 35
-else 
-	print Hello world
+if ((35 + 35) >= (35 - 35)) then
+	ref (int) myRef
+	ref (ref (int)) myCompRef
+	ref (string) myRefWillBeCollected
+	new (myRef, 10)
+	new (myCompRef, myRef)
+	new (myRefWillBeCollected, Hello world)
+	writeHeap (myRef, (35 + 35))
+	new (myRef, 100)
+	new (myRefWillBeCollected, Hi guys)
+	No operation
+else
+	No operation
+print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
 No operation]
 
 SymTable:
@@ -354,16 +652,36 @@ Out:
 FileTable:
 test.in=BufferedReader, id: 1
 
+Heap:
+
 -----------------------------------------------------
 
-Tue Nov 17 18:30:13 EET 2020
+Tue Nov 24 00:41:47 EET 2020
 ExeStack:
 [print varc]
 [closeFile (varf)
-if (35 <= varc) then 
-	print varc greater than 35
-else 
-	print Hello world
+if ((35 + 35) >= (35 - 35)) then
+	ref (int) myRef
+	ref (ref (int)) myCompRef
+	ref (string) myRefWillBeCollected
+	new (myRef, 10)
+	new (myCompRef, myRef)
+	new (myRefWillBeCollected, Hello world)
+	writeHeap (myRef, (35 + 35))
+	new (myRef, 100)
+	new (myRefWillBeCollected, Hi guys)
+	No operation
+else
+	No operation
+print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
 No operation]
 
 SymTable:
@@ -376,15 +694,35 @@ Out:
 FileTable:
 test.in=BufferedReader, id: 1
 
+Heap:
+
 -----------------------------------------------------
 
-Tue Nov 17 18:30:13 EET 2020
+Tue Nov 24 00:41:47 EET 2020
 ExeStack:
 [closeFile (varf)
-if (35 <= varc) then 
-	print varc greater than 35
-else 
-	print Hello world
+if ((35 + 35) >= (35 - 35)) then
+	ref (int) myRef
+	ref (ref (int)) myCompRef
+	ref (string) myRefWillBeCollected
+	new (myRef, 10)
+	new (myCompRef, myRef)
+	new (myRefWillBeCollected, Hello world)
+	writeHeap (myRef, (35 + 35))
+	new (myRef, 100)
+	new (myRefWillBeCollected, Hi guys)
+	No operation
+else
+	No operation
+print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
 No operation]
 
 SymTable:
@@ -398,15 +736,35 @@ Out:
 FileTable:
 test.in=BufferedReader, id: 1
 
+Heap:
+
 -----------------------------------------------------
 
-Tue Nov 17 18:30:13 EET 2020
+Tue Nov 24 00:41:47 EET 2020
 ExeStack:
 [closeFile (varf)]
-[if (35 <= varc) then 
-	print varc greater than 35
-else 
-	print Hello world
+[if ((35 + 35) >= (35 - 35)) then
+	ref (int) myRef
+	ref (ref (int)) myCompRef
+	ref (string) myRefWillBeCollected
+	new (myRef, 10)
+	new (myCompRef, myRef)
+	new (myRefWillBeCollected, Hello world)
+	writeHeap (myRef, (35 + 35))
+	new (myRef, 100)
+	new (myRefWillBeCollected, Hi guys)
+	No operation
+else
+	No operation
+print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
 No operation]
 
 SymTable:
@@ -420,14 +778,34 @@ Out:
 FileTable:
 test.in=BufferedReader, id: 1
 
+Heap:
+
 -----------------------------------------------------
 
-Tue Nov 17 18:30:13 EET 2020
+Tue Nov 24 00:41:47 EET 2020
 ExeStack:
-[if (35 <= varc) then 
-	print varc greater than 35
-else 
-	print Hello world
+[if ((35 + 35) >= (35 - 35)) then
+	ref (int) myRef
+	ref (ref (int)) myCompRef
+	ref (string) myRefWillBeCollected
+	new (myRef, 10)
+	new (myCompRef, myRef)
+	new (myRefWillBeCollected, Hello world)
+	writeHeap (myRef, (35 + 35))
+	new (myRef, 100)
+	new (myRefWillBeCollected, Hi guys)
+	No operation
+else
+	No operation
+print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
 No operation]
 
 SymTable:
@@ -440,75 +818,1687 @@ Out:
 
 FileTable:
 
+Heap:
+
 -----------------------------------------------------
 
-Tue Nov 17 18:30:13 EET 2020
+Tue Nov 24 00:41:47 EET 2020
 ExeStack:
-[if (35 <= varc) then 
-	print varc greater than 35
-else 
-	print Hello world]
+[if ((35 + 35) >= (35 - 35)) then
+	ref (int) myRef
+	ref (ref (int)) myCompRef
+	ref (string) myRefWillBeCollected
+	new (myRef, 10)
+	new (myCompRef, myRef)
+	new (myRefWillBeCollected, Hello world)
+	writeHeap (myRef, (35 + 35))
+	new (myRef, 100)
+	new (myRefWillBeCollected, Hi guys)
+	No operation
+else
+	No operation]
+[print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+varc=50
+
+Out:
+15
+50
+
+FileTable:
+
+Heap:
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[ref (int) myRef
+ref (ref (int)) myCompRef
+ref (string) myRefWillBeCollected
+new (myRef, 10)
+new (myCompRef, myRef)
+new (myRefWillBeCollected, Hello world)
+writeHeap (myRef, (35 + 35))
+new (myRef, 100)
+new (myRefWillBeCollected, Hi guys)
+No operation]
+[print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+varc=50
+
+Out:
+15
+50
+
+FileTable:
+
+Heap:
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[ref (int) myRef]
+[ref (ref (int)) myCompRef
+ref (string) myRefWillBeCollected
+new (myRef, 10)
+new (myCompRef, myRef)
+new (myRefWillBeCollected, Hello world)
+writeHeap (myRef, (35 + 35))
+new (myRef, 100)
+new (myRefWillBeCollected, Hi guys)
+No operation]
+[print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+varc=50
+
+Out:
+15
+50
+
+FileTable:
+
+Heap:
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[ref (ref (int)) myCompRef
+ref (string) myRefWillBeCollected
+new (myRef, 10)
+new (myCompRef, myRef)
+new (myRefWillBeCollected, Hello world)
+writeHeap (myRef, (35 + 35))
+new (myRef, 100)
+new (myRefWillBeCollected, Hi guys)
+No operation]
+[print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+varc=50
+myRef=(0 -> int)
+
+Out:
+15
+50
+
+FileTable:
+
+Heap:
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[ref (ref (int)) myCompRef]
+[ref (string) myRefWillBeCollected
+new (myRef, 10)
+new (myCompRef, myRef)
+new (myRefWillBeCollected, Hello world)
+writeHeap (myRef, (35 + 35))
+new (myRef, 100)
+new (myRefWillBeCollected, Hi guys)
+No operation]
+[print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+varc=50
+myRef=(0 -> int)
+
+Out:
+15
+50
+
+FileTable:
+
+Heap:
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[ref (string) myRefWillBeCollected
+new (myRef, 10)
+new (myCompRef, myRef)
+new (myRefWillBeCollected, Hello world)
+writeHeap (myRef, (35 + 35))
+new (myRef, 100)
+new (myRefWillBeCollected, Hi guys)
+No operation]
+[print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+myCompRef=(0 -> ref (int))
+varc=50
+myRef=(0 -> int)
+
+Out:
+15
+50
+
+FileTable:
+
+Heap:
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[ref (string) myRefWillBeCollected]
+[new (myRef, 10)
+new (myCompRef, myRef)
+new (myRefWillBeCollected, Hello world)
+writeHeap (myRef, (35 + 35))
+new (myRef, 100)
+new (myRefWillBeCollected, Hi guys)
+No operation]
+[print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+myCompRef=(0 -> ref (int))
+varc=50
+myRef=(0 -> int)
+
+Out:
+15
+50
+
+FileTable:
+
+Heap:
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[new (myRef, 10)
+new (myCompRef, myRef)
+new (myRefWillBeCollected, Hello world)
+writeHeap (myRef, (35 + 35))
+new (myRef, 100)
+new (myRefWillBeCollected, Hi guys)
+No operation]
+[print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+myCompRef=(0 -> ref (int))
+myRefWillBeCollected=(0 -> string)
+varc=50
+myRef=(0 -> int)
+
+Out:
+15
+50
+
+FileTable:
+
+Heap:
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[new (myRef, 10)]
+[new (myCompRef, myRef)
+new (myRefWillBeCollected, Hello world)
+writeHeap (myRef, (35 + 35))
+new (myRef, 100)
+new (myRefWillBeCollected, Hi guys)
+No operation]
+[print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+myCompRef=(0 -> ref (int))
+myRefWillBeCollected=(0 -> string)
+varc=50
+myRef=(0 -> int)
+
+Out:
+15
+50
+
+FileTable:
+
+Heap:
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[new (myCompRef, myRef)
+new (myRefWillBeCollected, Hello world)
+writeHeap (myRef, (35 + 35))
+new (myRef, 100)
+new (myRefWillBeCollected, Hi guys)
+No operation]
+[print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+myCompRef=(0 -> ref (int))
+myRefWillBeCollected=(0 -> string)
+varc=50
+myRef=(1 -> int)
+
+Out:
+15
+50
+
+FileTable:
+
+Heap:
+1=10
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[new (myCompRef, myRef)]
+[new (myRefWillBeCollected, Hello world)
+writeHeap (myRef, (35 + 35))
+new (myRef, 100)
+new (myRefWillBeCollected, Hi guys)
+No operation]
+[print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+myCompRef=(0 -> ref (int))
+myRefWillBeCollected=(0 -> string)
+varc=50
+myRef=(1 -> int)
+
+Out:
+15
+50
+
+FileTable:
+
+Heap:
+1=10
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[new (myRefWillBeCollected, Hello world)
+writeHeap (myRef, (35 + 35))
+new (myRef, 100)
+new (myRefWillBeCollected, Hi guys)
+No operation]
+[print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(0 -> string)
+varc=50
+myRef=(1 -> int)
+
+Out:
+15
+50
+
+FileTable:
+
+Heap:
+1=10
+2=(1 -> int)
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[new (myRefWillBeCollected, Hello world)]
+[writeHeap (myRef, (35 + 35))
+new (myRef, 100)
+new (myRefWillBeCollected, Hi guys)
+No operation]
+[print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(0 -> string)
+varc=50
+myRef=(1 -> int)
+
+Out:
+15
+50
+
+FileTable:
+
+Heap:
+1=10
+2=(1 -> int)
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[writeHeap (myRef, (35 + 35))
+new (myRef, 100)
+new (myRefWillBeCollected, Hi guys)
+No operation]
+[print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(3 -> string)
+varc=50
+myRef=(1 -> int)
+
+Out:
+15
+50
+
+FileTable:
+
+Heap:
+1=10
+2=(1 -> int)
+3=Hello world
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[writeHeap (myRef, (35 + 35))]
+[new (myRef, 100)
+new (myRefWillBeCollected, Hi guys)
+No operation]
+[print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(3 -> string)
+varc=50
+myRef=(1 -> int)
+
+Out:
+15
+50
+
+FileTable:
+
+Heap:
+1=10
+2=(1 -> int)
+3=Hello world
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[new (myRef, 100)
+new (myRefWillBeCollected, Hi guys)
+No operation]
+[print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(3 -> string)
+varc=50
+myRef=(1 -> int)
+
+Out:
+15
+50
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+3=Hello world
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[new (myRef, 100)]
+[new (myRefWillBeCollected, Hi guys)
+No operation]
+[print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(3 -> string)
+varc=50
+myRef=(1 -> int)
+
+Out:
+15
+50
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+3=Hello world
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[new (myRefWillBeCollected, Hi guys)
+No operation]
+[print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(3 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+3=Hello world
+4=100
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[new (myRefWillBeCollected, Hi guys)]
+[No operation]
+[print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(3 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+3=Hello world
+4=100
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[No operation]
+[print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[print readHeap (myRef)
+print readHeap (myCompRef)
+No operation
+int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[print readHeap (myRef)
+print readHeap (myCompRef)
+No operation]
+[int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[print readHeap (myRef)]
+[print readHeap (myCompRef)
+No operation]
+[int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[print readHeap (myCompRef)
+No operation]
+[int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+100
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[print readHeap (myCompRef)]
+[No operation]
+[int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+100
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[No operation]
+[int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+100
+(1 -> int)
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation
+No operation]
+
+SymTable:
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+100
+(1 -> int)
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[int a
+a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation]
 [No operation]
 
 SymTable:
 varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
 varc=50
+myRef=(4 -> int)
 
 Out:
 15
 50
+100
+(1 -> int)
 
 FileTable:
 
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
 -----------------------------------------------------
 
-Tue Nov 17 18:30:13 EET 2020
+Tue Nov 24 00:41:47 EET 2020
 ExeStack:
-[print varc greater than 35]
+[int a]
+[a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation]
 [No operation]
 
 SymTable:
 varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
 varc=50
+myRef=(4 -> int)
 
 Out:
 15
 50
+100
+(1 -> int)
 
 FileTable:
 
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
 -----------------------------------------------------
 
-Tue Nov 17 18:30:13 EET 2020
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[a=3
+while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation]
+[No operation]
+
+SymTable:
+a=0
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+100
+(1 -> int)
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[a=3]
+[while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation]
+[No operation]
+
+SymTable:
+a=0
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+100
+(1 -> int)
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[while ((a > 0)) then
+	print a
+	a=(a - 1)
+No operation]
+[No operation]
+
+SymTable:
+a=3
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+100
+(1 -> int)
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[while ((a > 0)) then
+	print a
+	a=(a - 1)]
+[No operation]
+[No operation]
+
+SymTable:
+a=3
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+100
+(1 -> int)
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[print a
+a=(a - 1)]
+[while ((a > 0)) then
+	print a
+	a=(a - 1)]
+[No operation]
+[No operation]
+
+SymTable:
+a=3
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+100
+(1 -> int)
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[print a]
+[a=(a - 1)]
+[while ((a > 0)) then
+	print a
+	a=(a - 1)]
+[No operation]
+[No operation]
+
+SymTable:
+a=3
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+100
+(1 -> int)
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[a=(a - 1)]
+[while ((a > 0)) then
+	print a
+	a=(a - 1)]
+[No operation]
+[No operation]
+
+SymTable:
+a=3
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+100
+(1 -> int)
+3
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[while ((a > 0)) then
+	print a
+	a=(a - 1)]
+[No operation]
+[No operation]
+
+SymTable:
+a=2
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+100
+(1 -> int)
+3
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[print a
+a=(a - 1)]
+[while ((a > 0)) then
+	print a
+	a=(a - 1)]
+[No operation]
+[No operation]
+
+SymTable:
+a=2
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+100
+(1 -> int)
+3
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[print a]
+[a=(a - 1)]
+[while ((a > 0)) then
+	print a
+	a=(a - 1)]
+[No operation]
+[No operation]
+
+SymTable:
+a=2
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+100
+(1 -> int)
+3
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[a=(a - 1)]
+[while ((a > 0)) then
+	print a
+	a=(a - 1)]
+[No operation]
+[No operation]
+
+SymTable:
+a=2
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+100
+(1 -> int)
+3
+2
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[while ((a > 0)) then
+	print a
+	a=(a - 1)]
+[No operation]
+[No operation]
+
+SymTable:
+a=1
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+100
+(1 -> int)
+3
+2
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[print a
+a=(a - 1)]
+[while ((a > 0)) then
+	print a
+	a=(a - 1)]
+[No operation]
+[No operation]
+
+SymTable:
+a=1
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+100
+(1 -> int)
+3
+2
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[print a]
+[a=(a - 1)]
+[while ((a > 0)) then
+	print a
+	a=(a - 1)]
+[No operation]
+[No operation]
+
+SymTable:
+a=1
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+100
+(1 -> int)
+3
+2
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[a=(a - 1)]
+[while ((a > 0)) then
+	print a
+	a=(a - 1)]
+[No operation]
+[No operation]
+
+SymTable:
+a=1
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+100
+(1 -> int)
+3
+2
+1
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[while ((a > 0)) then
+	print a
+	a=(a - 1)]
+[No operation]
+[No operation]
+
+SymTable:
+a=0
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+100
+(1 -> int)
+3
+2
+1
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
+ExeStack:
+[No operation]
+[No operation]
+
+SymTable:
+a=0
+varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
+varc=50
+myRef=(4 -> int)
+
+Out:
+15
+50
+100
+(1 -> int)
+3
+2
+1
+
+FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
+
+-----------------------------------------------------
+
+Tue Nov 24 00:41:47 EET 2020
 ExeStack:
 [No operation]
 
 SymTable:
+a=0
 varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
 varc=50
+myRef=(4 -> int)
 
 Out:
 15
 50
-varc greater than 35
+100
+(1 -> int)
+3
+2
+1
 
 FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
 
 -----------------------------------------------------
 
-Tue Nov 17 18:30:13 EET 2020
+Tue Nov 24 00:41:47 EET 2020
 ExeStack:
 
 SymTable:
+a=0
 varf=test.in
+myCompRef=(2 -> ref (int))
+myRefWillBeCollected=(5 -> string)
 varc=50
+myRef=(4 -> int)
 
 Out:
 15
 50
-varc greater than 35
+100
+(1 -> int)
+3
+2
+1
 
 FileTable:
+
+Heap:
+1=70
+2=(1 -> int)
+4=100
+5=Hi guys
 
 -----------------------------------------------------
 

@@ -17,7 +17,7 @@ public class CompStmt implements Stmt{
         IExeStack<Stmt> stack = state.getStack();
         stack.push(s2);
         stack.push(s1);
-        return state;
+        return null;
     }
 
     public String toString(){

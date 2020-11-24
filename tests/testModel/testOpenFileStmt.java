@@ -32,12 +32,14 @@ public class testOpenFileStmt {
     @Before
     public void setUp(){
         varExpString = new ConstExp(new StringValue("myTestFile.txt"));
-        state = new PrgState(new ExeStack<>(), new SymTable<>(), new Out<>(), new FileTable<>(), new NOP());
+        state = new PrgState(new ExeStack<>(), new SymTable<>(), new Out<>(), new FileTable<>(), new Heap<>(),
+                new NOP());
     }
 
     @SuppressWarnings("DuplicatedCode")
     @After
-    public void tearDown(){
+    public void tearDown() throws IOException {
+        state.cleanAll();
         varExpString = null;
         state = null;
     }
@@ -63,7 +65,7 @@ public class testOpenFileStmt {
         File myFile = myFolder.newFile(varExpString.toString());
         StringValue stringValue = new StringValue(myFile.getAbsolutePath());
         Stmt openStmt = new OpenFileStmt(new ConstExp(stringValue));
-        state = openStmt.exec(state);
+        openStmt.exec(state);
         IFileTable<StringValue, MyBufferedReader> fileTable = state.getFileTable();
         Assert.assertTrue("Testing exec method of OpenFileStmt", fileTable.isDefined(stringValue));
     }
@@ -81,7 +83,7 @@ public class testOpenFileStmt {
         StringValue stringValue = new StringValue(myFile.getAbsolutePath());
         Stmt openStmt1 = new OpenFileStmt(new ConstExp(stringValue));
         Stmt openStmt2 = new OpenFileStmt(new ConstExp(stringValue));
-        state = openStmt1.exec(state);
+        openStmt1.exec(state);
         Assert.assertNotNull("Testing FileAlreadyOpen exception of exec method of OpenFileStmt",
                 openStmt2.exec(state));
     }

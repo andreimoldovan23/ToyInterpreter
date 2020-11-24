@@ -3,6 +3,7 @@ package ToyInterpreter.model.exps;
 import ToyInterpreter.exceptions.InvalidOperator;
 import ToyInterpreter.exceptions.InvalidRelationalType;
 import ToyInterpreter.exceptions.MyException;
+import ToyInterpreter.model.adts.IHeap;
 import ToyInterpreter.model.adts.ISymTable;
 import ToyInterpreter.model.types.Int;
 import ToyInterpreter.model.values.BoolValue;
@@ -27,10 +28,11 @@ public class RelationalExp implements Exp {
         return "(" + left.toString() + " " + op + " " + right.toString() + ")";
     }
 
-    public Value eval(ISymTable<String, Value> table) throws MyException {
+    public Value eval(ISymTable<String, Value> table, IHeap<Integer, Value> heap) throws MyException {
         Value v1, v2, result;
-        v1 = left.eval(table);
-        v2 = right.eval(table);
+        v1 = left.eval(table, heap);
+        v2 = right.eval(table, heap);
+
         if(v1.getType().equals(new Int())){
             if(v2.getType().equals(new Int())){
                 Integer i1, i2;

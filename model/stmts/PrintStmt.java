@@ -2,6 +2,7 @@ package ToyInterpreter.model.stmts;
 
 import ToyInterpreter.exceptions.MyException;
 import ToyInterpreter.model.PrgState;
+import ToyInterpreter.model.adts.IHeap;
 import ToyInterpreter.model.adts.IOut;
 import ToyInterpreter.model.adts.ISymTable;
 import ToyInterpreter.model.exps.Exp;
@@ -17,10 +18,11 @@ public class PrintStmt implements Stmt{
 
     public PrgState exec(PrgState state) throws MyException{
         ISymTable<String, Value> table = state.getTable();
+        IHeap<Integer, Value> heap = state.getHeap();
         IOut<String> out = state.getOut();
-        Value v = exp.eval(table);
+        Value v = exp.eval(table, heap);
         out.add(v.toString());
-        return state;
+        return null;
     }
 
     public String toString(){

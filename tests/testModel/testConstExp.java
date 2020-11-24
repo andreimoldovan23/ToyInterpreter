@@ -1,6 +1,8 @@
 package ToyInterpreter.tests.testModel;
 
 import ToyInterpreter.exceptions.*;
+import ToyInterpreter.model.adts.Heap;
+import ToyInterpreter.model.adts.IHeap;
 import ToyInterpreter.model.adts.ISymTable;
 import ToyInterpreter.model.adts.SymTable;
 import ToyInterpreter.model.exps.*;
@@ -10,6 +12,7 @@ import org.junit.*;
 public class testConstExp {
 
     private ISymTable<String, Value> table;
+    private IHeap<Integer, Value> heap;
     private Exp constInt, constTrue;
 
     @BeforeClass
@@ -25,6 +28,7 @@ public class testConstExp {
     @Before
     public void setUp(){
         table = new SymTable<>();
+        heap = new Heap<>();
         constTrue = new ConstExp(new True());
         constInt = new ConstExp(new IntValue(10));
     }
@@ -36,6 +40,8 @@ public class testConstExp {
         constTrue = null;
         table.clear();
         table = null;
+        heap.clear();
+        heap = null;
     }
 
     @Test
@@ -51,7 +57,7 @@ public class testConstExp {
 
     @Test
     public void evalTest() throws MyException {
-        Assert.assertEquals("Testing eval method of ConstExp", 10, constInt.eval(table).getValue());
+        Assert.assertEquals("Testing eval method of ConstExp", 10, constInt.eval(table, heap).getValue());
     }
 
 }

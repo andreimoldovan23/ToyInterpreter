@@ -6,6 +6,7 @@ import ToyInterpreter.exceptions.InvalidFilenameException;
 import ToyInterpreter.exceptions.MyException;
 import ToyInterpreter.model.PrgState;
 import ToyInterpreter.model.adts.IFileTable;
+import ToyInterpreter.model.adts.IHeap;
 import ToyInterpreter.model.adts.ISymTable;
 import ToyInterpreter.model.adts.MyBufferedReader;
 import ToyInterpreter.model.exps.Exp;
@@ -33,8 +34,10 @@ public class OpenFileStmt implements Stmt{
 
     public PrgState exec(PrgState state) throws MyException {
         ISymTable<String, Value> table = state.getTable();
+        IHeap<Integer, Value> heap = state.getHeap();
         IFileTable<StringValue, MyBufferedReader> fileTable = state.getFileTable();
-        Value val = file.eval(table);
+        Value val = file.eval(table, heap);
+
         if(!val.getType().equals(new StringType()))
             throw new InvalidFilenameException();
         if(fileTable.isDefined((StringValue) val))
@@ -45,7 +48,7 @@ public class OpenFileStmt implements Stmt{
         } catch (FileNotFoundException e) {
             throw new InexistingFile();
         }
-        return state;
+        return null;
     }
 
 }

@@ -5,6 +5,7 @@ import ToyInterpreter.controller.Controller;
 import java.io.IOException;
 
 public class SetLogFile extends Command{
+
     private final Controller controller;
 
     public SetLogFile(String k, String d, Controller c) {
@@ -26,4 +27,5 @@ public class SetLogFile extends Command{
             System.out.println("Error opening log file");
         }
     }
+
 }

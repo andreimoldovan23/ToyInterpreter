@@ -40,12 +40,14 @@ public class testReadFileStmt {
         varExpInt = new VarExp("number");
         varExpBool = new VarExp("boolean");
         varExpString = new ConstExp(new StringValue("myTestFile.txt"));
-        state = new PrgState(new ExeStack<>(), new SymTable<>(), new Out<>(), new FileTable<>(), new NOP());
+        state = new PrgState(new ExeStack<>(), new SymTable<>(), new Out<>(), new FileTable<>(), new Heap<>(),
+                new NOP());
     }
 
     @SuppressWarnings("DuplicatedCode")
     @After
-    public void tearDown(){
+    public void tearDown() throws IOException {
+        state.cleanAll();
         intType = null;
         boolType = null;
         constExpInt = null;
@@ -80,7 +82,7 @@ public class testReadFileStmt {
     @Test(expected = FileNotOpen.class)
     public void FileNotOpenTest() throws MyException{
         Stmt varDecl = new VarDecl(intType, varExpInt);
-        state = varDecl.exec(state);
+        varDecl.exec(state);
         Stmt readFileStmt = new ReadFileStmt(new ConstExp(new StringValue("hello")), varExpInt.toString());
         Assert.assertNotNull("Testing FileNotOpen exception of exec method of ReadFileStmt",
                 readFileStmt.exec(state));
@@ -96,7 +98,7 @@ public class testReadFileStmt {
     @Test(expected = InvalidFileReadType.class)
     public void InvalidFileReadTypeTest() throws MyException{
         Stmt varDecl = new VarDecl(boolType, varExpBool);
-        state = varDecl.exec(state);
+        varDecl.exec(state);
         Stmt readFileStmt = new ReadFileStmt(new ConstExp(new StringValue("hello")), varExpBool.toString());
         Assert.assertNotNull("Testing InvalidFileReadType exception of exec method of ReadFileStmt",
                 readFileStmt.exec(state));
@@ -106,16 +108,16 @@ public class testReadFileStmt {
     public void execTest() throws MyException, IOException {
         Stmt varDecl = new VarDecl(intType, varExpInt);
         Stmt assign = new AssignStmt(varExpInt, constExpInt);
-        state = varDecl.exec(state);
-        state = assign.exec(state);
+        varDecl.exec(state);
+        assign.exec(state);
 
         File myFile = myFolder.newFile(varExpString.toString());
         StringValue path = new StringValue(myFile.getAbsolutePath());
         Stmt open = new OpenFileStmt(new ConstExp(path));
         Stmt read = new ReadFileStmt(new ConstExp(path), varExpInt.toString());
 
-        state = open.exec(state);
-        state = read.exec(state);
+        open.exec(state);
+        read.exec(state);
 
         Assert.assertEquals("Testing exec method of ReadFileStmt", 0,
                 state.getTable().lookup(varExpInt.toString()).getValue());
