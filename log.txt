@@ -1,35 +1,24 @@
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[string varf
-varf=test.in
-openFile (varf)
-int varc
-readFile (varf, varc)
-print varc
-readFile (varf, varc)
-print varc
-closeFile (varf)
-if ((35 + 35) >= (35 - 35)) then
-	ref (int) myRef
-	ref (ref (int)) myCompRef
-	ref (string) myRefWillBeCollected
-	new (myRef, 10)
-	new (myCompRef, myRef)
-	new (myRefWillBeCollected, Hello world)
-	writeHeap (myRef, (35 + 35))
-	new (myRef, 100)
-	new (myRefWillBeCollected, Hi guys)
-	No operation
-else
-	No operation
-print readHeap (myRef)
-print readHeap (myCompRef)
+[int number]
+[ref (int) refNumber
+ref (ref (int)) refRef
+number=15
+new (refNumber, 15)
+openFile (testFile.txt)
+fork (new (refRef, refNumber) | new (refNumber, 20) | openFile (myFile.txt) | readFile (myFile.txt, number) | fork (writeHeap (refNumber, 100) | openFile (myFile.txt) | readFile (testFile.txt, number) | fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation) | print number | No operation | No operation | No operation) | writeHeap (refNumber, 200) | closeFile (myFile.txt) | print number | readFile (testFile.txt, number) | print number | No operation | No operation | No operation)
+new (refNumber, 100)
+new (refRef, refNumber)
+openFile (myFile.txt)
+readFile (myFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+No operation
+No operation
+No operation
+No operation
+No operation
 No operation
 No operation]
 
@@ -43,42 +32,31 @@ Heap:
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[string varf]
-[varf=test.in
-openFile (varf)
-int varc
-readFile (varf, varc)
-print varc
-readFile (varf, varc)
-print varc
-closeFile (varf)
-if ((35 + 35) >= (35 - 35)) then
-	ref (int) myRef
-	ref (ref (int)) myCompRef
-	ref (string) myRefWillBeCollected
-	new (myRef, 10)
-	new (myCompRef, myRef)
-	new (myRefWillBeCollected, Hello world)
-	writeHeap (myRef, (35 + 35))
-	new (myRef, 100)
-	new (myRefWillBeCollected, Hi guys)
-	No operation
-else
-	No operation
-print readHeap (myRef)
-print readHeap (myCompRef)
+[ref (int) refNumber
+ref (ref (int)) refRef
+number=15
+new (refNumber, 15)
+openFile (testFile.txt)
+fork (new (refRef, refNumber) | new (refNumber, 20) | openFile (myFile.txt) | readFile (myFile.txt, number) | fork (writeHeap (refNumber, 100) | openFile (myFile.txt) | readFile (testFile.txt, number) | fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation) | print number | No operation | No operation | No operation) | writeHeap (refNumber, 200) | closeFile (myFile.txt) | print number | readFile (testFile.txt, number) | print number | No operation | No operation | No operation)
+new (refNumber, 100)
+new (refRef, refNumber)
+openFile (myFile.txt)
+readFile (myFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+No operation
+No operation
+No operation
+No operation
+No operation
 No operation
 No operation]
 
 SymTable:
+number=0
 
 Out:
 
@@ -88,42 +66,31 @@ Heap:
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[varf=test.in
-openFile (varf)
-int varc
-readFile (varf, varc)
-print varc
-readFile (varf, varc)
-print varc
-closeFile (varf)
-if ((35 + 35) >= (35 - 35)) then
-	ref (int) myRef
-	ref (ref (int)) myCompRef
-	ref (string) myRefWillBeCollected
-	new (myRef, 10)
-	new (myCompRef, myRef)
-	new (myRefWillBeCollected, Hello world)
-	writeHeap (myRef, (35 + 35))
-	new (myRef, 100)
-	new (myRefWillBeCollected, Hi guys)
-	No operation
-else
-	No operation
-print readHeap (myRef)
-print readHeap (myCompRef)
+[ref (int) refNumber]
+[ref (ref (int)) refRef
+number=15
+new (refNumber, 15)
+openFile (testFile.txt)
+fork (new (refRef, refNumber) | new (refNumber, 20) | openFile (myFile.txt) | readFile (myFile.txt, number) | fork (writeHeap (refNumber, 100) | openFile (myFile.txt) | readFile (testFile.txt, number) | fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation) | print number | No operation | No operation | No operation) | writeHeap (refNumber, 200) | closeFile (myFile.txt) | print number | readFile (testFile.txt, number) | print number | No operation | No operation | No operation)
+new (refNumber, 100)
+new (refRef, refNumber)
+openFile (myFile.txt)
+readFile (myFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+No operation
+No operation
+No operation
+No operation
+No operation
 No operation
 No operation]
 
 SymTable:
-varf=
+number=0
 
 Out:
 
@@ -133,42 +100,31 @@ Heap:
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[varf=test.in]
-[openFile (varf)
-int varc
-readFile (varf, varc)
-print varc
-readFile (varf, varc)
-print varc
-closeFile (varf)
-if ((35 + 35) >= (35 - 35)) then
-	ref (int) myRef
-	ref (ref (int)) myCompRef
-	ref (string) myRefWillBeCollected
-	new (myRef, 10)
-	new (myCompRef, myRef)
-	new (myRefWillBeCollected, Hello world)
-	writeHeap (myRef, (35 + 35))
-	new (myRef, 100)
-	new (myRefWillBeCollected, Hi guys)
-	No operation
-else
-	No operation
-print readHeap (myRef)
-print readHeap (myCompRef)
+[ref (ref (int)) refRef
+number=15
+new (refNumber, 15)
+openFile (testFile.txt)
+fork (new (refRef, refNumber) | new (refNumber, 20) | openFile (myFile.txt) | readFile (myFile.txt, number) | fork (writeHeap (refNumber, 100) | openFile (myFile.txt) | readFile (testFile.txt, number) | fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation) | print number | No operation | No operation | No operation) | writeHeap (refNumber, 200) | closeFile (myFile.txt) | print number | readFile (testFile.txt, number) | print number | No operation | No operation | No operation)
+new (refNumber, 100)
+new (refRef, refNumber)
+openFile (myFile.txt)
+readFile (myFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+No operation
+No operation
+No operation
+No operation
+No operation
 No operation
 No operation]
 
 SymTable:
-varf=
+number=0
+refNumber=(0 -> int)
 
 Out:
 
@@ -178,41 +134,31 @@ Heap:
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[openFile (varf)
-int varc
-readFile (varf, varc)
-print varc
-readFile (varf, varc)
-print varc
-closeFile (varf)
-if ((35 + 35) >= (35 - 35)) then
-	ref (int) myRef
-	ref (ref (int)) myCompRef
-	ref (string) myRefWillBeCollected
-	new (myRef, 10)
-	new (myCompRef, myRef)
-	new (myRefWillBeCollected, Hello world)
-	writeHeap (myRef, (35 + 35))
-	new (myRef, 100)
-	new (myRefWillBeCollected, Hi guys)
-	No operation
-else
-	No operation
-print readHeap (myRef)
-print readHeap (myCompRef)
+[ref (ref (int)) refRef]
+[number=15
+new (refNumber, 15)
+openFile (testFile.txt)
+fork (new (refRef, refNumber) | new (refNumber, 20) | openFile (myFile.txt) | readFile (myFile.txt, number) | fork (writeHeap (refNumber, 100) | openFile (myFile.txt) | readFile (testFile.txt, number) | fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation) | print number | No operation | No operation | No operation) | writeHeap (refNumber, 200) | closeFile (myFile.txt) | print number | readFile (testFile.txt, number) | print number | No operation | No operation | No operation)
+new (refNumber, 100)
+new (refRef, refNumber)
+openFile (myFile.txt)
+readFile (myFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+No operation
+No operation
+No operation
+No operation
+No operation
 No operation
 No operation]
 
 SymTable:
-varf=test.in
+number=0
+refNumber=(0 -> int)
 
 Out:
 
@@ -222,41 +168,31 @@ Heap:
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[openFile (varf)]
-[int varc
-readFile (varf, varc)
-print varc
-readFile (varf, varc)
-print varc
-closeFile (varf)
-if ((35 + 35) >= (35 - 35)) then
-	ref (int) myRef
-	ref (ref (int)) myCompRef
-	ref (string) myRefWillBeCollected
-	new (myRef, 10)
-	new (myCompRef, myRef)
-	new (myRefWillBeCollected, Hello world)
-	writeHeap (myRef, (35 + 35))
-	new (myRef, 100)
-	new (myRefWillBeCollected, Hi guys)
-	No operation
-else
-	No operation
-print readHeap (myRef)
-print readHeap (myCompRef)
+[number=15
+new (refNumber, 15)
+openFile (testFile.txt)
+fork (new (refRef, refNumber) | new (refNumber, 20) | openFile (myFile.txt) | readFile (myFile.txt, number) | fork (writeHeap (refNumber, 100) | openFile (myFile.txt) | readFile (testFile.txt, number) | fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation) | print number | No operation | No operation | No operation) | writeHeap (refNumber, 200) | closeFile (myFile.txt) | print number | readFile (testFile.txt, number) | print number | No operation | No operation | No operation)
+new (refNumber, 100)
+new (refRef, refNumber)
+openFile (myFile.txt)
+readFile (myFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+No operation
+No operation
+No operation
+No operation
+No operation
 No operation
 No operation]
 
 SymTable:
-varf=test.in
+number=0
+refNumber=(0 -> int)
+refRef=(0 -> ref (int))
 
 Out:
 
@@ -266,555 +202,33 @@ Heap:
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[int varc
-readFile (varf, varc)
-print varc
-readFile (varf, varc)
-print varc
-closeFile (varf)
-if ((35 + 35) >= (35 - 35)) then
-	ref (int) myRef
-	ref (ref (int)) myCompRef
-	ref (string) myRefWillBeCollected
-	new (myRef, 10)
-	new (myCompRef, myRef)
-	new (myRefWillBeCollected, Hello world)
-	writeHeap (myRef, (35 + 35))
-	new (myRef, 100)
-	new (myRefWillBeCollected, Hi guys)
-	No operation
-else
-	No operation
-print readHeap (myRef)
-print readHeap (myCompRef)
+[number=15]
+[new (refNumber, 15)
+openFile (testFile.txt)
+fork (new (refRef, refNumber) | new (refNumber, 20) | openFile (myFile.txt) | readFile (myFile.txt, number) | fork (writeHeap (refNumber, 100) | openFile (myFile.txt) | readFile (testFile.txt, number) | fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation) | print number | No operation | No operation | No operation) | writeHeap (refNumber, 200) | closeFile (myFile.txt) | print number | readFile (testFile.txt, number) | print number | No operation | No operation | No operation)
+new (refNumber, 100)
+new (refRef, refNumber)
+openFile (myFile.txt)
+readFile (myFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+No operation
+No operation
+No operation
+No operation
+No operation
 No operation
 No operation]
 
 SymTable:
-varf=test.in
+number=0
+refNumber=(0 -> int)
+refRef=(0 -> ref (int))
 
 Out:
-
-FileTable:
-test.in=BufferedReader, id: 1
-
-Heap:
-
------------------------------------------------------
-
-Tue Nov 24 00:41:47 EET 2020
-ExeStack:
-[int varc]
-[readFile (varf, varc)
-print varc
-readFile (varf, varc)
-print varc
-closeFile (varf)
-if ((35 + 35) >= (35 - 35)) then
-	ref (int) myRef
-	ref (ref (int)) myCompRef
-	ref (string) myRefWillBeCollected
-	new (myRef, 10)
-	new (myCompRef, myRef)
-	new (myRefWillBeCollected, Hello world)
-	writeHeap (myRef, (35 + 35))
-	new (myRef, 100)
-	new (myRefWillBeCollected, Hi guys)
-	No operation
-else
-	No operation
-print readHeap (myRef)
-print readHeap (myCompRef)
-No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
-No operation
-No operation]
-
-SymTable:
-varf=test.in
-
-Out:
-
-FileTable:
-test.in=BufferedReader, id: 1
-
-Heap:
-
------------------------------------------------------
-
-Tue Nov 24 00:41:47 EET 2020
-ExeStack:
-[readFile (varf, varc)
-print varc
-readFile (varf, varc)
-print varc
-closeFile (varf)
-if ((35 + 35) >= (35 - 35)) then
-	ref (int) myRef
-	ref (ref (int)) myCompRef
-	ref (string) myRefWillBeCollected
-	new (myRef, 10)
-	new (myCompRef, myRef)
-	new (myRefWillBeCollected, Hello world)
-	writeHeap (myRef, (35 + 35))
-	new (myRef, 100)
-	new (myRefWillBeCollected, Hi guys)
-	No operation
-else
-	No operation
-print readHeap (myRef)
-print readHeap (myCompRef)
-No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
-No operation
-No operation]
-
-SymTable:
-varf=test.in
-varc=0
-
-Out:
-
-FileTable:
-test.in=BufferedReader, id: 1
-
-Heap:
-
------------------------------------------------------
-
-Tue Nov 24 00:41:47 EET 2020
-ExeStack:
-[readFile (varf, varc)]
-[print varc
-readFile (varf, varc)
-print varc
-closeFile (varf)
-if ((35 + 35) >= (35 - 35)) then
-	ref (int) myRef
-	ref (ref (int)) myCompRef
-	ref (string) myRefWillBeCollected
-	new (myRef, 10)
-	new (myCompRef, myRef)
-	new (myRefWillBeCollected, Hello world)
-	writeHeap (myRef, (35 + 35))
-	new (myRef, 100)
-	new (myRefWillBeCollected, Hi guys)
-	No operation
-else
-	No operation
-print readHeap (myRef)
-print readHeap (myCompRef)
-No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
-No operation
-No operation]
-
-SymTable:
-varf=test.in
-varc=0
-
-Out:
-
-FileTable:
-test.in=BufferedReader, id: 1
-
-Heap:
-
------------------------------------------------------
-
-Tue Nov 24 00:41:47 EET 2020
-ExeStack:
-[print varc
-readFile (varf, varc)
-print varc
-closeFile (varf)
-if ((35 + 35) >= (35 - 35)) then
-	ref (int) myRef
-	ref (ref (int)) myCompRef
-	ref (string) myRefWillBeCollected
-	new (myRef, 10)
-	new (myCompRef, myRef)
-	new (myRefWillBeCollected, Hello world)
-	writeHeap (myRef, (35 + 35))
-	new (myRef, 100)
-	new (myRefWillBeCollected, Hi guys)
-	No operation
-else
-	No operation
-print readHeap (myRef)
-print readHeap (myCompRef)
-No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
-No operation
-No operation]
-
-SymTable:
-varf=test.in
-varc=15
-
-Out:
-
-FileTable:
-test.in=BufferedReader, id: 1
-
-Heap:
-
------------------------------------------------------
-
-Tue Nov 24 00:41:47 EET 2020
-ExeStack:
-[print varc]
-[readFile (varf, varc)
-print varc
-closeFile (varf)
-if ((35 + 35) >= (35 - 35)) then
-	ref (int) myRef
-	ref (ref (int)) myCompRef
-	ref (string) myRefWillBeCollected
-	new (myRef, 10)
-	new (myCompRef, myRef)
-	new (myRefWillBeCollected, Hello world)
-	writeHeap (myRef, (35 + 35))
-	new (myRef, 100)
-	new (myRefWillBeCollected, Hi guys)
-	No operation
-else
-	No operation
-print readHeap (myRef)
-print readHeap (myCompRef)
-No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
-No operation
-No operation]
-
-SymTable:
-varf=test.in
-varc=15
-
-Out:
-
-FileTable:
-test.in=BufferedReader, id: 1
-
-Heap:
-
------------------------------------------------------
-
-Tue Nov 24 00:41:47 EET 2020
-ExeStack:
-[readFile (varf, varc)
-print varc
-closeFile (varf)
-if ((35 + 35) >= (35 - 35)) then
-	ref (int) myRef
-	ref (ref (int)) myCompRef
-	ref (string) myRefWillBeCollected
-	new (myRef, 10)
-	new (myCompRef, myRef)
-	new (myRefWillBeCollected, Hello world)
-	writeHeap (myRef, (35 + 35))
-	new (myRef, 100)
-	new (myRefWillBeCollected, Hi guys)
-	No operation
-else
-	No operation
-print readHeap (myRef)
-print readHeap (myCompRef)
-No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
-No operation
-No operation]
-
-SymTable:
-varf=test.in
-varc=15
-
-Out:
-15
-
-FileTable:
-test.in=BufferedReader, id: 1
-
-Heap:
-
------------------------------------------------------
-
-Tue Nov 24 00:41:47 EET 2020
-ExeStack:
-[readFile (varf, varc)]
-[print varc
-closeFile (varf)
-if ((35 + 35) >= (35 - 35)) then
-	ref (int) myRef
-	ref (ref (int)) myCompRef
-	ref (string) myRefWillBeCollected
-	new (myRef, 10)
-	new (myCompRef, myRef)
-	new (myRefWillBeCollected, Hello world)
-	writeHeap (myRef, (35 + 35))
-	new (myRef, 100)
-	new (myRefWillBeCollected, Hi guys)
-	No operation
-else
-	No operation
-print readHeap (myRef)
-print readHeap (myCompRef)
-No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
-No operation
-No operation]
-
-SymTable:
-varf=test.in
-varc=15
-
-Out:
-15
-
-FileTable:
-test.in=BufferedReader, id: 1
-
-Heap:
-
------------------------------------------------------
-
-Tue Nov 24 00:41:47 EET 2020
-ExeStack:
-[print varc
-closeFile (varf)
-if ((35 + 35) >= (35 - 35)) then
-	ref (int) myRef
-	ref (ref (int)) myCompRef
-	ref (string) myRefWillBeCollected
-	new (myRef, 10)
-	new (myCompRef, myRef)
-	new (myRefWillBeCollected, Hello world)
-	writeHeap (myRef, (35 + 35))
-	new (myRef, 100)
-	new (myRefWillBeCollected, Hi guys)
-	No operation
-else
-	No operation
-print readHeap (myRef)
-print readHeap (myCompRef)
-No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
-No operation
-No operation]
-
-SymTable:
-varf=test.in
-varc=50
-
-Out:
-15
-
-FileTable:
-test.in=BufferedReader, id: 1
-
-Heap:
-
------------------------------------------------------
-
-Tue Nov 24 00:41:47 EET 2020
-ExeStack:
-[print varc]
-[closeFile (varf)
-if ((35 + 35) >= (35 - 35)) then
-	ref (int) myRef
-	ref (ref (int)) myCompRef
-	ref (string) myRefWillBeCollected
-	new (myRef, 10)
-	new (myCompRef, myRef)
-	new (myRefWillBeCollected, Hello world)
-	writeHeap (myRef, (35 + 35))
-	new (myRef, 100)
-	new (myRefWillBeCollected, Hi guys)
-	No operation
-else
-	No operation
-print readHeap (myRef)
-print readHeap (myCompRef)
-No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
-No operation
-No operation]
-
-SymTable:
-varf=test.in
-varc=50
-
-Out:
-15
-
-FileTable:
-test.in=BufferedReader, id: 1
-
-Heap:
-
------------------------------------------------------
-
-Tue Nov 24 00:41:47 EET 2020
-ExeStack:
-[closeFile (varf)
-if ((35 + 35) >= (35 - 35)) then
-	ref (int) myRef
-	ref (ref (int)) myCompRef
-	ref (string) myRefWillBeCollected
-	new (myRef, 10)
-	new (myCompRef, myRef)
-	new (myRefWillBeCollected, Hello world)
-	writeHeap (myRef, (35 + 35))
-	new (myRef, 100)
-	new (myRefWillBeCollected, Hi guys)
-	No operation
-else
-	No operation
-print readHeap (myRef)
-print readHeap (myCompRef)
-No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
-No operation
-No operation]
-
-SymTable:
-varf=test.in
-varc=50
-
-Out:
-15
-50
-
-FileTable:
-test.in=BufferedReader, id: 1
-
-Heap:
-
------------------------------------------------------
-
-Tue Nov 24 00:41:47 EET 2020
-ExeStack:
-[closeFile (varf)]
-[if ((35 + 35) >= (35 - 35)) then
-	ref (int) myRef
-	ref (ref (int)) myCompRef
-	ref (string) myRefWillBeCollected
-	new (myRef, 10)
-	new (myCompRef, myRef)
-	new (myRefWillBeCollected, Hello world)
-	writeHeap (myRef, (35 + 35))
-	new (myRef, 100)
-	new (myRefWillBeCollected, Hi guys)
-	No operation
-else
-	No operation
-print readHeap (myRef)
-print readHeap (myCompRef)
-No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
-No operation
-No operation]
-
-SymTable:
-varf=test.in
-varc=50
-
-Out:
-15
-50
-
-FileTable:
-test.in=BufferedReader, id: 1
-
-Heap:
-
------------------------------------------------------
-
-Tue Nov 24 00:41:47 EET 2020
-ExeStack:
-[if ((35 + 35) >= (35 - 35)) then
-	ref (int) myRef
-	ref (ref (int)) myCompRef
-	ref (string) myRefWillBeCollected
-	new (myRef, 10)
-	new (myCompRef, myRef)
-	new (myRefWillBeCollected, Hello world)
-	writeHeap (myRef, (35 + 35))
-	new (myRef, 100)
-	new (myRefWillBeCollected, Hi guys)
-	No operation
-else
-	No operation
-print readHeap (myRef)
-print readHeap (myCompRef)
-No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
-No operation
-No operation]
-
-SymTable:
-varf=test.in
-varc=50
-
-Out:
-15
-50
 
 FileTable:
 
@@ -822,39 +236,32 @@ Heap:
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[if ((35 + 35) >= (35 - 35)) then
-	ref (int) myRef
-	ref (ref (int)) myCompRef
-	ref (string) myRefWillBeCollected
-	new (myRef, 10)
-	new (myCompRef, myRef)
-	new (myRefWillBeCollected, Hello world)
-	writeHeap (myRef, (35 + 35))
-	new (myRef, 100)
-	new (myRefWillBeCollected, Hi guys)
-	No operation
-else
-	No operation]
-[print readHeap (myRef)
-print readHeap (myCompRef)
+[new (refNumber, 15)
+openFile (testFile.txt)
+fork (new (refRef, refNumber) | new (refNumber, 20) | openFile (myFile.txt) | readFile (myFile.txt, number) | fork (writeHeap (refNumber, 100) | openFile (myFile.txt) | readFile (testFile.txt, number) | fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation) | print number | No operation | No operation | No operation) | writeHeap (refNumber, 200) | closeFile (myFile.txt) | print number | readFile (testFile.txt, number) | print number | No operation | No operation | No operation)
+new (refNumber, 100)
+new (refRef, refNumber)
+openFile (myFile.txt)
+readFile (myFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+No operation
+No operation
+No operation
+No operation
+No operation
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-varc=50
+number=15
+refNumber=(0 -> int)
+refRef=(0 -> ref (int))
 
 Out:
-15
-50
 
 FileTable:
 
@@ -862,36 +269,32 @@ Heap:
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[ref (int) myRef
-ref (ref (int)) myCompRef
-ref (string) myRefWillBeCollected
-new (myRef, 10)
-new (myCompRef, myRef)
-new (myRefWillBeCollected, Hello world)
-writeHeap (myRef, (35 + 35))
-new (myRef, 100)
-new (myRefWillBeCollected, Hi guys)
-No operation]
-[print readHeap (myRef)
-print readHeap (myCompRef)
+[new (refNumber, 15)]
+[openFile (testFile.txt)
+fork (new (refRef, refNumber) | new (refNumber, 20) | openFile (myFile.txt) | readFile (myFile.txt, number) | fork (writeHeap (refNumber, 100) | openFile (myFile.txt) | readFile (testFile.txt, number) | fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation) | print number | No operation | No operation | No operation) | writeHeap (refNumber, 200) | closeFile (myFile.txt) | print number | readFile (testFile.txt, number) | print number | No operation | No operation | No operation)
+new (refNumber, 100)
+new (refRef, refNumber)
+openFile (myFile.txt)
+readFile (myFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+No operation
+No operation
+No operation
+No operation
+No operation
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-varc=50
+number=15
+refNumber=(0 -> int)
+refRef=(0 -> ref (int))
 
 Out:
-15
-50
 
 FileTable:
 
@@ -899,1606 +302,2481 @@ Heap:
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[ref (int) myRef]
-[ref (ref (int)) myCompRef
-ref (string) myRefWillBeCollected
-new (myRef, 10)
-new (myCompRef, myRef)
-new (myRefWillBeCollected, Hello world)
-writeHeap (myRef, (35 + 35))
-new (myRef, 100)
-new (myRefWillBeCollected, Hi guys)
-No operation]
-[print readHeap (myRef)
-print readHeap (myCompRef)
+[openFile (testFile.txt)
+fork (new (refRef, refNumber) | new (refNumber, 20) | openFile (myFile.txt) | readFile (myFile.txt, number) | fork (writeHeap (refNumber, 100) | openFile (myFile.txt) | readFile (testFile.txt, number) | fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation) | print number | No operation | No operation | No operation) | writeHeap (refNumber, 200) | closeFile (myFile.txt) | print number | readFile (testFile.txt, number) | print number | No operation | No operation | No operation)
+new (refNumber, 100)
+new (refRef, refNumber)
+openFile (myFile.txt)
+readFile (myFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+No operation
+No operation
+No operation
+No operation
+No operation
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-varc=50
+number=15
+refNumber=(1 -> int)
+refRef=(0 -> ref (int))
 
 Out:
-15
-50
 
 FileTable:
 
 Heap:
+1-->15
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[ref (ref (int)) myCompRef
-ref (string) myRefWillBeCollected
-new (myRef, 10)
-new (myCompRef, myRef)
-new (myRefWillBeCollected, Hello world)
-writeHeap (myRef, (35 + 35))
-new (myRef, 100)
-new (myRefWillBeCollected, Hi guys)
-No operation]
-[print readHeap (myRef)
-print readHeap (myCompRef)
+[openFile (testFile.txt)]
+[fork (new (refRef, refNumber) | new (refNumber, 20) | openFile (myFile.txt) | readFile (myFile.txt, number) | fork (writeHeap (refNumber, 100) | openFile (myFile.txt) | readFile (testFile.txt, number) | fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation) | print number | No operation | No operation | No operation) | writeHeap (refNumber, 200) | closeFile (myFile.txt) | print number | readFile (testFile.txt, number) | print number | No operation | No operation | No operation)
+new (refNumber, 100)
+new (refRef, refNumber)
+openFile (myFile.txt)
+readFile (myFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+No operation
+No operation
+No operation
+No operation
+No operation
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-varc=50
-myRef=(0 -> int)
+number=15
+refNumber=(1 -> int)
+refRef=(0 -> ref (int))
 
 Out:
-15
-50
 
 FileTable:
 
 Heap:
+1-->15
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[ref (ref (int)) myCompRef]
-[ref (string) myRefWillBeCollected
-new (myRef, 10)
-new (myCompRef, myRef)
-new (myRefWillBeCollected, Hello world)
-writeHeap (myRef, (35 + 35))
-new (myRef, 100)
-new (myRefWillBeCollected, Hi guys)
-No operation]
-[print readHeap (myRef)
-print readHeap (myCompRef)
+[fork (new (refRef, refNumber) | new (refNumber, 20) | openFile (myFile.txt) | readFile (myFile.txt, number) | fork (writeHeap (refNumber, 100) | openFile (myFile.txt) | readFile (testFile.txt, number) | fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation) | print number | No operation | No operation | No operation) | writeHeap (refNumber, 200) | closeFile (myFile.txt) | print number | readFile (testFile.txt, number) | print number | No operation | No operation | No operation)
+new (refNumber, 100)
+new (refRef, refNumber)
+openFile (myFile.txt)
+readFile (myFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+No operation
+No operation
+No operation
+No operation
+No operation
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-varc=50
-myRef=(0 -> int)
+number=15
+refNumber=(1 -> int)
+refRef=(0 -> ref (int))
 
 Out:
-15
-50
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
+1-->15
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[ref (string) myRefWillBeCollected
-new (myRef, 10)
-new (myCompRef, myRef)
-new (myRefWillBeCollected, Hello world)
-writeHeap (myRef, (35 + 35))
-new (myRef, 100)
-new (myRefWillBeCollected, Hi guys)
-No operation]
-[print readHeap (myRef)
-print readHeap (myCompRef)
+[fork (new (refRef, refNumber) | new (refNumber, 20) | openFile (myFile.txt) | readFile (myFile.txt, number) | fork (writeHeap (refNumber, 100) | openFile (myFile.txt) | readFile (testFile.txt, number) | fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation) | print number | No operation | No operation | No operation) | writeHeap (refNumber, 200) | closeFile (myFile.txt) | print number | readFile (testFile.txt, number) | print number | No operation | No operation | No operation)]
+[new (refNumber, 100)
+new (refRef, refNumber)
+openFile (myFile.txt)
+readFile (myFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+No operation
+No operation
+No operation
+No operation
+No operation
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-myCompRef=(0 -> ref (int))
-varc=50
-myRef=(0 -> int)
+number=15
+refNumber=(1 -> int)
+refRef=(0 -> ref (int))
 
 Out:
-15
-50
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
+1-->15
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[ref (string) myRefWillBeCollected]
-[new (myRef, 10)
-new (myCompRef, myRef)
-new (myRefWillBeCollected, Hello world)
-writeHeap (myRef, (35 + 35))
-new (myRef, 100)
-new (myRefWillBeCollected, Hi guys)
-No operation]
-[print readHeap (myRef)
-print readHeap (myCompRef)
+[new (refNumber, 100)
+new (refRef, refNumber)
+openFile (myFile.txt)
+readFile (myFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+No operation
+No operation
+No operation
+No operation
+No operation
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-myCompRef=(0 -> ref (int))
-varc=50
-myRef=(0 -> int)
+number=15
+refNumber=(1 -> int)
+refRef=(0 -> ref (int))
 
 Out:
-15
-50
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
+1-->15
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
 ExeStack:
-[new (myRef, 10)
-new (myCompRef, myRef)
-new (myRefWillBeCollected, Hello world)
-writeHeap (myRef, (35 + 35))
-new (myRef, 100)
-new (myRefWillBeCollected, Hi guys)
-No operation]
-[print readHeap (myRef)
-print readHeap (myCompRef)
+[new (refRef, refNumber)
+new (refNumber, 20)
+openFile (myFile.txt)
+readFile (myFile.txt, number)
+fork (writeHeap (refNumber, 100) | openFile (myFile.txt) | readFile (testFile.txt, number) | fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation) | print number | No operation | No operation | No operation)
+writeHeap (refNumber, 200)
+closeFile (myFile.txt)
+print number
+readFile (testFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-myCompRef=(0 -> ref (int))
-myRefWillBeCollected=(0 -> string)
-varc=50
-myRef=(0 -> int)
+number=15
+refNumber=(1 -> int)
+refRef=(0 -> ref (int))
 
 Out:
-15
-50
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
+1-->15
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[new (myRef, 10)]
-[new (myCompRef, myRef)
-new (myRefWillBeCollected, Hello world)
-writeHeap (myRef, (35 + 35))
-new (myRef, 100)
-new (myRefWillBeCollected, Hi guys)
-No operation]
-[print readHeap (myRef)
-print readHeap (myCompRef)
+[new (refNumber, 100)]
+[new (refRef, refNumber)
+openFile (myFile.txt)
+readFile (myFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+No operation
+No operation
+No operation
+No operation
+No operation
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-myCompRef=(0 -> ref (int))
-myRefWillBeCollected=(0 -> string)
-varc=50
-myRef=(0 -> int)
+number=15
+refNumber=(1 -> int)
+refRef=(0 -> ref (int))
 
 Out:
-15
-50
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
+1-->15
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
 ExeStack:
-[new (myCompRef, myRef)
-new (myRefWillBeCollected, Hello world)
-writeHeap (myRef, (35 + 35))
-new (myRef, 100)
-new (myRefWillBeCollected, Hi guys)
-No operation]
-[print readHeap (myRef)
-print readHeap (myCompRef)
+[new (refRef, refNumber)]
+[new (refNumber, 20)
+openFile (myFile.txt)
+readFile (myFile.txt, number)
+fork (writeHeap (refNumber, 100) | openFile (myFile.txt) | readFile (testFile.txt, number) | fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation) | print number | No operation | No operation | No operation)
+writeHeap (refNumber, 200)
+closeFile (myFile.txt)
+print number
+readFile (testFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-myCompRef=(0 -> ref (int))
-myRefWillBeCollected=(0 -> string)
-varc=50
-myRef=(1 -> int)
+number=15
+refNumber=(1 -> int)
+refRef=(0 -> ref (int))
 
 Out:
-15
-50
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=10
+1-->15
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[new (myCompRef, myRef)]
-[new (myRefWillBeCollected, Hello world)
-writeHeap (myRef, (35 + 35))
-new (myRef, 100)
-new (myRefWillBeCollected, Hi guys)
-No operation]
-[print readHeap (myRef)
-print readHeap (myCompRef)
+[new (refRef, refNumber)
+openFile (myFile.txt)
+readFile (myFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+No operation
+No operation
+No operation
+No operation
+No operation
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-myCompRef=(0 -> ref (int))
-myRefWillBeCollected=(0 -> string)
-varc=50
-myRef=(1 -> int)
+number=15
+refNumber=(2 -> int)
+refRef=(0 -> ref (int))
 
 Out:
-15
-50
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=10
+1-->15
+2-->100
+3-->(1 -> int)
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
 ExeStack:
-[new (myRefWillBeCollected, Hello world)
-writeHeap (myRef, (35 + 35))
-new (myRef, 100)
-new (myRefWillBeCollected, Hi guys)
-No operation]
-[print readHeap (myRef)
-print readHeap (myCompRef)
+[new (refNumber, 20)
+openFile (myFile.txt)
+readFile (myFile.txt, number)
+fork (writeHeap (refNumber, 100) | openFile (myFile.txt) | readFile (testFile.txt, number) | fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation) | print number | No operation | No operation | No operation)
+writeHeap (refNumber, 200)
+closeFile (myFile.txt)
+print number
+readFile (testFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(0 -> string)
-varc=50
-myRef=(1 -> int)
+number=15
+refNumber=(1 -> int)
+refRef=(3 -> ref (int))
 
 Out:
-15
-50
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=10
-2=(1 -> int)
+1-->15
+2-->100
+3-->(1 -> int)
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[new (myRefWillBeCollected, Hello world)]
-[writeHeap (myRef, (35 + 35))
-new (myRef, 100)
-new (myRefWillBeCollected, Hi guys)
-No operation]
-[print readHeap (myRef)
-print readHeap (myCompRef)
+[new (refRef, refNumber)]
+[openFile (myFile.txt)
+readFile (myFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+No operation
+No operation
+No operation
+No operation
+No operation
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(0 -> string)
-varc=50
-myRef=(1 -> int)
+number=15
+refNumber=(2 -> int)
+refRef=(0 -> ref (int))
 
 Out:
-15
-50
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=10
-2=(1 -> int)
+1-->15
+2-->100
+3-->(1 -> int)
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
 ExeStack:
-[writeHeap (myRef, (35 + 35))
-new (myRef, 100)
-new (myRefWillBeCollected, Hi guys)
-No operation]
-[print readHeap (myRef)
-print readHeap (myCompRef)
+[new (refNumber, 20)]
+[openFile (myFile.txt)
+readFile (myFile.txt, number)
+fork (writeHeap (refNumber, 100) | openFile (myFile.txt) | readFile (testFile.txt, number) | fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation) | print number | No operation | No operation | No operation)
+writeHeap (refNumber, 200)
+closeFile (myFile.txt)
+print number
+readFile (testFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(3 -> string)
-varc=50
-myRef=(1 -> int)
+number=15
+refNumber=(1 -> int)
+refRef=(3 -> ref (int))
 
 Out:
-15
-50
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=10
-2=(1 -> int)
-3=Hello world
+1-->15
+2-->100
+3-->(1 -> int)
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[writeHeap (myRef, (35 + 35))]
-[new (myRef, 100)
-new (myRefWillBeCollected, Hi guys)
-No operation]
-[print readHeap (myRef)
-print readHeap (myCompRef)
+[openFile (myFile.txt)
+readFile (myFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+No operation
+No operation
+No operation
+No operation
+No operation
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(3 -> string)
-varc=50
-myRef=(1 -> int)
+number=15
+refNumber=(2 -> int)
+refRef=(4 -> ref (int))
 
 Out:
-15
-50
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=10
-2=(1 -> int)
-3=Hello world
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->20
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
 ExeStack:
-[new (myRef, 100)
-new (myRefWillBeCollected, Hi guys)
-No operation]
-[print readHeap (myRef)
-print readHeap (myCompRef)
+[openFile (myFile.txt)
+readFile (myFile.txt, number)
+fork (writeHeap (refNumber, 100) | openFile (myFile.txt) | readFile (testFile.txt, number) | fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation) | print number | No operation | No operation | No operation)
+writeHeap (refNumber, 200)
+closeFile (myFile.txt)
+print number
+readFile (testFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(3 -> string)
-varc=50
-myRef=(1 -> int)
+number=15
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
 
 Out:
-15
-50
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-3=Hello world
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->20
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[new (myRef, 100)]
-[new (myRefWillBeCollected, Hi guys)
-No operation]
-[print readHeap (myRef)
-print readHeap (myCompRef)
+[openFile (myFile.txt)]
+[readFile (myFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+No operation
+No operation
+No operation
+No operation
+No operation
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(3 -> string)
-varc=50
-myRef=(1 -> int)
+number=15
+refNumber=(2 -> int)
+refRef=(4 -> ref (int))
 
 Out:
-15
-50
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-3=Hello world
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->20
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
 ExeStack:
-[new (myRefWillBeCollected, Hi guys)
-No operation]
-[print readHeap (myRef)
-print readHeap (myCompRef)
+[openFile (myFile.txt)]
+[readFile (myFile.txt, number)
+fork (writeHeap (refNumber, 100) | openFile (myFile.txt) | readFile (testFile.txt, number) | fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation) | print number | No operation | No operation | No operation)
+writeHeap (refNumber, 200)
+closeFile (myFile.txt)
+print number
+readFile (testFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(3 -> string)
-varc=50
-myRef=(4 -> int)
+number=15
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
 
 Out:
-15
-50
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-3=Hello world
-4=100
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->20
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[new (myRefWillBeCollected, Hi guys)]
-[No operation]
-[print readHeap (myRef)
-print readHeap (myCompRef)
+[readFile (myFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+No operation
+No operation
+No operation
+No operation
+No operation
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(3 -> string)
-varc=50
-myRef=(4 -> int)
+number=15
+refNumber=(2 -> int)
+refRef=(4 -> ref (int))
 
 Out:
-15
-50
 
 FileTable:
+myFile.txt=BufferedReader, id: 2
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-3=Hello world
-4=100
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->20
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
+ExeStack:
+[readFile (myFile.txt, number)
+fork (writeHeap (refNumber, 100) | openFile (myFile.txt) | readFile (testFile.txt, number) | fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation) | print number | No operation | No operation | No operation)
+writeHeap (refNumber, 200)
+closeFile (myFile.txt)
+print number
+readFile (testFile.txt, number)
+print number
+No operation
+No operation
+No operation]
+
+SymTable:
+number=15
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+
+FileTable:
+myFile.txt=BufferedReader, id: 2
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->20
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
+ExeStack:
+[readFile (myFile.txt, number)]
+[print number
+No operation
+No operation
+No operation
+No operation
+No operation
+No operation
+No operation
+No operation]
+
+SymTable:
+number=15
+refNumber=(2 -> int)
+refRef=(4 -> ref (int))
+
+Out:
+
+FileTable:
+myFile.txt=BufferedReader, id: 2
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->20
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
+ExeStack:
+[readFile (myFile.txt, number)]
+[fork (writeHeap (refNumber, 100) | openFile (myFile.txt) | readFile (testFile.txt, number) | fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation) | print number | No operation | No operation | No operation)
+writeHeap (refNumber, 200)
+closeFile (myFile.txt)
+print number
+readFile (testFile.txt, number)
+print number
+No operation
+No operation
+No operation]
+
+SymTable:
+number=15
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+
+FileTable:
+myFile.txt=BufferedReader, id: 2
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->20
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
+ExeStack:
+[print number
+No operation
+No operation
+No operation
+No operation
+No operation
+No operation
+No operation
+No operation]
+
+SymTable:
+number=333
+refNumber=(2 -> int)
+refRef=(4 -> ref (int))
+
+Out:
+
+FileTable:
+myFile.txt=BufferedReader, id: 2
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->20
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
+ExeStack:
+[fork (writeHeap (refNumber, 100) | openFile (myFile.txt) | readFile (testFile.txt, number) | fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation) | print number | No operation | No operation | No operation)
+writeHeap (refNumber, 200)
+closeFile (myFile.txt)
+print number
+readFile (testFile.txt, number)
+print number
+No operation
+No operation
+No operation]
+
+SymTable:
+number=123
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+
+FileTable:
+myFile.txt=BufferedReader, id: 2
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->20
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
+ExeStack:
+[print number]
+[No operation
+No operation
+No operation
+No operation
+No operation
+No operation
+No operation
+No operation]
+
+SymTable:
+number=333
+refNumber=(2 -> int)
+refRef=(4 -> ref (int))
+
+Out:
+
+FileTable:
+myFile.txt=BufferedReader, id: 2
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->20
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
+ExeStack:
+[fork (writeHeap (refNumber, 100) | openFile (myFile.txt) | readFile (testFile.txt, number) | fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation) | print number | No operation | No operation | No operation)]
+[writeHeap (refNumber, 200)
+closeFile (myFile.txt)
+print number
+readFile (testFile.txt, number)
+print number
+No operation
+No operation
+No operation]
+
+SymTable:
+number=123
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+
+FileTable:
+myFile.txt=BufferedReader, id: 2
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->20
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
+ExeStack:
+[No operation
+No operation
+No operation
+No operation
+No operation
+No operation
+No operation
+No operation]
+
+SymTable:
+number=333
+refNumber=(2 -> int)
+refRef=(4 -> ref (int))
+
+Out:
+333
+
+FileTable:
+myFile.txt=BufferedReader, id: 2
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->20
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
+ExeStack:
+[writeHeap (refNumber, 200)
+closeFile (myFile.txt)
+print number
+readFile (testFile.txt, number)
+print number
+No operation
+No operation
+No operation]
+
+SymTable:
+number=123
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+333
+
+FileTable:
+myFile.txt=BufferedReader, id: 2
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->20
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 3
+ExeStack:
+[writeHeap (refNumber, 100)
+openFile (myFile.txt)
+readFile (testFile.txt, number)
+fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation)
+print number
+No operation
+No operation
+No operation]
+
+SymTable:
+number=123
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+333
+
+FileTable:
+myFile.txt=BufferedReader, id: 2
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->20
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
 [No operation]
-[print readHeap (myRef)
-print readHeap (myCompRef)
+[No operation
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+No operation
+No operation
+No operation
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=333
+refNumber=(2 -> int)
+refRef=(4 -> ref (int))
 
 Out:
-15
-50
+333
 
 FileTable:
+myFile.txt=BufferedReader, id: 2
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->20
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
 ExeStack:
-[print readHeap (myRef)
-print readHeap (myCompRef)
+[writeHeap (refNumber, 200)]
+[closeFile (myFile.txt)
+print number
+readFile (testFile.txt, number)
+print number
 No operation
-int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
-No operation
-No operation]
-
-SymTable:
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
-
-Out:
-15
-50
-
-FileTable:
-
-Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
-
------------------------------------------------------
-
-Tue Nov 24 00:41:47 EET 2020
-ExeStack:
-[print readHeap (myRef)
-print readHeap (myCompRef)
-No operation]
-[int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=123
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
 
 Out:
-15
-50
+333
 
 FileTable:
+myFile.txt=BufferedReader, id: 2
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->20
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 3
 ExeStack:
-[print readHeap (myRef)]
-[print readHeap (myCompRef)
-No operation]
-[int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+[writeHeap (refNumber, 100)]
+[openFile (myFile.txt)
+readFile (testFile.txt, number)
+fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation)
+print number
+No operation
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=123
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
 
 Out:
-15
-50
+333
 
 FileTable:
+myFile.txt=BufferedReader, id: 2
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->20
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[print readHeap (myCompRef)
-No operation]
-[int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+[No operation
+No operation
+No operation
+No operation
+No operation
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=333
+refNumber=(2 -> int)
+refRef=(4 -> ref (int))
 
 Out:
-15
-50
-100
+333
 
 FileTable:
+myFile.txt=BufferedReader, id: 2
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
 ExeStack:
-[print readHeap (myCompRef)]
-[No operation]
-[int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+[closeFile (myFile.txt)
+print number
+readFile (testFile.txt, number)
+print number
+No operation
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=123
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
 
 Out:
-15
-50
-100
+333
 
 FileTable:
+myFile.txt=BufferedReader, id: 2
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 3
 ExeStack:
-[No operation]
-[int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+[openFile (myFile.txt)
+readFile (testFile.txt, number)
+fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation)
+print number
+No operation
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=123
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
 
 Out:
-15
-50
-100
-(1 -> int)
+333
 
 FileTable:
+myFile.txt=BufferedReader, id: 2
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+[No operation]
+[No operation
+No operation
+No operation
+No operation
 No operation
 No operation]
 
 SymTable:
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=333
+refNumber=(2 -> int)
+refRef=(4 -> ref (int))
 
 Out:
-15
-50
-100
-(1 -> int)
+333
 
 FileTable:
+myFile.txt=BufferedReader, id: 2
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
 ExeStack:
-[int a
-a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+[closeFile (myFile.txt)]
+[print number
+readFile (testFile.txt, number)
+print number
+No operation
+No operation
 No operation]
-[No operation]
 
 SymTable:
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=123
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
 
 Out:
-15
-50
-100
-(1 -> int)
+333
 
 FileTable:
+myFile.txt=BufferedReader, id: 2
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 3
 ExeStack:
-[int a]
-[a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+[openFile (myFile.txt)]
+[readFile (testFile.txt, number)
+fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation)
+print number
+No operation
+No operation
 No operation]
-[No operation]
 
 SymTable:
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=123
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
 
 Out:
-15
-50
-100
-(1 -> int)
+333
 
 FileTable:
+myFile.txt=BufferedReader, id: 2
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[a=3
-while ((a > 0)) then
-	print a
-	a=(a - 1)
+[No operation
+No operation
+No operation
+No operation
+No operation
 No operation]
-[No operation]
 
 SymTable:
-a=0
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=333
+refNumber=(2 -> int)
+refRef=(4 -> ref (int))
 
 Out:
-15
-50
-100
-(1 -> int)
+333
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
 ExeStack:
-[a=3]
-[while ((a > 0)) then
-	print a
-	a=(a - 1)
+[print number
+readFile (testFile.txt, number)
+print number
+No operation
+No operation
 No operation]
-[No operation]
 
 SymTable:
-a=0
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=123
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
 
 Out:
-15
-50
-100
-(1 -> int)
+333
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 3
 ExeStack:
-[while ((a > 0)) then
-	print a
-	a=(a - 1)
+[readFile (testFile.txt, number)
+fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation)
+print number
+No operation
+No operation
 No operation]
-[No operation]
 
 SymTable:
-a=3
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=123
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
 
 Out:
-15
-50
-100
-(1 -> int)
+333
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[while ((a > 0)) then
-	print a
-	a=(a - 1)]
 [No operation]
-[No operation]
+[No operation
+No operation
+No operation
+No operation
+No operation]
 
 SymTable:
-a=3
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=333
+refNumber=(2 -> int)
+refRef=(4 -> ref (int))
 
 Out:
-15
-50
-100
-(1 -> int)
+333
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
 ExeStack:
-[print a
-a=(a - 1)]
-[while ((a > 0)) then
-	print a
-	a=(a - 1)]
-[No operation]
-[No operation]
+[print number]
+[readFile (testFile.txt, number)
+print number
+No operation
+No operation
+No operation]
 
 SymTable:
-a=3
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=123
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
 
 Out:
-15
-50
-100
-(1 -> int)
+333
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 3
 ExeStack:
-[print a]
-[a=(a - 1)]
-[while ((a > 0)) then
-	print a
-	a=(a - 1)]
-[No operation]
-[No operation]
+[readFile (testFile.txt, number)]
+[fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation)
+print number
+No operation
+No operation
+No operation]
 
 SymTable:
-a=3
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=123
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
 
 Out:
-15
-50
-100
-(1 -> int)
+333
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[a=(a - 1)]
-[while ((a > 0)) then
-	print a
-	a=(a - 1)]
-[No operation]
-[No operation]
+[No operation
+No operation
+No operation
+No operation
+No operation]
 
 SymTable:
-a=3
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=333
+refNumber=(2 -> int)
+refRef=(4 -> ref (int))
 
 Out:
-15
-50
-100
-(1 -> int)
-3
+333
+123
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
 ExeStack:
-[while ((a > 0)) then
-	print a
-	a=(a - 1)]
-[No operation]
-[No operation]
+[readFile (testFile.txt, number)
+print number
+No operation
+No operation
+No operation]
 
 SymTable:
-a=2
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=123
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
 
 Out:
-15
-50
-100
-(1 -> int)
-3
+333
+123
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 3
 ExeStack:
-[print a
-a=(a - 1)]
-[while ((a > 0)) then
-	print a
-	a=(a - 1)]
-[No operation]
-[No operation]
+[fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation)
+print number
+No operation
+No operation
+No operation]
 
 SymTable:
-a=2
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=11
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
 
 Out:
-15
-50
-100
-(1 -> int)
-3
+333
+123
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[print a]
-[a=(a - 1)]
-[while ((a > 0)) then
-	print a
-	a=(a - 1)]
 [No operation]
-[No operation]
+[No operation
+No operation
+No operation
+No operation]
 
 SymTable:
-a=2
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=333
+refNumber=(2 -> int)
+refRef=(4 -> ref (int))
 
 Out:
-15
-50
-100
-(1 -> int)
-3
+333
+123
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
 ExeStack:
-[a=(a - 1)]
-[while ((a > 0)) then
-	print a
-	a=(a - 1)]
-[No operation]
-[No operation]
+[readFile (testFile.txt, number)]
+[print number
+No operation
+No operation
+No operation]
 
 SymTable:
-a=2
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=123
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
 
 Out:
-15
-50
-100
-(1 -> int)
-3
-2
+333
+123
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 3
 ExeStack:
-[while ((a > 0)) then
-	print a
-	a=(a - 1)]
-[No operation]
-[No operation]
+[fork (readFile (testFile.txt, number) | print number | closeFile (testFile.txt) | No operation)]
+[print number
+No operation
+No operation
+No operation]
 
 SymTable:
-a=1
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=11
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
 
 Out:
-15
-50
-100
-(1 -> int)
-3
-2
+333
+123
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
-[print a
-a=(a - 1)]
-[while ((a > 0)) then
-	print a
-	a=(a - 1)]
-[No operation]
-[No operation]
+[No operation
+No operation
+No operation
+No operation]
 
 SymTable:
-a=1
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=333
+refNumber=(2 -> int)
+refRef=(4 -> ref (int))
 
 Out:
-15
-50
-100
-(1 -> int)
-3
-2
+333
+123
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
 ExeStack:
-[print a]
-[a=(a - 1)]
-[while ((a > 0)) then
-	print a
-	a=(a - 1)]
-[No operation]
-[No operation]
+[print number
+No operation
+No operation
+No operation]
 
 SymTable:
-a=1
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=33
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
 
 Out:
-15
-50
-100
-(1 -> int)
-3
-2
+333
+123
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 3
 ExeStack:
-[a=(a - 1)]
-[while ((a > 0)) then
-	print a
-	a=(a - 1)]
-[No operation]
-[No operation]
+[print number
+No operation
+No operation
+No operation]
 
 SymTable:
-a=1
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=11
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
 
 Out:
-15
-50
-100
-(1 -> int)
-3
-2
-1
+333
+123
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 4
 ExeStack:
-[while ((a > 0)) then
-	print a
-	a=(a - 1)]
-[No operation]
-[No operation]
+[readFile (testFile.txt, number)
+print number
+closeFile (testFile.txt)
+No operation]
 
 SymTable:
-a=0
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=11
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
 
 Out:
-15
-50
-100
-(1 -> int)
-3
-2
-1
+333
+123
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
 [No operation]
-[No operation]
+[No operation
+No operation
+No operation]
 
 SymTable:
-a=0
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=333
+refNumber=(2 -> int)
+refRef=(4 -> ref (int))
 
 Out:
-15
-50
-100
-(1 -> int)
-3
-2
-1
+333
+123
 
 FileTable:
+testFile.txt=BufferedReader, id: 1
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
+ExeStack:
+[print number]
+[No operation
+No operation
+No operation]
+
+SymTable:
+number=33
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+333
+123
+
+FileTable:
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 3
+ExeStack:
+[print number]
+[No operation
+No operation
+No operation]
+
+SymTable:
+number=11
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+333
+123
+
+FileTable:
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 4
+ExeStack:
+[readFile (testFile.txt, number)]
+[print number
+closeFile (testFile.txt)
+No operation]
+
+SymTable:
+number=11
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+333
+123
+
+FileTable:
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
+ExeStack:
+[No operation
+No operation
+No operation]
+
+SymTable:
+number=333
+refNumber=(2 -> int)
+refRef=(4 -> ref (int))
+
+Out:
+333
+123
+33
+11
+
+FileTable:
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
+ExeStack:
+[No operation
+No operation
+No operation]
+
+SymTable:
+number=33
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+333
+123
+33
+11
+
+FileTable:
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 3
+ExeStack:
+[No operation
+No operation
+No operation]
+
+SymTable:
+number=11
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+333
+123
+33
+11
+
+FileTable:
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 4
+ExeStack:
+[print number
+closeFile (testFile.txt)
+No operation]
+
+SymTable:
+number=77
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+333
+123
+33
+11
+
+FileTable:
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
+ExeStack:
+[No operation]
+[No operation
+No operation]
+
+SymTable:
+number=333
+refNumber=(2 -> int)
+refRef=(4 -> ref (int))
+
+Out:
+333
+123
+33
+11
+
+FileTable:
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
+ExeStack:
+[No operation]
+[No operation
+No operation]
+
+SymTable:
+number=33
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+333
+123
+33
+11
+
+FileTable:
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 3
+ExeStack:
+[No operation]
+[No operation
+No operation]
+
+SymTable:
+number=11
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+333
+123
+33
+11
+
+FileTable:
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 4
+ExeStack:
+[print number]
+[closeFile (testFile.txt)
+No operation]
+
+SymTable:
+number=77
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+333
+123
+33
+11
+
+FileTable:
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
+ExeStack:
+[No operation
+No operation]
+
+SymTable:
+number=333
+refNumber=(2 -> int)
+refRef=(4 -> ref (int))
+
+Out:
+333
+123
+33
+11
+77
+
+FileTable:
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
+ExeStack:
+[No operation
+No operation]
+
+SymTable:
+number=33
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+333
+123
+33
+11
+77
+
+FileTable:
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 3
+ExeStack:
+[No operation
+No operation]
+
+SymTable:
+number=11
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+333
+123
+33
+11
+77
+
+FileTable:
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 4
+ExeStack:
+[closeFile (testFile.txt)
+No operation]
+
+SymTable:
+number=77
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+333
+123
+33
+11
+77
+
+FileTable:
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
+ExeStack:
+[No operation]
+[No operation]
+
+SymTable:
+number=333
+refNumber=(2 -> int)
+refRef=(4 -> ref (int))
+
+Out:
+333
+123
+33
+11
+77
+
+FileTable:
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
+ExeStack:
+[No operation]
+[No operation]
+
+SymTable:
+number=33
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+333
+123
+33
+11
+77
+
+FileTable:
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 3
+ExeStack:
+[No operation]
+[No operation]
+
+SymTable:
+number=11
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+333
+123
+33
+11
+77
+
+FileTable:
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 4
+ExeStack:
+[closeFile (testFile.txt)]
+[No operation]
+
+SymTable:
+number=77
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+333
+123
+33
+11
+77
+
+FileTable:
+testFile.txt=BufferedReader, id: 1
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
 ExeStack:
 [No operation]
 
 SymTable:
-a=0
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=333
+refNumber=(2 -> int)
+refRef=(4 -> ref (int))
 
 Out:
-15
-50
-100
-(1 -> int)
-3
-2
-1
+333
+123
+33
+11
+77
 
 FileTable:
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
 
 -----------------------------------------------------
 
-Tue Nov 24 00:41:47 EET 2020
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
 ExeStack:
+[No operation]
 
 SymTable:
-a=0
-varf=test.in
-myCompRef=(2 -> ref (int))
-myRefWillBeCollected=(5 -> string)
-varc=50
-myRef=(4 -> int)
+number=33
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
 
 Out:
-15
-50
-100
-(1 -> int)
-3
-2
-1
+333
+123
+33
+11
+77
 
 FileTable:
 
 Heap:
-1=70
-2=(1 -> int)
-4=100
-5=Hi guys
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 3
+ExeStack:
+[No operation]
+
+SymTable:
+number=11
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+333
+123
+33
+11
+77
+
+FileTable:
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 4
+ExeStack:
+[No operation]
+
+SymTable:
+number=77
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+333
+123
+33
+11
+77
+
+FileTable:
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 1
+ExeStack:
+
+SymTable:
+number=333
+refNumber=(2 -> int)
+refRef=(4 -> ref (int))
+
+Out:
+333
+123
+33
+11
+77
+
+FileTable:
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 2
+ExeStack:
+
+SymTable:
+number=33
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+333
+123
+33
+11
+77
+
+FileTable:
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 3
+ExeStack:
+
+SymTable:
+number=11
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+333
+123
+33
+11
+77
+
+FileTable:
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
+
+-----------------------------------------------------
+
+Sat Nov 28 14:02:41 EET 2020
+Program: 4
+ExeStack:
+
+SymTable:
+number=77
+refNumber=(5 -> int)
+refRef=(3 -> ref (int))
+
+Out:
+333
+123
+33
+11
+77
+
+FileTable:
+
+Heap:
+1-->15
+2-->100
+3-->(1 -> int)
+4-->(2 -> int)
+5-->100
 
 -----------------------------------------------------
 

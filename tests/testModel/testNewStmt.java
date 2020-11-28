@@ -1,5 +1,6 @@
 package ToyInterpreter.tests.testModel;
 
+import ToyInterpreter.Main;
 import ToyInterpreter.exceptions.*;
 import ToyInterpreter.model.PrgState;
 import ToyInterpreter.model.adts.*;
@@ -40,7 +41,8 @@ public class testNewStmt {
 
     @After
     public void tearDown() throws IOException {
-        state.cleanAll();
+        state.getTable().clear();
+        Main.clean(state.getOut(), state.getFileTable(), state.getHeap());
         state = null;
     }
 
@@ -75,8 +77,12 @@ public class testNewStmt {
     @Test(expected = IsNotDefinedException.class)
     public void IsNotDefinedTest() throws MyException{
         Stmt s = new NewStmt("numberVar", new ConstExp(new IntValue(10)));
-        Assert.assertNotNull("Testing IsNotDefined exception within exec method of NewStmt",
-                s.exec(state));
+        try{
+            s.exec(state);
+        }
+        catch (ThreadException te){
+            throw te.getException();
+        }
     }
 
     @Test(expected = InvalidAllocation.class)
@@ -84,8 +90,12 @@ public class testNewStmt {
         Stmt s1 = new VarDecl(new Int(), new VarExp("numberVar"));
         Stmt s2 = new NewStmt("numberVar", new ConstExp(new IntValue(10)));
         s1.exec(state);
-        Assert.assertNotNull("Testing InvalidAllocation exception within exec method of NewStmt",
-                s2.exec(state));
+        try{
+            s2.exec(state);
+        }
+        catch (ThreadException te){
+            throw te.getException();
+        }
     }
 
     @Test(expected = InvalidAllocationType.class)
@@ -93,8 +103,12 @@ public class testNewStmt {
         Stmt s1 = new VarDecl(new Ref(new Int()), new VarExp("numberVar"));
         Stmt s2 = new NewStmt("numberVar", new ConstExp(new StringValue("Hello World")));
         s1.exec(state);
-        Assert.assertNotNull("Testing InvalidAllocationType exception within exec method of NewStmt",
-                s2.exec(state));
+        try{
+            s2.exec(state);
+        }
+        catch (ThreadException te){
+            throw te.getException();
+        }
     }
 
 }

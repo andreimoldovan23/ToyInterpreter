@@ -1,6 +1,7 @@
 package ToyInterpreter.exceptions;
 
 public class InvalidRelationalType extends MyException{
+
     public InvalidRelationalType(){
         super();
     }

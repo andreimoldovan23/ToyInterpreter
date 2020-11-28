@@ -22,7 +22,7 @@ public class testIHeap {
         IHeap<Integer, String> heap = new Heap<>();
         int first = heap.add("Hello world");
         int second = heap.add("Hi guys");
-        String expected = first + "=Hello world\n" + second + "=Hi guys\n";
+        String expected = first + "-->Hello world\n" + second + "-->Hi guys\n";
 
         Assert.assertEquals("Testing add/toString methods of IHeap", expected, heap.toString());
         Assert.assertTrue("Testing isDefined method of IHeap", heap.isDefined(first));

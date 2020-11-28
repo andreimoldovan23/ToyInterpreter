@@ -1,6 +1,7 @@
 package ToyInterpreter.exceptions;
 
 public class InvalidOperator extends MyException{
+
     public String toString(){
         return "Invalid operator";
     }
@@ -8,4 +9,5 @@ public class InvalidOperator extends MyException{
     public InvalidOperator(){
         super();
     }
+
 }

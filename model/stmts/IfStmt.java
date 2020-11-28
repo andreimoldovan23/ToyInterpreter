@@ -2,12 +2,15 @@ package ToyInterpreter.model.stmts;
 
 import ToyInterpreter.exceptions.InvalidIfCondition;
 import ToyInterpreter.exceptions.MyException;
+import ToyInterpreter.exceptions.ThreadException;
 import ToyInterpreter.model.PrgState;
 import ToyInterpreter.model.adts.IExeStack;
 import ToyInterpreter.model.adts.IHeap;
 import ToyInterpreter.model.adts.ISymTable;
+import ToyInterpreter.model.adts.ITypeEnv;
 import ToyInterpreter.model.exps.Exp;
 import ToyInterpreter.model.types.Bool;
+import ToyInterpreter.model.types.Type;
 import ToyInterpreter.model.values.Value;
 
 public class IfStmt implements Stmt{
@@ -22,11 +25,18 @@ public class IfStmt implements Stmt{
         this.s2 = s2;
     }
 
-    public PrgState exec(PrgState state) throws MyException{
+    public PrgState exec(PrgState state) throws ThreadException {
         IExeStack<Stmt> stack = state.getStack();
         ISymTable<String, Value> table = state.getTable();
         IHeap<Integer, Value> heap = state.getHeap();
-        Value v = e.eval(table, heap);
+        Value v;
+
+        try{
+            v = e.eval(table, heap);
+        }
+        catch (MyException e){
+            throw new ThreadException(e, state.getId());
+        }
 
         if (v.getType().equals(new Bool())) {
             if ((Boolean) v.getValue()) {
@@ -35,8 +45,17 @@ public class IfStmt implements Stmt{
                 stack.push(s2);
         }
         else
-            throw new InvalidIfCondition();
+            throw new ThreadException(new InvalidIfCondition(), state.getId());
         return null;
+    }
+
+    public ITypeEnv<String, Type> typeCheck(ITypeEnv<String, Type> typeEnv) throws MyException {
+        Type t = e.typeCheck(typeEnv);
+        if(!t.equals(new Bool()))
+            throw new InvalidIfCondition();
+        s1.typeCheck(typeEnv.copy());
+        s2.typeCheck(typeEnv.copy());
+        return typeEnv;
     }
 
     public String toString(){

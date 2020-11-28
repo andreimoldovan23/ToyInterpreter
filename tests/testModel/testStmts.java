@@ -8,7 +8,7 @@ import org.junit.runners.Suite;
         testVarDecl.class, testPrintStmt.class, testAssignStmt.class,
         testIfStmt.class, testOpenFileStmt.class, testCloseFileStmt.class,
         testReadFileStmt.class, testNOP.class, testCompStmt.class,
-        testNewStmt.class, testWriteHeapStmt.class, testWhileStmt.class
+        testNewStmt.class, testWriteHeapStmt.class, testWhileStmt.class, testForkStmt.class
 })
 
 

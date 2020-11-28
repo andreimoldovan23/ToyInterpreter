@@ -1,14 +1,16 @@
 package ToyInterpreter.model;
 
+import ToyInterpreter.exceptions.MyException;
 import ToyInterpreter.model.adts.*;
 import ToyInterpreter.model.stmts.Stmt;
 import ToyInterpreter.model.values.StringValue;
 import ToyInterpreter.model.values.Value;
-import java.io.IOException;
-import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class PrgState {
 
+    private static AtomicInteger id = new AtomicInteger(0);
+    private final int thisStateId;
     private final IExeStack<Stmt> stack;
     private final ISymTable<String, Value> table;
     private final IOut<String> out;
@@ -26,6 +28,7 @@ public class PrgState {
         heap = h;
         initialProgram = s;
         stack.push(initialProgram);
+        thisStateId = id.incrementAndGet();
     }
 
     public IExeStack<Stmt> getStack(){
@@ -53,20 +56,25 @@ public class PrgState {
     }
 
     public String toString(){
-        return "ExeStack:\n" + stack.toString() + "\nSymTable:\n" + table.toString() +
+        return "Program: " + thisStateId + "\n" +
+                "ExeStack:\n" + stack.toString() + "\nSymTable:\n" + table.toString() +
                 "\nOut:\n" + out.toString() + "\nFileTable:\n" + fileTable.toString() +
                 "\nHeap:\n" + heap.toString() +
                 "\n-----------------------------------------------------\n";
     }
 
-    public void cleanAll() throws IOException {
-        out.clear();
-        table.clear();
-        List<MyBufferedReader> readers = fileTable.getValues();
-        for(var r : readers)
-            r.close();
-        fileTable.clear();
-        heap.clear();
+    public boolean isNotCompleted() {
+        return !stack.empty();
+    }
+
+    public PrgState oneStep() throws MyException {
+        Stmt top;
+        top = stack.pop();
+        return top.exec(this);
+    }
+
+    public int getId() {
+        return thisStateId;
     }
 
 }

@@ -108,4 +108,19 @@ public class testValues {
                 sum);
     }
 
+    @Test
+    public void copyTest() {
+        Assert.assertEquals("Testing copy method of True", trueVal, trueVal.copy());
+        Assert.assertEquals("Testing copy method of False", falseVal, falseVal.copy());
+        Assert.assertEquals("Testing copy method of IntValue", intVal.getValue(),
+                intVal.copy().getValue());
+        Assert.assertEquals("Testing copy method of BoolValue", boolVal.getValue(),
+                boolVal.copy().getValue());
+        Assert.assertEquals("Testing copy method of StringValue", stringVal.getValue(),
+                stringVal.copy().getValue());
+        Assert.assertEquals("Testing copy method of Ref", refVal.getValue(),
+                refVal.copy().getValue());
+        Assert.assertEquals(refVal.getType(), refVal.copy().getType());
+    }
+
 }

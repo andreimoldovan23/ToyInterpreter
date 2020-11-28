@@ -2,10 +2,13 @@ package ToyInterpreter.model.stmts;
 
 import ToyInterpreter.exceptions.InvalidWhileTypeException;
 import ToyInterpreter.exceptions.MyException;
+import ToyInterpreter.exceptions.ThreadException;
 import ToyInterpreter.model.PrgState;
 import ToyInterpreter.model.adts.IExeStack;
+import ToyInterpreter.model.adts.ITypeEnv;
 import ToyInterpreter.model.exps.Exp;
 import ToyInterpreter.model.types.Bool;
+import ToyInterpreter.model.types.Type;
 import ToyInterpreter.model.values.Value;
 
 public class WhileStmt implements Stmt{
@@ -26,12 +29,19 @@ public class WhileStmt implements Stmt{
         return "while " + exp.toString() + " then\n" + stmt.toStringPrefix("\t");
     }
 
-    public PrgState exec(PrgState state) throws MyException {
+    public PrgState exec(PrgState state) throws ThreadException {
         IExeStack<Stmt> stack = state.getStack();
 
-        Value val = exp.eval(state.getTable(), state.getHeap());
+        Value val;
+        try{
+            val = exp.eval(state.getTable(), state.getHeap());
+        }
+        catch (MyException e){
+            throw new ThreadException(e, state.getId());
+        }
+
         if(!val.getType().equals(new Bool()))
-            throw new InvalidWhileTypeException();
+            throw new ThreadException(new InvalidWhileTypeException(), state.getId());
 
         if((boolean)val.getValue()){
             stack.push(this);
@@ -39,6 +49,15 @@ public class WhileStmt implements Stmt{
         }
 
         return null;
+    }
+
+    public ITypeEnv<String, Type> typeCheck(ITypeEnv<String, Type> typeEnv) throws MyException {
+        Type t = exp.typeCheck(typeEnv);
+        if(!t.equals(new Bool()))
+            throw new InvalidWhileTypeException();
+
+        stmt.typeCheck(typeEnv.copy());
+        return typeEnv;
     }
 
 }

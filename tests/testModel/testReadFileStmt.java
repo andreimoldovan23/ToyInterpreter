@@ -1,5 +1,6 @@
 package ToyInterpreter.tests.testModel;
 
+import ToyInterpreter.Main;
 import ToyInterpreter.exceptions.*;
 import ToyInterpreter.model.PrgState;
 import ToyInterpreter.model.adts.*;
@@ -47,7 +48,8 @@ public class testReadFileStmt {
     @SuppressWarnings("DuplicatedCode")
     @After
     public void tearDown() throws IOException {
-        state.cleanAll();
+        state.getTable().clear();
+        Main.clean(state.getOut(), state.getFileTable(), state.getHeap());
         intType = null;
         boolType = null;
         constExpInt = null;
@@ -75,33 +77,51 @@ public class testReadFileStmt {
     @Test(expected = InvalidFilenameException.class)
     public void InvalidFilenameTest() throws MyException{
         Stmt readFileStmt = new ReadFileStmt(new ConstExp(new IntValue(7)), "hello");
-        Assert.assertNotNull("Testing InvalidFilename exception of exec method of ReadFileStmt",
-                readFileStmt.exec(state));
+        try{
+            readFileStmt.exec(state);
+        }
+        catch (ThreadException te){
+            throw te.getException();
+        }
     }
 
+    @SuppressWarnings("DuplicatedCode")
     @Test(expected = FileNotOpen.class)
     public void FileNotOpenTest() throws MyException{
         Stmt varDecl = new VarDecl(intType, varExpInt);
         varDecl.exec(state);
         Stmt readFileStmt = new ReadFileStmt(new ConstExp(new StringValue("hello")), varExpInt.toString());
-        Assert.assertNotNull("Testing FileNotOpen exception of exec method of ReadFileStmt",
-                readFileStmt.exec(state));
+        try{
+            readFileStmt.exec(state);
+        }
+        catch (ThreadException te){
+            throw te.getException();
+        }
     }
 
     @Test(expected = IsNotDefinedException.class)
     public void IsNotDefinedTest() throws MyException{
         Stmt readFileStmt = new ReadFileStmt(new ConstExp(new StringValue("hello")), varExpInt.toString());
-        Assert.assertNotNull("Testing IsNotDefined exception of exec method of ReadFileStmt",
-                readFileStmt.exec(state));
+        try{
+            readFileStmt.exec(state);
+        }
+        catch (ThreadException te){
+            throw te.getException();
+        }
     }
 
+    @SuppressWarnings("DuplicatedCode")
     @Test(expected = InvalidFileReadType.class)
     public void InvalidFileReadTypeTest() throws MyException{
         Stmt varDecl = new VarDecl(boolType, varExpBool);
         varDecl.exec(state);
         Stmt readFileStmt = new ReadFileStmt(new ConstExp(new StringValue("hello")), varExpBool.toString());
-        Assert.assertNotNull("Testing InvalidFileReadType exception of exec method of ReadFileStmt",
-                readFileStmt.exec(state));
+        try{
+            readFileStmt.exec(state);
+        }
+        catch (ThreadException te){
+            throw te.getException();
+        }
     }
 
     @Test

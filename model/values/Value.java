@@ -7,4 +7,5 @@ public interface Value{
     Type getType();
     Object getValue();
     boolean equals(Object other);
+    Value copy();
 }

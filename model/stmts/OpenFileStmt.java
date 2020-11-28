@@ -1,16 +1,11 @@
 package ToyInterpreter.model.stmts;
 
-import ToyInterpreter.exceptions.FileAlreadyOpen;
-import ToyInterpreter.exceptions.InexistingFile;
-import ToyInterpreter.exceptions.InvalidFilenameException;
-import ToyInterpreter.exceptions.MyException;
+import ToyInterpreter.exceptions.*;
 import ToyInterpreter.model.PrgState;
-import ToyInterpreter.model.adts.IFileTable;
-import ToyInterpreter.model.adts.IHeap;
-import ToyInterpreter.model.adts.ISymTable;
-import ToyInterpreter.model.adts.MyBufferedReader;
+import ToyInterpreter.model.adts.*;
 import ToyInterpreter.model.exps.Exp;
 import ToyInterpreter.model.types.StringType;
+import ToyInterpreter.model.types.Type;
 import ToyInterpreter.model.values.StringValue;
 import ToyInterpreter.model.values.Value;
 import java.io.FileNotFoundException;
@@ -32,23 +27,37 @@ public class OpenFileStmt implements Stmt{
         return prefix + toString();
     }
 
-    public PrgState exec(PrgState state) throws MyException {
+    @SuppressWarnings("DuplicatedCode")
+    public PrgState exec(PrgState state) throws ThreadException {
         ISymTable<String, Value> table = state.getTable();
         IHeap<Integer, Value> heap = state.getHeap();
         IFileTable<StringValue, MyBufferedReader> fileTable = state.getFileTable();
-        Value val = file.eval(table, heap);
+        Value val;
+        try {
+            val = file.eval(table, heap);
+        }
+        catch (MyException e){
+            throw new ThreadException(e, state.getId());
+        }
 
         if(!val.getType().equals(new StringType()))
-            throw new InvalidFilenameException();
+            throw new ThreadException(new InvalidFilenameException(), state.getId());
         if(fileTable.isDefined((StringValue) val))
-            throw new FileAlreadyOpen();
+            throw new ThreadException(new FileAlreadyOpen(), state.getId());
         try{
             MyBufferedReader reader = new MyBufferedReader(new FileReader((String)val.getValue()));
             fileTable.add((StringValue) val, reader);
         } catch (FileNotFoundException e) {
-            throw new InexistingFile();
+            throw new ThreadException(new InexistingFile(), state.getId());
         }
         return null;
+    }
+
+    public ITypeEnv<String, Type> typeCheck(ITypeEnv<String, Type> typeEnv) throws MyException {
+        Type t = file.typeCheck(typeEnv);
+        if(!t.equals(new StringType()))
+            throw new InvalidFilenameException();
+        return typeEnv;
     }
 
 }

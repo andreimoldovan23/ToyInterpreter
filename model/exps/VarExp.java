@@ -1,8 +1,11 @@
 package ToyInterpreter.model.exps;
 
 import ToyInterpreter.exceptions.IsNotDefinedException;
+import ToyInterpreter.exceptions.MyException;
 import ToyInterpreter.model.adts.IHeap;
 import ToyInterpreter.model.adts.ISymTable;
+import ToyInterpreter.model.adts.ITypeEnv;
+import ToyInterpreter.model.types.Type;
 import ToyInterpreter.model.values.Value;
 
 public class VarExp implements Exp{
@@ -25,6 +28,12 @@ public class VarExp implements Exp{
 
     public boolean equals(Object other){
         return other instanceof VarExp;
+    }
+
+    public Type typeCheck(ITypeEnv<String, Type> typeEnv) throws MyException {
+        if(!typeEnv.isDefined(varName))
+            throw new IsNotDefinedException();
+        return typeEnv.lookup(varName);
     }
 
 }

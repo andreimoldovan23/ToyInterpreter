@@ -4,6 +4,7 @@ import ToyInterpreter.Main;
 import ToyInterpreter.exceptions.InvalidVariable;
 import ToyInterpreter.exceptions.InvalidWhileTypeException;
 import ToyInterpreter.exceptions.MyException;
+import ToyInterpreter.exceptions.ThreadException;
 import ToyInterpreter.model.PrgState;
 import ToyInterpreter.model.adts.*;
 import ToyInterpreter.model.exps.*;
@@ -49,7 +50,8 @@ public class testWhileStmt {
     @After
     public void tearDown() throws IOException {
         if(state != null) {
-            state.cleanAll();
+            state.getTable().clear();
+            Main.clean(state.getOut(), state.getFileTable(), state.getHeap());
             state = null;
         }
         declVar = null;
@@ -102,8 +104,12 @@ public class testWhileStmt {
                 new ConstExp(new IntValue(7)), "+"), new PrintStmt(new ConstExp(new StringValue("Hello"))));
         state = new PrgState(new ExeStack<>(), new SymTable<>(), new Out<>(), new FileTable<>(),
                 new Heap<>(), new NOP());
-        Assert.assertNotNull("Testing InvalidWhileType exception of exec method of WhileStmt",
-                whileInvalid.exec(state));
+        try{
+            whileInvalid.exec(state);
+        }
+        catch (ThreadException te){
+            throw te.getException();
+        }
     }
 
 }

@@ -1,32 +1,21 @@
 package ToyInterpreter.model.adts;
 
 import ToyInterpreter.exceptions.InvalidAddress;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Heap<T extends Integer, U> implements IHeap<T, U>{
 
-    private int nextFree = 0;
-    private int lastOccupiedAddress = 0;
-    private Map<T, U> map = new HashMap<>();
-
-    @SuppressWarnings("unchecked")
-    private void findFirstFree(){
-        for(int i = 1; i < lastOccupiedAddress; i++)
-            if(!isDefined((T)Integer.valueOf(i))){
-                nextFree = i;
-                return;
-            }
-        nextFree = lastOccupiedAddress + 1;
-        lastOccupiedAddress++;
-    }
+    private AtomicInteger nextFree = new AtomicInteger(0);
+    private Map<T, U> map = new ConcurrentHashMap<>();
 
     @SuppressWarnings("unchecked")
     public int add(U value) {
-        findFirstFree();
-        map.put((T)Integer.valueOf(nextFree), value);
-        return nextFree;
+        int addr = nextFree.incrementAndGet();
+        map.put((T)Integer.valueOf(addr), value);
+        return addr;
     }
 
     public void update(T key, U value){
@@ -54,7 +43,7 @@ public class Heap<T extends Integer, U> implements IHeap<T, U>{
     public String toString(){
         StringBuilder builder = new StringBuilder();
         for(Map.Entry<T, U> e : map.entrySet()){
-            builder.append(e.getKey().toString()).append("=").append(e.getValue().toString())
+            builder.append(e.getKey().toString()).append("-->").append(e.getValue().toString())
                     .append("\n");
         }
         return builder.toString();

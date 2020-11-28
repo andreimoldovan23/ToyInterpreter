@@ -1,7 +1,9 @@
 package ToyInterpreter.tests.testModel;
 
+import ToyInterpreter.Main;
 import ToyInterpreter.exceptions.MyException;
 import ToyInterpreter.exceptions.NotAllocated;
+import ToyInterpreter.exceptions.ThreadException;
 import ToyInterpreter.model.PrgState;
 import ToyInterpreter.model.adts.*;
 import ToyInterpreter.model.exps.ConstExp;
@@ -38,7 +40,8 @@ public class testWriteHeapStmt {
 
     @After
     public void tearDown() throws IOException {
-        state.cleanAll();
+        state.getTable().clear();
+        Main.clean(state.getOut(), state.getFileTable(), state.getHeap());
         state = null;
     }
 
@@ -78,8 +81,12 @@ public class testWriteHeapStmt {
         Stmt s2 = new WriteHeapStmt("myString", new ConstExp(new StringValue("Changed my mind")));
 
         s1.exec(state);
-        Assert.assertNotNull("Testing NotAllocated exception within exec method of WriteHeapStmt",
-                s2.exec(state));
+        try{
+            s2.exec(state);
+        }
+        catch (ThreadException te){
+            throw te.getException();
+        }
     }
 
 }

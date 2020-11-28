@@ -1,5 +1,6 @@
 package ToyInterpreter.tests.testModel;
 
+import ToyInterpreter.Main;
 import ToyInterpreter.exceptions.*;
 import ToyInterpreter.model.PrgState;
 import ToyInterpreter.model.adts.*;
@@ -39,7 +40,8 @@ public class testOpenFileStmt {
     @SuppressWarnings("DuplicatedCode")
     @After
     public void tearDown() throws IOException {
-        state.cleanAll();
+        state.getTable().clear();
+        Main.clean(state.getOut(), state.getFileTable(), state.getHeap());
         varExpString = null;
         state = null;
     }
@@ -54,7 +56,6 @@ public class testOpenFileStmt {
     @Test
     public void toStringPrefixTest() {
         Stmt openStmt = new OpenFileStmt(varExpString);
-
         String expected = "\topenFile (myTestFile.txt)\n";
         Assert.assertEquals("Testing toStringPrefix method of OpenFileStmt",
                 expected, openStmt.toStringPrefix("\t"));
@@ -73,8 +74,12 @@ public class testOpenFileStmt {
     @Test(expected = InvalidFilenameException.class)
     public void InvalidFilenameTest() throws MyException {
         Stmt openStmt = new OpenFileStmt(new ConstExp(new IntValue(7)));
-        Assert.assertNotNull("Testing InvalidFilename exception of exec method of OpenFileStmt",
-                openStmt.exec(state));
+        try{
+            openStmt.exec(state);
+        }
+        catch (ThreadException te){
+            throw te.getException();
+        }
     }
 
     @Test(expected = FileAlreadyOpen.class)
@@ -84,15 +89,23 @@ public class testOpenFileStmt {
         Stmt openStmt1 = new OpenFileStmt(new ConstExp(stringValue));
         Stmt openStmt2 = new OpenFileStmt(new ConstExp(stringValue));
         openStmt1.exec(state);
-        Assert.assertNotNull("Testing FileAlreadyOpen exception of exec method of OpenFileStmt",
-                openStmt2.exec(state));
+        try{
+            openStmt2.exec(state);
+        }
+        catch (ThreadException te){
+            throw te.getException();
+        }
     }
 
     @Test(expected = InexistingFile.class)
     public void InexistingFileTest() throws MyException{
         Stmt openStmt = new OpenFileStmt(new ConstExp(new StringValue("helloWorld")));
-        Assert.assertNotNull("Testing InexistingFile exception of exec method of OpenFileStmt",
-                openStmt.exec(state));
+        try{
+            openStmt.exec(state);
+        }
+        catch (ThreadException te){
+            throw te.getException();
+        }
     }
 
 }

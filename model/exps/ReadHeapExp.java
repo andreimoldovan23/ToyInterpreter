@@ -5,8 +5,10 @@ import ToyInterpreter.exceptions.InvalidReadHeapType;
 import ToyInterpreter.exceptions.MyException;
 import ToyInterpreter.model.adts.IHeap;
 import ToyInterpreter.model.adts.ISymTable;
+import ToyInterpreter.model.adts.ITypeEnv;
 import ToyInterpreter.model.types.Int;
 import ToyInterpreter.model.types.Ref;
+import ToyInterpreter.model.types.Type;
 import ToyInterpreter.model.values.Value;
 
 public class ReadHeapExp implements Exp{
@@ -35,6 +37,13 @@ public class ReadHeapExp implements Exp{
             throw new InvalidAddress();
 
         return heap.lookup(addr);
+    }
+
+    public Type typeCheck(ITypeEnv<String, Type> typeEnv) throws MyException {
+        Type t = exp.typeCheck(typeEnv);
+        if(t instanceof Ref)
+            return ((Ref) t).getInner();
+        throw new InvalidReadHeapType();
     }
 
 }

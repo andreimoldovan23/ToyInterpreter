@@ -1,23 +1,22 @@
 package ToyInterpreter.view;
 
-import ToyInterpreter.controller.Controller;
+import ToyInterpreter.Main;
 
 import java.io.IOException;
 
 public class QuitCommand extends Command{
 
-    private final Controller controller;
-    public QuitCommand(String k, String d, Controller c) {
+    public QuitCommand(String k, String d) {
         super(k, d);
-        controller = c;
     }
 
     public void execute() {
         scanner.close();
         try {
-            controller.closeAll();
+            Main.clean();
         }
         catch (IOException ioe){
+            System.out.println("Something went wrong");
             ioe.printStackTrace();
         }
         System.out.println("Exiting...");

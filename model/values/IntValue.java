@@ -27,4 +27,8 @@ public class IntValue implements Value{
         return other instanceof IntValue;
     }
 
+    public Value copy() {
+        return new IntValue(val);
+    }
+
 }

@@ -1,6 +1,8 @@
 package ToyInterpreter.tests.testModel;
 
 import ToyInterpreter.model.adts.*;
+import ToyInterpreter.model.values.IntValue;
+import ToyInterpreter.model.values.Value;
 import org.junit.*;
 
 public class testISymTable {
@@ -17,21 +19,29 @@ public class testISymTable {
 
     @Test
     public void ISymTableTest(){
-        ISymTable<String, String> table = new SymTable<>();
+        ISymTable<String, Value> table = new SymTable<>();
+        Value intValue = new IntValue(10);
+        Value intValueUpdate = new IntValue(20);
         String key = "Hello";
         String value = "World";
-        String update = "Guys";
-        String tableString = key + "=" + update + "\n";
-        table.add(key, value);
+        String tableString = key + "=" + intValueUpdate.toString() + "\n";
+        table.add(key, intValue);
 
-        Assert.assertEquals("Testing add/lookup method of ISymTable", value, table.lookup(key));
-        Assert.assertNull("Testing lookup method of ISymTable for nulls", table.lookup(value));
+        Assert.assertEquals("Testing add/lookup method of ISymTable", intValue.getValue(),
+                table.lookup(key).getValue());
+        Assert.assertNull("Testing lookup method of ISymTable for nulls",
+                table.lookup(value));
         Assert.assertTrue("Testing isDefined method of ISymTable for true", table.isDefined(key));
         Assert.assertFalse("Testing isDefined method of ISymTable for false", table.isDefined(value));
 
-        table.update(key, update);
-        Assert.assertEquals("Testing update method of ISymTable", update, table.lookup(key));
+        table.update(key, intValueUpdate);
+        Assert.assertEquals("Testing update method of ISymTable", intValueUpdate.getValue(),
+                table.lookup(key).getValue());
         Assert.assertEquals("Testing toString method of ISymTable", tableString, table.toString());
+
+        ISymTable<String, Value> newTable = table.copy();
+        Assert.assertEquals("Testing copy method of ISymTable", newTable.lookup(key).getValue(),
+                table.lookup(key).getValue());
 
         table.clear();
         Assert.assertNull("Testing clear method of ISymTable", table.lookup(key));

@@ -1,5 +1,6 @@
 package ToyInterpreter.tests.testModel;
 
+import ToyInterpreter.Main;
 import ToyInterpreter.exceptions.*;
 import ToyInterpreter.model.PrgState;
 import ToyInterpreter.model.adts.*;
@@ -40,7 +41,8 @@ public class testVarDecl {
     @SuppressWarnings("DuplicatedCode")
     @After
     public void tearDown() throws IOException {
-        state.cleanAll();
+        state.getTable().clear();
+        Main.clean(state.getOut(), state.getFileTable(), state.getHeap());
         intType = null;
         constExpInt = null;
         varExpInt = null;
@@ -65,8 +67,12 @@ public class testVarDecl {
     public void IsAlreadyDefinedTest() throws MyException {
         Stmt varDeclInt = new VarDecl(intType, varExpInt);
         varDeclInt.exec(state);
-        Assert.assertNotNull("Testing IsAlreadyDefined exception within VarDecl",
-                varDeclInt.exec(state));
+        try{
+            varDeclInt.exec(state);
+        }
+        catch (ThreadException te){
+            throw te.getException();
+        }
     }
 
     @Test

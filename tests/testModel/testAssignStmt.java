@@ -1,5 +1,6 @@
 package ToyInterpreter.tests.testModel;
 
+import ToyInterpreter.Main;
 import ToyInterpreter.exceptions.*;
 import ToyInterpreter.model.PrgState;
 import ToyInterpreter.model.adts.*;
@@ -41,7 +42,8 @@ public class testAssignStmt {
     @SuppressWarnings("DuplicatedCode")
     @After
     public void tearDown() throws IOException {
-        state.cleanAll();
+        state.getTable().clear();
+        Main.clean(state.getOut(), state.getFileTable(), state.getHeap());
         intType = null;
         constExpInt = null;
         varExpInt = null;
@@ -72,7 +74,12 @@ public class testAssignStmt {
         Stmt assignStmt = new AssignStmt(varExpInt, constExpBool);
 
         varDeclInt.exec(state);
-        Assert.assertNotNull("Testing InvalidAssignType exception within AssignStmt", assignStmt.exec(state));
+        try{
+            assignStmt.exec(state);
+        }
+        catch (ThreadException te){
+            throw te.getException();
+        }
     }
 
     @Test

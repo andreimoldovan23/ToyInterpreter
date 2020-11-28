@@ -17,4 +17,7 @@ public class StringType implements Type{
         return new StringValue("");
     }
 
+    public Type copy() {
+        return new StringType();
+    }
 }

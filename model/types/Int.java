@@ -17,4 +17,8 @@ public class Int implements Type{
         return new IntValue(0);
     }
 
+    public Type copy() {
+        return new Int();
+    }
+
 }

@@ -58,4 +58,12 @@ public class testTypes {
         Assert.assertEquals("Testing defaultValue method of Ref", Ref.defaultValue(new Int()).getValue(), 0);
     }
 
+    @Test
+    public void copyTest() {
+        Assert.assertEquals("Testing copy method of Int", intType.copy(), intType);
+        Assert.assertEquals("Testing copy method of Bool", boolType.copy(), boolType);
+        Assert.assertEquals("Testing copy method of StringType", stringType.copy(), stringType);
+        Assert.assertEquals("Testing copy method of Ref", refType.copy(), refType);
+    }
+
 }

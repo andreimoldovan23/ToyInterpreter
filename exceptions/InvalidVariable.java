@@ -1,6 +1,7 @@
 package ToyInterpreter.exceptions;
 
 public class InvalidVariable extends MyException{
+
     public InvalidVariable(){
         super();
     }
@@ -8,4 +9,5 @@ public class InvalidVariable extends MyException{
     public String toString() {
         return "Invalid variable declaration";
     }
+
 }

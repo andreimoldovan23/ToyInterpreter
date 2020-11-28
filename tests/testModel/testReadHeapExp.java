@@ -1,5 +1,6 @@
 package ToyInterpreter.tests.testModel;
 
+import ToyInterpreter.Main;
 import ToyInterpreter.exceptions.InvalidAddress;
 import ToyInterpreter.exceptions.InvalidReadHeapType;
 import ToyInterpreter.exceptions.InvalidVariable;
@@ -46,9 +47,11 @@ public class testReadHeapExp {
                 new Heap<>(), new NOP());
     }
 
+    @SuppressWarnings("DuplicatedCode")
     @After
     public void tearDown() throws IOException {
-        state.cleanAll();
+        state.getTable().clear();
+        Main.clean(state.getOut(), state.getFileTable(), state.getHeap());
         newStmt = null;
         declStmt = null;
         constExp = null;

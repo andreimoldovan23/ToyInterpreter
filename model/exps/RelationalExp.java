@@ -5,7 +5,10 @@ import ToyInterpreter.exceptions.InvalidRelationalType;
 import ToyInterpreter.exceptions.MyException;
 import ToyInterpreter.model.adts.IHeap;
 import ToyInterpreter.model.adts.ISymTable;
+import ToyInterpreter.model.adts.ITypeEnv;
+import ToyInterpreter.model.types.Bool;
 import ToyInterpreter.model.types.Int;
+import ToyInterpreter.model.types.Type;
 import ToyInterpreter.model.values.BoolValue;
 import ToyInterpreter.model.values.Value;
 
@@ -53,6 +56,14 @@ public class RelationalExp implements Exp {
         else
             throw new InvalidRelationalType();
         return result;
+    }
+
+    public Type typeCheck(ITypeEnv<String, Type> typeEnv) throws MyException {
+        Type t1 = left.typeCheck(typeEnv);
+        Type t2 = right.typeCheck(typeEnv);
+        if(!t1.equals(new Int()) || !t2.equals(new Int()))
+            throw new InvalidRelationalType();
+        return new Bool();
     }
 
 }

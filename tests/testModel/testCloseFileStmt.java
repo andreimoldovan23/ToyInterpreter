@@ -1,5 +1,6 @@
 package ToyInterpreter.tests.testModel;
 
+import ToyInterpreter.Main;
 import ToyInterpreter.exceptions.*;
 import ToyInterpreter.model.PrgState;
 import ToyInterpreter.model.adts.*;
@@ -39,7 +40,8 @@ public class testCloseFileStmt {
     @SuppressWarnings("DuplicatedCode")
     @After
     public void tearDown() throws IOException {
-        state.cleanAll();
+        state.getTable().clear();
+        Main.clean(state.getOut(), state.getFileTable(), state.getHeap());
         varExpString = null;
         state = null;
     }
@@ -74,15 +76,23 @@ public class testCloseFileStmt {
     @Test(expected = InvalidFilenameException.class)
     public void InvalidFilenameCloseTest() throws MyException {
         Stmt closeStmt = new CloseFileStmt(new ConstExp(new IntValue(7)));
-        Assert.assertNotNull("Testing InvalidFilename exception of exec method of CloseFileStmt",
-                closeStmt.exec(state));
+        try{
+            closeStmt.exec(state);
+        }
+        catch (ThreadException te){
+            throw te.getException();
+        }
     }
 
     @Test(expected = FileNotOpen.class)
     public void FileNotOpenTest() throws MyException{
         Stmt closeStmt = new CloseFileStmt(new ConstExp(new StringValue("hello")));
-        Assert.assertNotNull("Testing FileNotOpen exception of exec method of CloseFileStmt",
-                closeStmt.exec(state));
+        try{
+            closeStmt.exec(state);
+        }
+        catch (ThreadException te){
+            throw te.getException();
+        }
     }
 
 }

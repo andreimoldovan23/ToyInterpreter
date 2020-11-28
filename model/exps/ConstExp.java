@@ -2,6 +2,8 @@ package ToyInterpreter.model.exps;
 
 import ToyInterpreter.model.adts.IHeap;
 import ToyInterpreter.model.adts.ISymTable;
+import ToyInterpreter.model.adts.ITypeEnv;
+import ToyInterpreter.model.types.Type;
 import ToyInterpreter.model.values.Value;
 
 public class ConstExp implements Exp{
@@ -22,6 +24,10 @@ public class ConstExp implements Exp{
 
     public boolean equals(Object other) {
         return other instanceof ConstExp;
+    }
+
+    public Type typeCheck(ITypeEnv<String, Type> typeEnv) {
+        return val.getType();
     }
 
 }

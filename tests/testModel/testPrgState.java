@@ -63,7 +63,8 @@ public class testPrgState {
 
     @After
     public void tearDown() throws IOException {
-        state.cleanAll();
+        state.getTable().clear();
+        Main.clean(state.getOut(), state.getFileTable(), state.getHeap());
         var = null;
         state = null;
     }
@@ -79,7 +80,8 @@ public class testPrgState {
 
     @Test
     public void cleanAllTest() throws IOException {
-        state.cleanAll();
+        state.getTable().clear();
+        Main.clean(state.getOut(), state.getFileTable(), state.getHeap());
         ISymTable<String, Value> table = state.getTable();
         IOut<String> out = state.getOut();
         IFileTable<StringValue, MyBufferedReader> fileTable = state.getFileTable();

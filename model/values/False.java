@@ -21,4 +21,8 @@ public class False implements Value {
         return other instanceof False;
     }
 
+    public Value copy() {
+        return new False();
+    }
+
 }

@@ -1,12 +1,10 @@
 package ToyInterpreter.model.stmts;
 
-import ToyInterpreter.exceptions.InvalidVariable;
-import ToyInterpreter.exceptions.IsAlreadyDefined;
-import ToyInterpreter.exceptions.IsNotDefinedException;
-import ToyInterpreter.exceptions.MyException;
+import ToyInterpreter.exceptions.*;
 import ToyInterpreter.model.PrgState;
 import ToyInterpreter.model.adts.IHeap;
 import ToyInterpreter.model.adts.ISymTable;
+import ToyInterpreter.model.adts.ITypeEnv;
 import ToyInterpreter.model.exps.Exp;
 import ToyInterpreter.model.exps.VarExp;
 import ToyInterpreter.model.types.*;
@@ -24,12 +22,12 @@ public class VarDecl implements Stmt {
         type = t;
     }
 
-    public PrgState exec(PrgState state) throws MyException{
+    public PrgState exec(PrgState state) throws ThreadException {
         ISymTable<String, Value> table = state.getTable();
         IHeap<Integer, Value> heap = state.getHeap();
         try {
             exp.eval(table, heap);
-            throw new IsAlreadyDefined();
+            throw new ThreadException(new IsAlreadyDefined(), state.getId());
         }
         catch (IsNotDefinedException e) {
             switch (type.toString()) {
@@ -42,6 +40,9 @@ public class VarDecl implements Stmt {
                         Ref.defaultValue(((Ref)type).getInner()));
             return null;
         }
+        catch (MyException me){
+            throw (ThreadException)me;
+        }
     }
 
     public String toString() {
@@ -50,6 +51,11 @@ public class VarDecl implements Stmt {
 
     public String toStringPrefix(String prefix){
         return prefix + toString();
+    }
+
+    public ITypeEnv<String, Type> typeCheck(ITypeEnv<String, Type> typeEnv) {
+        typeEnv.add(exp.toString(), type);
+        return typeEnv;
     }
 
 }

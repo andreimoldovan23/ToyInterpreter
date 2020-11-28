@@ -29,4 +29,8 @@ public class RefValue implements Value {
         return "(" + address + " -> " + locationType.toString() + ")";
     }
 
+    public Value copy() {
+        return new RefValue(address, locationType.copy());
+    }
+
 }

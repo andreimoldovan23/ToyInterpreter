@@ -27,4 +27,8 @@ public class BoolValue implements Value {
         return other instanceof BoolValue;
     }
 
+    public Value copy() {
+        return new BoolValue(val);
+    }
+
 }

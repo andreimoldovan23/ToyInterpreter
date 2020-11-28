@@ -26,16 +26,15 @@ public class Repo<T> implements IRepo<T>{
         }
     }
 
-    public T getCurrent() {
+    public T getMainProgram() {
         return elements.get(0);
     }
 
-    public void logCurrentPrg() {
-        T currentElement = elements.get(0);
+    public void logCurrentPrg(T element) {
         long millis = System.currentTimeMillis();
         Date date = new Date(millis);
         printWriter.println(date);
-        printWriter.println(currentElement);
+        printWriter.println(element);
     }
 
     public void setLogFile(String path) throws IOException {
@@ -49,7 +48,6 @@ public class Repo<T> implements IRepo<T>{
     }
 
     public void setPrgList(List<T> l){
-        elements.clear();
         elements = l;
     }
 

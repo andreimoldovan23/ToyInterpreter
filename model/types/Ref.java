@@ -27,4 +27,8 @@ public class Ref implements Type {
         return new RefValue(0, t);
     }
 
+    public Type copy() {
+        return new Ref(innerType.copy());
+    }
+
 }

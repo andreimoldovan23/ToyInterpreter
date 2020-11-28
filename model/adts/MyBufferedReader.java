@@ -2,16 +2,16 @@ package ToyInterpreter.model.adts;
 
 import java.io.BufferedReader;
 import java.io.Reader;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class MyBufferedReader extends BufferedReader {
 
-    private static int id = 0;
+    private static AtomicInteger id = new AtomicInteger(0);
     private final int localId;
 
     public MyBufferedReader(Reader in) {
         super(in);
-        id++;
-        localId = id;
+        localId = id.incrementAndGet();
     }
 
     @Override

@@ -3,7 +3,9 @@ package ToyInterpreter.model.exps;
 import ToyInterpreter.exceptions.*;
 import ToyInterpreter.model.adts.IHeap;
 import ToyInterpreter.model.adts.ISymTable;
+import ToyInterpreter.model.adts.ITypeEnv;
 import ToyInterpreter.model.types.Int;
+import ToyInterpreter.model.types.Type;
 import ToyInterpreter.model.values.IntValue;
 import ToyInterpreter.model.values.Value;
 
@@ -55,6 +57,14 @@ public class ArithmeticExp implements Exp{
 
     public boolean equals(Object other){
         return other instanceof ArithmeticExp;
+    }
+
+    public Type typeCheck(ITypeEnv<String, Type> typeEnv) throws MyException {
+        Type t1 = left.typeCheck(typeEnv);
+        Type t2 = right.typeCheck(typeEnv);
+        if(!t1.equals(new Int()) || !t2.equals(new Int()))
+            throw new InvalidArithmeticTypeException();
+        return new Int();
     }
 
 }

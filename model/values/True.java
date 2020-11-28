@@ -21,4 +21,8 @@ public class True implements Value {
         return other instanceof True;
     }
 
+    public Value copy() {
+        return new True();
+    }
+
 }

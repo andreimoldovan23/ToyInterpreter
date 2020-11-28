@@ -1,7 +1,10 @@
 package ToyInterpreter.model.stmts;
 
+import ToyInterpreter.exceptions.MyException;
 import ToyInterpreter.model.PrgState;
 import ToyInterpreter.model.adts.IExeStack;
+import ToyInterpreter.model.adts.ITypeEnv;
+import ToyInterpreter.model.types.Type;
 
 public class CompStmt implements Stmt{
 
@@ -18,6 +21,10 @@ public class CompStmt implements Stmt{
         stack.push(s2);
         stack.push(s1);
         return null;
+    }
+
+    public ITypeEnv<String, Type> typeCheck(ITypeEnv<String, Type> typeEnv) throws MyException {
+        return s2.typeCheck(s1.typeCheck(typeEnv));
     }
 
     public String toString(){

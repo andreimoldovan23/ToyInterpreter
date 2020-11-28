@@ -1,6 +1,7 @@
 package ToyInterpreter.model.adts;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Out<T> implements IOut<T> {
@@ -8,7 +9,7 @@ public class Out<T> implements IOut<T> {
     private final List<T> text;
 
     public Out(){
-        text = new ArrayList<>();
+        text = Collections.synchronizedList(new ArrayList<>());
     }
 
     public void add(T el){

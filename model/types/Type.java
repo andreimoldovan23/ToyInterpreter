@@ -12,4 +12,6 @@ public interface Type {
         return null;
     }
 
+    Type copy();
+
 }

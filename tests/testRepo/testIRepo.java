@@ -40,12 +40,13 @@ public class testIRepo {
 
     @After
     public void tearDown(){
+        repo.closeWriter();
         repo = null;
     }
 
     @Test
     public void getCurrentTest(){
-        Assert.assertEquals("Testing getCurrent method of IRepo", "Hello world", repo.getCurrent());
+        Assert.assertEquals("Testing getCurrent method of IRepo", "Hello world", repo.getMainProgram());
     }
 
     @Test
@@ -58,7 +59,7 @@ public class testIRepo {
 
     @Test
     public void logCurrentPrgTest() throws IOException {
-        repo.logCurrentPrg();
+        repo.logCurrentPrg("Hello world");
 
         Stream<String> stream = Files.lines(Path.of(path), StandardCharsets.UTF_8);
         long count = stream.count();
@@ -69,7 +70,7 @@ public class testIRepo {
     public void setLogFileTest() throws IOException {
         File myNewLogFile = tempFolder.newFile("newTest.in");
         repo.setLogFile(myNewLogFile.getAbsolutePath());
-        repo.logCurrentPrg();
+        repo.logCurrentPrg("Hello world");
 
         Stream<String> stream = Files.lines(Path.of(myNewLogFile.getAbsolutePath()), StandardCharsets.UTF_8);
         long count = stream.count();

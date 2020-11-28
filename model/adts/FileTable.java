@@ -3,16 +3,16 @@ package ToyInterpreter.model.adts;
 import ToyInterpreter.exceptions.InvalidFilenameException;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class FileTable<T, U> implements IFileTable<T, U> {
 
-    private final Map<T, U> map = new HashMap<>();
+    private final Map<T, U> map = new ConcurrentHashMap<>();
 
     public void add(T key, U value) {
-        map.put(key, value);
+        map.putIfAbsent(key, value);
     }
 
     public void remove(T key) throws InvalidFilenameException {

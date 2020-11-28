@@ -17,4 +17,8 @@ public class Bool implements Type{
         return new False();
     }
 
+    public Type copy() {
+        return new Bool();
+    }
+
 }

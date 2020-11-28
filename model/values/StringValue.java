@@ -36,4 +36,8 @@ public class StringValue implements Value{
         return sum;
     }
 
+    public Value copy() {
+        return new StringValue(val);
+    }
+
 }

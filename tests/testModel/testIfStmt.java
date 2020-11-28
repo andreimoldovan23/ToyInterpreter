@@ -1,5 +1,6 @@
 package ToyInterpreter.tests.testModel;
 
+import ToyInterpreter.Main;
 import ToyInterpreter.exceptions.*;
 import ToyInterpreter.model.PrgState;
 import ToyInterpreter.model.adts.*;
@@ -49,7 +50,8 @@ public class testIfStmt {
     @SuppressWarnings("DuplicatedCode")
     @After
     public void tearDown() throws IOException {
-        state.cleanAll();
+        state.getTable().clear();
+        Main.clean(state.getOut(), state.getFileTable(), state.getHeap());
         intType = null;
         boolType = null;
         constExpInt = null;
@@ -77,7 +79,12 @@ public class testIfStmt {
         Stmt varDeclBool = new VarDecl(boolType, varExpBool);
         Stmt varDeclInt = new VarDecl(intType, varExpInt);
         Stmt ifStmt = new IfStmt(arithmeticExp, varDeclBool, varDeclInt);
-        Assert.assertNotNull("Testing InvalidIfCondition exception within IfStmt", ifStmt.exec(state));
+        try{
+            ifStmt.exec(state);
+        }
+        catch (ThreadException te){
+            throw te.getException();
+        }
     }
 
     @Test

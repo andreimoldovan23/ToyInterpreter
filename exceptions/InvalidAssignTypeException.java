@@ -6,6 +6,6 @@ public class InvalidAssignTypeException extends MyException{
     }
 
     public String toString(){
-        return "You cannot assign bool value to int variable or vice versa";
+        return "Mismatch between types in assignment statement";
     }
 }
