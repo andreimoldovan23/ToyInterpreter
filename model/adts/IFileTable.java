@@ -1,14 +1,15 @@
-package ToyInterpreter.model.adts;
+package model.adts;
 
-import ToyInterpreter.exceptions.InvalidFilenameException;
+import exceptions.InvalidFilename;
 import java.util.List;
 
 public interface IFileTable<T, U> {
     void add(T key, U value);
-    void remove(T key) throws InvalidFilenameException;
+    void remove(T key) throws InvalidFilename;
     boolean isDefined(T key);
     U lookup(T key);
     void clear();
-    List<U> getValues();
     String toString();
+    List<T> getKeys();
+    List<U> getValues();
 }

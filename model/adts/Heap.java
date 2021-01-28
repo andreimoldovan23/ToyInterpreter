@@ -1,14 +1,16 @@
-package ToyInterpreter.model.adts;
+package model.adts;
 
-import ToyInterpreter.exceptions.InvalidAddress;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@SuppressWarnings("FieldMayBeFinal")
 public class Heap<T extends Integer, U> implements IHeap<T, U>{
 
-    private AtomicInteger nextFree = new AtomicInteger(0);
+    private static AtomicInteger nextFree = new AtomicInteger(0);
     private Map<T, U> map = new ConcurrentHashMap<>();
 
     @SuppressWarnings("unchecked")
@@ -26,12 +28,6 @@ public class Heap<T extends Integer, U> implements IHeap<T, U>{
         return lookup(key) != null;
     }
 
-    public void remove(T key) throws InvalidAddress {
-        U val = map.remove(key);
-        if (val == null)
-            throw new InvalidAddress();
-    }
-
     public U lookup(T key) {
         return map.get(key);
     }
@@ -43,8 +39,7 @@ public class Heap<T extends Integer, U> implements IHeap<T, U>{
     public String toString(){
         StringBuilder builder = new StringBuilder();
         for(Map.Entry<T, U> e : map.entrySet()){
-            builder.append(e.getKey().toString()).append("-->").append(e.getValue().toString())
-                    .append("\n");
+            builder.append(e.getKey()).append("-->").append(e.getValue()).append("\n");
         }
         return builder.toString();
     }
@@ -55,6 +50,14 @@ public class Heap<T extends Integer, U> implements IHeap<T, U>{
 
     public void setContent(Map<T, U> newHeap){
         map = newHeap;
+    }
+
+    public List<T> getKeys() {
+        return new ArrayList<>(map.keySet());
+    }
+
+    public List<U> getValues() {
+        return new ArrayList<>(map.values());
     }
 
 }

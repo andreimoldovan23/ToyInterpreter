@@ -1,16 +1,16 @@
-package ToyInterpreter.model.exps;
+package model.exps;
 
-import ToyInterpreter.exceptions.InvalidOperator;
-import ToyInterpreter.exceptions.InvalidRelationalType;
-import ToyInterpreter.exceptions.MyException;
-import ToyInterpreter.model.adts.IHeap;
-import ToyInterpreter.model.adts.ISymTable;
-import ToyInterpreter.model.adts.ITypeEnv;
-import ToyInterpreter.model.types.Bool;
-import ToyInterpreter.model.types.Int;
-import ToyInterpreter.model.types.Type;
-import ToyInterpreter.model.values.BoolValue;
-import ToyInterpreter.model.values.Value;
+import exceptions.InvalidOperator;
+import exceptions.InvalidRelationalType;
+import exceptions.MyException;
+import model.adts.IHeap;
+import model.adts.ISymTable;
+import model.adts.ITypeEnv;
+import model.types.Bool;
+import model.types.Int;
+import model.types.Type;
+import model.values.BoolValue;
+import model.values.Value;
 
 public class RelationalExp implements Exp {
 
@@ -47,6 +47,7 @@ public class RelationalExp implements Exp {
                     case "==" -> result = new BoolValue(i1.equals(i2));
                     case "<" -> result = new BoolValue(i1 < i2);
                     case ">" -> result = new BoolValue(i1 > i2);
+                    case "!=" -> result = new BoolValue(!i1.equals(i2));
                     default -> throw new InvalidOperator();
                 }
             }

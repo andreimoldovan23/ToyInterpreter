@@ -1,15 +1,15 @@
-package ToyInterpreter.model.exps;
+package model.exps;
 
-import ToyInterpreter.exceptions.InvalidLogicTypeException;
-import ToyInterpreter.exceptions.InvalidOperator;
-import ToyInterpreter.exceptions.MyException;
-import ToyInterpreter.model.adts.IHeap;
-import ToyInterpreter.model.adts.ISymTable;
-import ToyInterpreter.model.adts.ITypeEnv;
-import ToyInterpreter.model.types.Bool;
-import ToyInterpreter.model.types.Type;
-import ToyInterpreter.model.values.BoolValue;
-import ToyInterpreter.model.values.Value;
+import exceptions.InvalidLogicType;
+import exceptions.InvalidOperator;
+import exceptions.MyException;
+import model.adts.IHeap;
+import model.adts.ISymTable;
+import model.adts.ITypeEnv;
+import model.types.Bool;
+import model.types.Type;
+import model.values.BoolValue;
+import model.values.Value;
 
 public class LogicExp implements Exp {
 
@@ -40,10 +40,10 @@ public class LogicExp implements Exp {
                 }
             }
             else
-                throw new InvalidLogicTypeException();
+                throw new InvalidLogicType();
         }
         else
-            throw new InvalidLogicTypeException();
+            throw new InvalidLogicType();
         return finalValue;
     }
 
@@ -59,7 +59,7 @@ public class LogicExp implements Exp {
         Type t1 = left.typeCheck(typeEnv);
         Type t2 = right.typeCheck(typeEnv);
         if(!t1.equals(new Bool()) || !t2.equals(new Bool()))
-            throw new InvalidLogicTypeException();
+            throw new InvalidLogicType();
         return new Bool();
     }
 

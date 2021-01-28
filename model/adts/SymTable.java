@@ -1,7 +1,6 @@
-package ToyInterpreter.model.adts;
+package model.adts;
 
-import ToyInterpreter.model.values.Value;
-
+import model.values.Value;
 import java.util.*;
 
 public class SymTable<T, U extends Value> implements ISymTable<T, U> {
@@ -31,8 +30,7 @@ public class SymTable<T, U extends Value> implements ISymTable<T, U> {
     public String toString() {
         StringBuilder strBuilder = new StringBuilder();
         for (Map.Entry<T, U> entry : map.entrySet()) {
-            strBuilder.append(entry.getKey().toString()).append("=").append(entry.getValue().toString())
-                    .append("\n");
+            strBuilder.append(entry.getKey()).append("=").append(entry.getValue()).append("\n");
         }
         return strBuilder.toString();
     }
@@ -43,6 +41,10 @@ public class SymTable<T, U extends Value> implements ISymTable<T, U> {
 
     public List<U> getValues(){
         return new ArrayList<>(map.values());
+    }
+
+    public List<T> getKeys() {
+        return new ArrayList<>(map.keySet());
     }
 
     @SuppressWarnings("unchecked")

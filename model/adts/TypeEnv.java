@@ -1,6 +1,6 @@
-package ToyInterpreter.model.adts;
+package model.adts;
 
-import ToyInterpreter.model.types.Type;
+import model.types.Type;
 import java.util.HashMap;
 import java.util.Map;
 

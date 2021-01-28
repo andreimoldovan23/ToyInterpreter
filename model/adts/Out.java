@@ -1,4 +1,4 @@
-package ToyInterpreter.model.adts;
+package model.adts;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,12 +19,16 @@ public class Out<T> implements IOut<T> {
     public String toString(){
         StringBuilder strBuilder = new StringBuilder();
         for(T el : text)
-            strBuilder.append(el.toString()).append("\n");
+            strBuilder.append(el).append("\n");
         return strBuilder.toString();
     }
 
     public void clear() {
         text.clear();
+    }
+
+    public List<T> getValues() {
+        return new ArrayList<>(text);
     }
 
 }

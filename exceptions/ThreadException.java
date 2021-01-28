@@ -1,4 +1,4 @@
-package ToyInterpreter.exceptions;
+package exceptions;
 
 public class ThreadException extends MyException {
 
@@ -13,10 +13,6 @@ public class ThreadException extends MyException {
 
     public String toString() {
         return "Program: " + id + ", " + exception.toString();
-    }
-
-    public MyException getException(){
-        return exception;
     }
 
 }

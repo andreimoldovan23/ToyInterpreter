@@ -1,10 +1,10 @@
-package ToyInterpreter.model.stmts;
+package model.stmts;
 
-import ToyInterpreter.exceptions.MyException;
-import ToyInterpreter.exceptions.ThreadException;
-import ToyInterpreter.model.PrgState;
-import ToyInterpreter.model.adts.ITypeEnv;
-import ToyInterpreter.model.types.Type;
+import exceptions.MyException;
+import exceptions.ThreadException;
+import model.PrgState;
+import model.adts.ITypeEnv;
+import model.types.Type;
 
 public interface Stmt {
     String toString();

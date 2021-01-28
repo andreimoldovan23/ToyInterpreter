@@ -1,7 +1,7 @@
-package ToyInterpreter.model.types;
+package model.types;
 
-import ToyInterpreter.model.values.IntValue;
-import ToyInterpreter.model.values.Value;
+import model.values.IntValue;
+import model.values.Value;
 
 public class Int implements Type{
 

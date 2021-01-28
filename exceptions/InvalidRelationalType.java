@@ -1,4 +1,4 @@
-package ToyInterpreter.exceptions;
+package exceptions;
 
 public class InvalidRelationalType extends MyException{
 

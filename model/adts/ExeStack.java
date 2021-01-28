@@ -1,6 +1,9 @@
-package ToyInterpreter.model.adts;
+package model.adts;
 
-import ToyInterpreter.exceptions.StackEmptyException;
+import exceptions.StackEmpty;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Stack;
 
 public class ExeStack<T> implements IExeStack<T> {
@@ -15,14 +18,20 @@ public class ExeStack<T> implements IExeStack<T> {
         stk.push(el);
     }
 
-    public T pop()throws StackEmptyException {
+    public T pop()throws StackEmpty {
         if(empty())
-            throw new StackEmptyException();
+            throw new StackEmpty();
         return stk.pop();
     }
 
     public boolean empty(){
         return stk.empty();
+    }
+
+    public List<T> getAll() {
+        List<T> list = new ArrayList<>(stk);
+        Collections.reverse(list);
+        return list;
     }
 
     @SuppressWarnings("unchecked")

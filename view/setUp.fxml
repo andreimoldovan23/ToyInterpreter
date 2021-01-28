@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Button?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.Controller"
+            prefHeight="840" prefWidth="1440">
+
+    <top>
+        <MenuBar fx:id="menuBar">
+            <Menu text = "Programs">
+                <MenuItem text="Change Program..." onAction="#handleChangeProgram"/>
+                <MenuItem text="Exit..." onAction="#handleExit"/>
+            </Menu>
+            <Menu text= "Logs">
+                <MenuItem text="Change log..." onAction="#handleChangeLog"/>
+            </Menu>
+        </MenuBar>
+    </top>
+
+    <left>
+        <VBox spacing="5" alignment="CENTER">
+            <HBox spacing="5" alignment="CENTER">
+                <Label text="Nr programs:"/>
+                <Label fx:id="nrPrograms"/>
+            </HBox>
+            <ListView fx:id="listPrograms"/>
+            <Button onAction="#handleRun" fx:id="runButton" text="RunOneStep"/>
+            <TableView fx:id="heapView">
+                <placeholder>
+                    <Label text="Heap"/>
+                </placeholder>
+            </TableView>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="5" alignment="CENTER" prefWidth="300">
+            <TableView fx:id="procTableView">
+                <placeholder>
+                    <Label text="Proc Table"/>
+                </placeholder>
+            </TableView>
+            <TableView fx:id="symTableView">
+                <placeholder>
+                    <Label text="Symbol Table"/>
+                </placeholder>
+            </TableView>
+            <TableView fx:id="fileTableView">
+                <placeholder>
+                    <Label text="File Table"/>
+                </placeholder>
+            </TableView>
+            <TableView fx:id="semaphoreTableView">
+                <placeholder>
+                    <Label text="Semaphore table"/>
+                </placeholder>
+            </TableView>
+            <TableView fx:id="barrierTableView">
+                <placeholder>
+                    <Label text="Barrier table"/>
+                </placeholder>
+            </TableView>
+        </VBox>
+    </center>
+
+    <right>
+        <VBox spacing="5" alignment="CENTER">
+            <Label text="Output"/>
+            <ListView fx:id="outView"/>
+            <Label text="Execution Stack"/>
+            <ListView fx:id="stackView"/>
+            <TableView fx:id="lockTableView">
+                <placeholder>
+                    <Label text="Lock table"/>
+                </placeholder>
+            </TableView>
+            <TableView fx:id="countDownTableView">
+                <placeholder>
+                    <Label text="CountDowLatch table"/>
+                </placeholder>
+            </TableView>
+        </VBox>
+    </right>
+
+</BorderPane>

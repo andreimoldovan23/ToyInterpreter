@@ -1,7 +1,7 @@
-package ToyInterpreter.model.values;
+package model.values;
 
-import ToyInterpreter.model.types.StringType;
-import ToyInterpreter.model.types.Type;
+import model.types.StringType;
+import model.types.Type;
 
 public class StringValue implements Value{
 

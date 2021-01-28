@@ -1,6 +1,6 @@
-package ToyInterpreter.model.adts;
+package model.adts;
 
-import ToyInterpreter.model.types.Type;
+import model.types.Type;
 
 public interface ITypeEnv<T, U extends Type> {
     void add(T key, U val);

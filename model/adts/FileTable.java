@@ -1,7 +1,6 @@
-package ToyInterpreter.model.adts;
+package model.adts;
 
-import ToyInterpreter.exceptions.InvalidFilenameException;
-
+import exceptions.InvalidFilename;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -15,10 +14,10 @@ public class FileTable<T, U> implements IFileTable<T, U> {
         map.putIfAbsent(key, value);
     }
 
-    public void remove(T key) throws InvalidFilenameException {
+    public void remove(T key) throws InvalidFilename {
         U element = map.remove(key);
         if(element == null)
-            throw new InvalidFilenameException();
+            throw new InvalidFilename();
     }
 
     public boolean isDefined(T key) {
@@ -36,10 +35,13 @@ public class FileTable<T, U> implements IFileTable<T, U> {
     public String toString(){
         StringBuilder strBuilder = new StringBuilder();
         for (Map.Entry<T, U> entry : map.entrySet()) {
-            strBuilder.append(entry.getKey().toString()).append("=").append(entry.getValue().toString())
-                    .append("\n");
+            strBuilder.append(entry.getKey()).append("=").append(entry.getValue()).append("\n");
         }
         return strBuilder.toString();
+    }
+
+    public List<T> getKeys() {
+        return new ArrayList<>(map.keySet());
     }
 
     public List<U> getValues(){

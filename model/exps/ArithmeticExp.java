@@ -1,13 +1,13 @@
-package ToyInterpreter.model.exps;
+package model.exps;
 
-import ToyInterpreter.exceptions.*;
-import ToyInterpreter.model.adts.IHeap;
-import ToyInterpreter.model.adts.ISymTable;
-import ToyInterpreter.model.adts.ITypeEnv;
-import ToyInterpreter.model.types.Int;
-import ToyInterpreter.model.types.Type;
-import ToyInterpreter.model.values.IntValue;
-import ToyInterpreter.model.values.Value;
+import exceptions.*;
+import model.adts.IHeap;
+import model.adts.ISymTable;
+import model.adts.ITypeEnv;
+import model.types.Int;
+import model.types.Type;
+import model.values.IntValue;
+import model.values.Value;
 
 public class ArithmeticExp implements Exp{
 
@@ -37,17 +37,17 @@ public class ArithmeticExp implements Exp{
                     case "*" -> finalValue = new IntValue(i1*i2);
                     case "/" -> {
                         if(i2 == 0)
-                            throw new DivisionByZeroException();
+                            throw new DivisionByZero();
                         finalValue = new IntValue(i1/i2);
                     }
                     default -> throw new InvalidOperator();
                 }
             }
             else
-                throw new InvalidArithmeticTypeException();
+                throw new InvalidArithmeticType();
         }
         else
-            throw new InvalidArithmeticTypeException();
+            throw new InvalidArithmeticType();
         return finalValue;
     }
 
@@ -63,7 +63,7 @@ public class ArithmeticExp implements Exp{
         Type t1 = left.typeCheck(typeEnv);
         Type t2 = right.typeCheck(typeEnv);
         if(!t1.equals(new Int()) || !t2.equals(new Int()))
-            throw new InvalidArithmeticTypeException();
+            throw new InvalidArithmeticType();
         return new Int();
     }
 

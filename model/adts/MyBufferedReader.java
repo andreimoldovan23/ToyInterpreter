@@ -1,9 +1,10 @@
-package ToyInterpreter.model.adts;
+package model.adts;
 
 import java.io.BufferedReader;
 import java.io.Reader;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@SuppressWarnings("FieldMayBeFinal")
 public class MyBufferedReader extends BufferedReader {
 
     private static AtomicInteger id = new AtomicInteger(0);

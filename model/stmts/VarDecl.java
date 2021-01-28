@@ -1,23 +1,21 @@
-package ToyInterpreter.model.stmts;
+package model.stmts;
 
-import ToyInterpreter.exceptions.*;
-import ToyInterpreter.model.PrgState;
-import ToyInterpreter.model.adts.IHeap;
-import ToyInterpreter.model.adts.ISymTable;
-import ToyInterpreter.model.adts.ITypeEnv;
-import ToyInterpreter.model.exps.Exp;
-import ToyInterpreter.model.exps.VarExp;
-import ToyInterpreter.model.types.*;
-import ToyInterpreter.model.values.Value;
+import exceptions.*;
+import model.PrgState;
+import model.adts.IHeap;
+import model.adts.ISymTable;
+import model.adts.ITypeEnv;
+import model.exps.Exp;
+import model.exps.VarExp;
+import model.types.*;
+import model.values.Value;
 
 public class VarDecl implements Stmt {
 
     private final Exp exp;
     private final Type type;
 
-    public VarDecl(Type t, Exp e) throws InvalidVariable {
-        if(!e.equals(new VarExp("default")))
-            throw new InvalidVariable();
+    public VarDecl(Type t, Exp e) {
         exp = e;
         type = t;
     }
@@ -29,7 +27,7 @@ public class VarDecl implements Stmt {
             exp.eval(table, heap);
             throw new ThreadException(new IsAlreadyDefined(), state.getId());
         }
-        catch (IsNotDefinedException e) {
+        catch (IsNotDefined e) {
             switch (type.toString()) {
                 case "int" -> table.add(exp.toString(), Int.defaultValue());
                 case "boolean" -> table.add(exp.toString(), Bool.defaultValue());
@@ -46,14 +44,16 @@ public class VarDecl implements Stmt {
     }
 
     public String toString() {
-        return type.toString() + " " + exp.toString() + "\n";
+        return type.toString() + " " + exp.toString() + " \n";
     }
 
     public String toStringPrefix(String prefix){
         return prefix + toString();
     }
 
-    public ITypeEnv<String, Type> typeCheck(ITypeEnv<String, Type> typeEnv) {
+    public ITypeEnv<String, Type> typeCheck(ITypeEnv<String, Type> typeEnv) throws InvalidVariable {
+        if(!exp.equals(new VarExp("default")))
+            throw new InvalidVariable();
         typeEnv.add(exp.toString(), type);
         return typeEnv;
     }

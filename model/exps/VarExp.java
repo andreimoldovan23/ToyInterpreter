@@ -1,12 +1,12 @@
-package ToyInterpreter.model.exps;
+package model.exps;
 
-import ToyInterpreter.exceptions.IsNotDefinedException;
-import ToyInterpreter.exceptions.MyException;
-import ToyInterpreter.model.adts.IHeap;
-import ToyInterpreter.model.adts.ISymTable;
-import ToyInterpreter.model.adts.ITypeEnv;
-import ToyInterpreter.model.types.Type;
-import ToyInterpreter.model.values.Value;
+import exceptions.IsNotDefined;
+import exceptions.MyException;
+import model.adts.IHeap;
+import model.adts.ISymTable;
+import model.adts.ITypeEnv;
+import model.types.Type;
+import model.values.Value;
 
 public class VarExp implements Exp{
 
@@ -16,10 +16,10 @@ public class VarExp implements Exp{
         varName = s;
     }
 
-    public Value eval(ISymTable<String, Value> table, IHeap<Integer, Value> heap) throws IsNotDefinedException {
+    public Value eval(ISymTable<String, Value> table, IHeap<Integer, Value> heap) throws IsNotDefined {
         if(table.isDefined(varName))
             return table.lookup(varName);
-        throw new IsNotDefinedException();
+        throw new IsNotDefined();
     }
 
     public String toString(){
@@ -32,7 +32,7 @@ public class VarExp implements Exp{
 
     public Type typeCheck(ITypeEnv<String, Type> typeEnv) throws MyException {
         if(!typeEnv.isDefined(varName))
-            throw new IsNotDefinedException();
+            throw new IsNotDefined();
         return typeEnv.lookup(varName);
     }
 

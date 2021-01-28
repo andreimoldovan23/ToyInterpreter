@@ -1,10 +1,10 @@
-package ToyInterpreter.model.exps;
+package model.exps;
 
-import ToyInterpreter.model.adts.IHeap;
-import ToyInterpreter.model.adts.ISymTable;
-import ToyInterpreter.model.adts.ITypeEnv;
-import ToyInterpreter.model.types.Type;
-import ToyInterpreter.model.values.Value;
+import model.adts.IHeap;
+import model.adts.ISymTable;
+import model.adts.ITypeEnv;
+import model.types.Type;
+import model.values.Value;
 
 public class ConstExp implements Exp{
 

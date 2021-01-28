@@ -1,7 +1,7 @@
-package ToyInterpreter.model.values;
+package model.values;
 
-import ToyInterpreter.model.types.Ref;
-import ToyInterpreter.model.types.Type;
+import model.types.Ref;
+import model.types.Type;
 
 public class RefValue implements Value {
 

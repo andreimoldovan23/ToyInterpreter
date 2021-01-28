@@ -1,8 +1,8 @@
-package ToyInterpreter.model.stmts;
+package model.stmts;
 
-import ToyInterpreter.model.PrgState;
-import ToyInterpreter.model.adts.ITypeEnv;
-import ToyInterpreter.model.types.Type;
+import model.PrgState;
+import model.adts.ITypeEnv;
+import model.types.Type;
 
 public class NOP implements Stmt{
 
@@ -15,7 +15,7 @@ public class NOP implements Stmt{
     }
 
     public String toString(){
-        return "No operation\n";
+        return "No operation \n";
     }
 
     public String toStringPrefix(String prefix){

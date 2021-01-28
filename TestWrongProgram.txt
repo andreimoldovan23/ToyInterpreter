@@ -1,6 +1,0 @@
-string number
-ref int refNumber
-
-new (refNumber, 100)
-number = readHeap(refNumber)
-print number

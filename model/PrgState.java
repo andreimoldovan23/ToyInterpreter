@@ -1,33 +1,49 @@
-package ToyInterpreter.model;
+package model;
 
-import ToyInterpreter.exceptions.MyException;
-import ToyInterpreter.model.adts.*;
-import ToyInterpreter.model.stmts.Stmt;
-import ToyInterpreter.model.values.StringValue;
-import ToyInterpreter.model.values.Value;
+import exceptions.MyException;
+import javafx.util.Pair;
+import model.adts.*;
+import model.stmts.Stmt;
+import model.values.StringValue;
+import model.values.Value;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@SuppressWarnings("FieldMayBeFinal")
 public class PrgState {
 
     private static AtomicInteger id = new AtomicInteger(0);
     private final int thisStateId;
     private final IExeStack<Stmt> stack;
-    private final ISymTable<String, Value> table;
+    private final List<ISymTable<String, Value>> tables;
     private final IOut<String> out;
     private final IFileTable<StringValue, MyBufferedReader> fileTable;
     private final IHeap<Integer, Value> heap;
-    private final Stmt initialProgram;
+    private final SemaphoreTable<Integer, Semaphore<Integer, List<Integer>>> semaphoreTable;
+    private final BarrierTable<Integer, Barrier<Integer, List<Integer>>> barrierTable;
+    private final CountDownTable<Integer, Integer> countDownTable;
+    private final LockTable<Integer, Integer> lockTable;
+    private final IProcTable<String, Pair<List<String>, Stmt>> procTable;
 
-    public PrgState(IExeStack<Stmt> es, ISymTable<String, Value> tbl, IOut<String> o,
+    public PrgState(IExeStack<Stmt> es, IProcTable<String, Pair<List<String>, Stmt>> pt,
+                    List<ISymTable<String, Value>> t, IOut<String> o,
                     IFileTable<StringValue, MyBufferedReader> ft, IHeap<Integer, Value> h,
+                    SemaphoreTable<Integer, Semaphore<Integer, List<Integer>>> semT,
+                    CountDownTable<Integer, Integer> countT,
+                    BarrierTable<Integer, Barrier<Integer, List<Integer>>> b,
+                    LockTable<Integer, Integer> lt,
                     Stmt s){
         stack = es;
-        table = tbl;
+        procTable = pt;
+        tables = t;
         out = o;
         fileTable = ft;
         heap = h;
-        initialProgram = s;
-        stack.push(initialProgram);
+        semaphoreTable = semT;
+        countDownTable = countT;
+        barrierTable = b;
+        lockTable = lt;
+        stack.push(s);
         thisStateId = id.incrementAndGet();
     }
 
@@ -36,7 +52,11 @@ public class PrgState {
     }
 
     public ISymTable<String, Value> getTable(){
-        return table;
+        return tables.get(tables.size() - 1);
+    }
+
+    public List<ISymTable<String, Value>> getAllTables() {
+        return tables;
     }
 
     public IOut<String> getOut(){
@@ -51,15 +71,40 @@ public class PrgState {
         return heap;
     }
 
-    public Stmt getInitialProgram(){
-        return initialProgram;
+    public SemaphoreTable<Integer, Semaphore<Integer, List<Integer>>> getSemaphoreTable() {
+        return semaphoreTable;
+    }
+
+    public CountDownTable<Integer, Integer> getCountDownTable() {
+        return countDownTable;
+    }
+
+    public BarrierTable<Integer, Barrier<Integer, List<Integer>>> getBarrierTable() {
+        return barrierTable;
+    }
+
+    public LockTable<Integer, Integer> getLockTable() {
+        return lockTable;
+    }
+
+    public IProcTable<String, Pair<List<String>, Stmt>> getProcTable() {
+        return procTable;
     }
 
     public String toString(){
+        StringBuilder stringBuilder = new StringBuilder();
+        for(var v: tables)
+            stringBuilder.append("\nSymTable:\n").append(v);
+
         return "Program: " + thisStateId + "\n" +
-                "ExeStack:\n" + stack.toString() + "\nSymTable:\n" + table.toString() +
-                "\nOut:\n" + out.toString() + "\nFileTable:\n" + fileTable.toString() +
-                "\nHeap:\n" + heap.toString() +
+                "ExeStack:\n" + stack +
+                "ProcTable:\n" + procTable + stringBuilder +
+                "\nOut:\n" + out + "\nFileTable:\n" + fileTable +
+                "\nHeap:\n" + heap +
+                "\nSemaphoreTable:\n" + semaphoreTable +
+                "\nCountDownTable:\n" + countDownTable +
+                "\nBarrierTable:\n" + barrierTable +
+                "\nLockTable:\n" + lockTable +
                 "\n-----------------------------------------------------\n";
     }
 
